@@ -1,30 +1,39 @@
-{"id": "ret-001", "query": "這台筆電的顯示卡是什麼？", "gold": ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"], "lang": "zh"}
-{"id": "ret-002", "query": "What GPU does it have?", "gold": ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"], "lang": "en"}
-{"id": "ret-003", "query": "5070 Ti 版本的 TGP 是多少瓦？", "gold": ["row02-BXH", "lineup"], "lang": "mixed"}
-{"id": "ret-004", "query": "BZH 的顯存多大", "gold": ["row02-BZH", "lineup"], "lang": "mixed"}
-{"id": "ret-005", "query": "螢幕更新率多少 Hz？", "gold": ["row03-all"], "lang": "zh"}
-{"id": "ret-006", "query": "Is the display OLED?", "gold": ["row03-all"], "lang": "en"}
-{"id": "ret-007", "query": "記憶體最多可以擴充到多少？", "gold": ["row04-all"], "lang": "zh"}
-{"id": "ret-008", "query": "How much RAM can I install?", "gold": ["row04-all"], "lang": "en"}
-{"id": "ret-009", "query": "可以裝兩條 SSD 嗎", "gold": ["row05-all"], "lang": "zh"}
-{"id": "ret-010", "query": "有幾個 M.2 slot？", "gold": ["row05-all"], "lang": "mixed"}
-{"id": "ret-011", "query": "CPU 是哪一顆", "gold": ["row01-all"], "lang": "mixed"}
-{"id": "ret-012", "query": "How many cores does the processor have?", "gold": ["row01-all"], "lang": "en"}
-{"id": "ret-013", "query": "有支援 Thunderbolt 5 嗎？", "gold": ["row07-all"], "lang": "mixed"}
-{"id": "ret-014", "query": "HDMI 是哪個版本", "gold": ["row07-all"], "lang": "mixed"}
-{"id": "ret-015", "query": "有讀卡機嗎", "gold": ["row07-all"], "lang": "zh"}
-{"id": "ret-016", "query": "電池容量多大？", "gold": ["row12-all"], "lang": "zh"}
-{"id": "ret-017", "query": "What is the battery capacity?", "gold": ["row12-all"], "lang": "en"}
-{"id": "ret-018", "query": "充電器幾瓦", "gold": ["row13-all"], "lang": "zh"}
-{"id": "ret-019", "query": "這台多重？", "gold": ["row15-all"], "lang": "zh"}
-{"id": "ret-020", "query": "How thick is the laptop?", "gold": ["row14-all"], "lang": "en"}
-{"id": "ret-021", "query": "有支援 WiFi 7 嗎", "gold": ["row09-all"], "lang": "mixed"}
-{"id": "ret-022", "query": "藍牙版本", "gold": ["row09-all"], "lang": "zh"}
-{"id": "ret-023", "query": "鏡頭支援 Windows Hello 人臉辨識嗎？", "gold": ["row10-all"], "lang": "mixed"}
-{"id": "ret-024", "query": "鍵盤有 RGB 背光嗎", "gold": ["row06-all"], "lang": "mixed"}
-{"id": "ret-025", "query": "喇叭有幾顆？", "gold": ["row08-all"], "lang": "zh"}
-{"id": "ret-026", "query": "有 TPM 嗎", "gold": ["row11-all"], "lang": "mixed"}
-{"id": "ret-027", "query": "預載什麼作業系統", "gold": ["row00-all"], "lang": "zh"}
-{"id": "ret-028", "query": "這台有哪幾個版本？差在哪裡", "gold": ["lineup"], "lang": "zh"}
-{"id": "ret-029", "query": "what colour is it", "gold": ["row16-all"], "lang": "en"}
-{"id": "ret-030", "query": "玩遊戲順不順，螢幕會不會有殘影", "gold": ["row03-all"], "lang": "zh"}
+{"id": "ret-001", "query": "這台筆電的顯示卡是什麼？", "gold": ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"], "lang": "zh", "answer": [["5090"], ["5080"], ["5070"]]}
+{"id": "ret-002", "query": "What GPU does it have?", "gold": ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"], "lang": "en", "answer": [["5090"], ["5080"], ["5070"]]}
+{"id": "ret-003", "query": "5070 Ti 版本的 TGP 是多少瓦？", "gold": ["row02-BXH", "lineup"], "lang": "mixed", "answer": [["140"]]}
+{"id": "ret-004", "query": "BZH 的顯存多大", "gold": ["row02-BZH", "lineup"], "lang": "mixed", "answer": [["24"]]}
+{"id": "ret-005", "query": "螢幕更新率多少 Hz？", "gold": ["row03-all"], "lang": "zh", "answer": [["240"]]}
+{"id": "ret-006", "query": "Is the display OLED?", "gold": ["row03-all"], "lang": "en", "answer": [["OLED"]]}
+{"id": "ret-007", "query": "記憶體最多可以擴充到多少？", "gold": ["row04-all"], "lang": "zh", "answer": [["64"]]}
+{"id": "ret-008", "query": "How much RAM can I install?", "gold": ["row04-all"], "lang": "en", "answer": [["64"]]}
+{"id": "ret-009", "query": "可以裝兩條 SSD 嗎", "gold": ["row05-all"], "lang": "zh", "answer": [["可以", "兩", "2"]]}
+{"id": "ret-010", "query": "有幾個 M.2 slot？", "gold": ["row05-all"], "lang": "mixed", "answer": [["2", "兩", "二"]]}
+{"id": "ret-011", "query": "CPU 是哪一顆", "gold": ["row01-all"], "lang": "mixed", "answer": [["275HX"]]}
+{"id": "ret-012", "query": "How many cores does the processor have?", "gold": ["row01-all"], "lang": "en", "answer": [["24"]]}
+{"id": "ret-013", "query": "有支援 Thunderbolt 5 嗎？", "gold": ["row07-all"], "lang": "mixed", "answer": [["支援", "是", "有"]]}
+{"id": "ret-014", "query": "HDMI 是哪個版本", "gold": ["row07-all"], "lang": "mixed", "answer": [["2.1"]]}
+{"id": "ret-015", "query": "有讀卡機嗎", "gold": ["row07-all"], "lang": "zh", "answer": [["MicroSD", "microSD", "SD"]]}
+{"id": "ret-016", "query": "電池容量多大？", "gold": ["row12-all"], "lang": "zh", "answer": [["99"]]}
+{"id": "ret-017", "query": "What is the battery capacity?", "gold": ["row12-all"], "lang": "en", "answer": [["99"]]}
+{"id": "ret-018", "query": "充電器幾瓦", "gold": ["row13-all"], "lang": "zh", "answer": [["330"]]}
+{"id": "ret-019", "query": "這台多重？", "gold": ["row15-all"], "lang": "zh", "answer": [["2.5"]]}
+{"id": "ret-020", "query": "How thick is the laptop?", "gold": ["row14-all"], "lang": "en", "answer": [["29.9", "23"]]}
+{"id": "ret-021", "query": "有支援 WiFi 7 嗎", "gold": ["row09-all"], "lang": "mixed", "answer": [["支援", "是", "有"]]}
+{"id": "ret-022", "query": "藍牙版本", "gold": ["row09-all"], "lang": "zh", "answer": [["5.4"]]}
+{"id": "ret-023", "query": "鏡頭支援 Windows Hello 人臉辨識嗎？", "gold": ["row10-all"], "lang": "mixed", "answer": [["支援", "是", "有", "可以"]]}
+{"id": "ret-024", "query": "鍵盤有 RGB 背光嗎", "gold": ["row06-all"], "lang": "mixed", "answer": [["有", "是", "支援", "3-zone", "三區"]]}
+{"id": "ret-025", "query": "喇叭有幾顆？", "gold": ["row08-all"], "lang": "zh", "answer": [["4"]]}
+{"id": "ret-026", "query": "有 TPM 嗎", "gold": ["row11-all"], "lang": "mixed", "answer": [["有", "是", "支援", "TPM"]]}
+{"id": "ret-027", "query": "預載什麼作業系統", "gold": ["row00-all"], "lang": "zh", "answer": [["Windows 11"]]}
+{"id": "ret-028", "query": "這台有哪幾個版本？差在哪裡", "gold": ["lineup"], "lang": "zh", "answer": [["BZH"], ["BYH"], ["BXH"]]}
+{"id": "ret-029", "query": "what colour is it", "gold": ["row16-all"], "lang": "en", "answer": [["Dark Tide"]]}
+{"id": "ret-030", "query": "玩遊戲順不順，螢幕會不會有殘影", "gold": ["row03-all"], "lang": "zh", "answer": [["240", "1ms", "1 ms"]]}
+{"id": "nodata-001", "query": "這台筆電的電池在零下 20 度能撐多久？", "gold": [], "lang": "zh", "expect_refusal": true}
+{"id": "nodata-002", "query": "這台售價多少錢？", "gold": [], "lang": "zh", "expect_refusal": true}
+{"id": "nodata-003", "query": "保固幾年？", "gold": [], "lang": "zh", "expect_refusal": true}
+{"id": "nodata-004", "query": "玩 Cyberpunk 2077 可以跑幾 FPS？", "gold": [], "lang": "mixed", "expect_refusal": true}
+{"id": "nodata-005", "query": "風扇噪音多大聲？", "gold": [], "lang": "zh", "expect_refusal": true}
+{"id": "nodata-006", "query": "What is the screen's PWM frequency?", "gold": [], "lang": "en", "expect_refusal": true}
+{"id": "nodata-007", "query": "買這台有附滑鼠嗎？", "gold": [], "lang": "zh", "expect_refusal": true}
+{"id": "nodata-008", "query": "散熱模組用了幾根導熱管？", "gold": [], "lang": "zh", "expect_refusal": true}
+{"id": "nodata-009", "query": "Does the keyboard have a numpad?", "gold": [], "lang": "en", "expect_refusal": true}

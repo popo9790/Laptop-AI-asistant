@@ -39,7 +39,7 @@ tests/cases/    JSONL test sets
 
 | Role | Model | Quant | File | Device |
 |---|---|---|---|---|
-| Generation | `unsloth/Qwen3.5-0.8B-GGUF` | Q4_K_M | 533 MB | GPU (all layers) |
+| Generation | `unsloth/Qwen3.5-2B-GGUF` | Q4_K_M | 1281 MB | GPU (all layers) |
 | Embedding | `Qwen/Qwen3-Embedding-0.6B-GGUF` | Q8_0 | 639 MB | CPU |
 
 Embedding model comparison on `tests/cases/retrieval.jsonl` (30 zh/en/mixed queries):
@@ -50,7 +50,20 @@ Embedding model comparison on `tests/cases/retrieval.jsonl` (30 zh/en/mixed quer
 | Qwen3-Embedding-0.6B Q8_0 (no instruction) | 0.933 | 0.933 | 0.967 | 21 ms | 639 MB |
 | bge-m3 F16 | 0.933 | 0.967 | 0.983 | 20 ms | 1158 MB |
 
-TODO: VRAM measurements.
+Generation model comparison (`uv run python eval_rag.py --llm-file <gguf>`; 30 answerable +
+9 unanswerable questions; same prompt and context; latency on Apple Silicon Metal, indicative only):
+
+| LLM | file | answer acc. | no-data refusal | false refusal | TTFT p50 | decode |
+|---|---|---|---|---|---|---|
+| Qwen3.5-0.8B Q4_K_M | 533 MB | 0.867 | 0.556 | 0.0 | ~190-260 ms | ~70-90 tok/s |
+| Qwen3.5-0.8B Q8_0 | 812 MB | same errors as Q4_K_M on spot checks | | | | slower |
+| **Qwen3.5-2B Q4_K_M** | 1281 MB | **1.0** | **1.0** | 0.0 | ~470-690 ms | ~43-55 tok/s |
+
+0.8B failure modes: answered one SKU when the GPU varies by SKU, misread HDMI/card-reader
+questions, and hallucinated values for unanswerable questions (a price, a heat-pipe count).
+Q8_0 did not fix them, so the limit is model capacity rather than quantisation.
+
+TODO: VRAM measurements on a 4GB-limited GPU.
 
 ## Troubleshooting
 

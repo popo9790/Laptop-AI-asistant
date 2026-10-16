@@ -19,12 +19,15 @@ PRODUCT_URLS = {
 
 @dataclass
 class LLMConfig:
-    repo_id: str = "unsloth/Qwen3.5-0.8B-GGUF"
-    filename: str = "Qwen3.5-0.8B-Q4_K_M.gguf"
+    # 2B over 0.8B: on tests/cases/retrieval.jsonl answer accuracy 1.0 vs 0.867 and no-data
+    # refusal 1.0 vs 0.556 (0.8B hallucinated prices / part counts); see README.
+    repo_id: str = "unsloth/Qwen3.5-2B-GGUF"
+    filename: str = "Qwen3.5-2B-Q4_K_M.gguf"
     n_ctx: int = 4096
     n_gpu_layers: int = -1  # -1 = offload all layers
     max_tokens: int = 512
-    temperature: float = 0.2
+    temperature: float = 0.0  # greedy: factual QA + reproducible evals
+    repeat_penalty: float = 1.1
 
 
 @dataclass
@@ -47,6 +50,11 @@ class RetrievalConfig:
     top_k: int = 5
     dense_weight: float = 0.6  # hybrid score = w * dense + (1 - w) * bm25
     min_score: float = 0.35  # below this -> "no relevant data" refusal
+    # Context sent to the LLM: keep chunks scoring >= ratio * best score (max N).
+    # A 0.8B model is easily distracted; on the retrieval set relevant chunks sit at
+    # >= 0.8 of the top score and distractors at <= 0.7.
+    context_ratio: float = 0.75
+    max_context: int = 4
 
 
 @dataclass

@@ -77,6 +77,10 @@ def _make_chunk(rec: SpecRecord, skus: list[str], chunk_id: str) -> Chunk:
             "row": rec.row,
             "skus": skus,
             "source_urls": rec.source_urls,
+            # Clean content for the LLM prompt (chunk.text also carries retrieval-only
+            # aliases and long SKU headers that distract a small model).
+            "lines": rec.lines,
+            "notes": [n for n in rec.notes if not n.startswith("http")],
         },
     )
 
@@ -98,7 +102,13 @@ def _lineup_chunk(product: str, diff_rows: list[list[SpecRecord]], source_url: s
         product=product,
         section="SKU Lineup",
         source_url=source_url,
-        metadata={"skus": skus, "field_en": "SKU Lineup", "field_zh": "版本總覽"},
+        metadata={
+            "skus": skus,
+            "field_en": "SKU Lineup",
+            "field_zh": "版本總覽",
+            "lines": lines[:-1],  # without the keyword line
+            "notes": [],
+        },
     )
 
 

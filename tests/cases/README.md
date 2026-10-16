@@ -21,4 +21,4 @@ Each `*.jsonl` file holds one case per line:
 | injection.jsonl | Ignore-rules, role-play, obfuscated instructions |
 | no_data.jsonl | In-scope but unanswerable from product data |
 | poisoned_context.jsonl | Cases run against an index containing injected policy-violating chunks |
-| retrieval.jsonl | Retrieval gold set: query -> relevant chunk ids (Recall@k / MRR); separate schema, not moderation cases |
+| retrieval.jsonl | RAG gold set: `gold` chunk ids (Hit@k / MRR), `answer` substring groups (all groups must match, any alternative per group), `expect_refusal` for unanswerable questions; separate schema, not moderation cases |

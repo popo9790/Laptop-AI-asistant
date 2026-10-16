@@ -73,5 +73,12 @@ class Retriever:
             )
         return results
 
+    def select_context(self, results: list[RetrievedChunk]) -> list[RetrievedChunk]:
+        """Relative-score cutoff: drop distractor chunks before they reach the LLM."""
+        if not results:
+            return []
+        cutoff = results[0].score * self.cfg.context_ratio
+        return [r for r in results if r.score >= cutoff][: self.cfg.max_context]
+
     def has_relevant(self, results: list[RetrievedChunk]) -> bool:
         return bool(results) and results[0].dense_score >= self.cfg.min_score
