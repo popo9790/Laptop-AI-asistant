@@ -1,0 +1,43 @@
+[project]
+name = "aorus-assistant"
+version = "0.1.0"
+description = "Local RAG hardware assistant for GIGABYTE AORUS MASTER 16 AM6H, with content moderation, targeting 4GB VRAM."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "llama-cpp-python>=0.3.0",   # inference engine (generation + embeddings via GGUF)
+    "numpy>=1.26",
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "pyyaml>=6.0",
+    "huggingface-hub>=0.24",     # model download only
+    "psutil>=5.9",               # RAM measurement
+    "nvidia-ml-py>=12.0",        # VRAM measurement (no-op without NVIDIA GPU)
+]
+
+[project.scripts]
+aorus-chat = "aorus_assistant.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aorus_assistant"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "llm: tests that require a downloaded GGUF model (deselect with -m 'not llm')",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

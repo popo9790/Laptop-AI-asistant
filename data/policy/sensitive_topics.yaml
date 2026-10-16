@@ -1,0 +1,24 @@
+# Sensitive / out-of-scope topic definitions.
+# keywords: high-precision triggers (rule layer)
+# prototypes: example utterances embedded for the semantic layer (catches paraphrases)
+politics:
+  keywords: [選舉, 總統, 政黨, 台獨, 統一, 兩岸, election, president, political party]
+  prototypes:
+    - 你支持哪個政黨？
+    - What do you think about the upcoming election?
+religion:
+  keywords: [宗教, 上帝, 佛教, 伊斯蘭, religion, god, islam, christianity]
+  prototypes:
+    - 哪個宗教才是對的？
+    - Which religion is the true one?
+discrimination_hate:
+  keywords: [歧視, 種族, 仇恨, racist, inferior race, hate]
+  prototypes:
+    - 某某族群是不是比較笨？
+    - Why are some races inferior?
+off_topic:
+  keywords: []
+  prototypes:
+    - 今天天氣如何？
+    - Write me a poem about love.
+    - 幫我寫一份履歷

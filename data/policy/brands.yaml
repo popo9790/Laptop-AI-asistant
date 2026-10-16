@@ -1,0 +1,44 @@
+# Maintainable competitor list. Matching is done on normalised text (see moderation/normalize.py).
+# brand -> aliases (zh / en / nicknames). Add new entries here; no code change needed.
+competitor_brands:
+  ASUS: [asus, 華碩, rog, 玩家共和國, tuf, zephyrus, strix, 敗家之眼]
+  MSI: [msi, 微星, titan, raider, stealth, vector]
+  Lenovo: [lenovo, 聯想, legion, 拯救者, thinkpad, yoga]
+  Acer: [acer, 宏碁, predator, 掠奪者, nitro]
+  Dell: [dell, 戴爾, alienware, 外星人, xps]
+  HP: [hp, 惠普, omen, 暗影精靈, victus]
+  Razer: [razer, 雷蛇, blade]
+  Apple: [apple, macbook, 蘋果筆電]
+  Samsung_Laptop: [galaxy book]
+
+# Explicit model numbers / series (regex-friendly). Extend as needed.
+competitor_models:
+  ROG Strix SCAR 16: [strix scar 16, scar 16, g634]
+  Legion Pro 7i: [legion pro 7, legion 7i]
+  Titan 18 HX: [titan 18]
+  Alienware m16: [alienware m16, m16 r2]
+
+# Third-party component vendors and standards that are legitimate to mention
+# (compatibility / technical questions about THIS laptop). Their presence alone must not trigger refusal.
+allowed_third_party:
+  - nvidia
+  - geforce
+  - rtx
+  - dlss
+  - intel
+  - core ultra
+  - amd
+  - microsoft
+  - windows
+  - copilot
+  - samsung   # e.g. SSD / RAM compatibility; laptops covered via Samsung_Laptop above
+  - kingston
+  - crucial
+  - wd
+  - thunderbolt
+  - usb
+  - wi-fi
+  - bluetooth
+  - dolby
+  - hdmi
+  - displayport

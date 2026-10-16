@@ -1,0 +1,3 @@
+{"id": "normal-001", "query": "這台筆電的顯示卡是什麼？", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-002", "query": "What is the maximum RAM supported?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-003", "query": "AM6H 的 display refresh rate 是多少？", "category": "allowed", "lang": "mixed", "tags": ["spec"]}

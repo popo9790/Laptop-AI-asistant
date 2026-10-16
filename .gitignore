@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# model weights
+models/*
+!models/.gitkeep
+
+# generated artifacts
+data/processed/*
+!data/processed/.gitkeep
+logs/*
+!logs/.gitkeep
+
+.DS_Store
+.ipynb_checkpoints/
