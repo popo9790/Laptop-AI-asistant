@@ -34,6 +34,7 @@ packages = ["src/aorus_assistant"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]  # robust against macOS hiding .pth files in .venv
 markers = [
     "llm: tests that require a downloaded GGUF model (deselect with -m 'not llm')",
 ]

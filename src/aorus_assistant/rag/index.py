@@ -1,33 +1,57 @@
-"""Pure-numpy vector index + BM25, persisted as .npz."""
+"""Pure-numpy vector index + BM25."""
 
 from __future__ import annotations
 
+import math
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
 
-from aorus_assistant.schemas import Chunk
-
 
 class VectorIndex:
-    def __init__(self, embeddings: np.ndarray, chunks: list[Chunk]):
-        self.embeddings = embeddings  # (N, D), L2-normalised
-        self.chunks = chunks
+    """Exact cosine search. The corpus is tens of chunks, so brute force beats any ANN
+    structure on both latency and recall."""
 
-    def search(self, query_vec: np.ndarray, top_k: int) -> list[tuple[int, float]]:
-        raise NotImplementedError
+    def __init__(self, embeddings: np.ndarray, ids: list[str], model_name: str = ""):
+        if len(embeddings) != len(ids):
+            raise ValueError("embeddings / ids length mismatch")
+        self.embeddings = embeddings.astype(np.float32)  # (N, D), L2-normalised
+        self.ids = ids
+        self.model_name = model_name
+
+    def scores(self, query_vec: np.ndarray) -> np.ndarray:
+        return self.embeddings @ query_vec.astype(np.float32)
 
     def save(self, path: Path) -> None:
-        raise NotImplementedError
+        path.parent.mkdir(parents=True, exist_ok=True)
+        np.savez(path, embeddings=self.embeddings, ids=np.array(self.ids), model=self.model_name)
 
     @classmethod
-    def load(cls, path: Path, chunks: list[Chunk]) -> "VectorIndex":
-        raise NotImplementedError
+    def load(cls, path: Path) -> "VectorIndex":
+        data = np.load(path)
+        return cls(data["embeddings"], data["ids"].tolist(), str(data["model"]))
 
 
 class BM25:
+    """Okapi BM25 with the Lucene-style non-negative IDF."""
+
     def __init__(self, docs: list[list[str]], k1: float = 1.5, b: float = 0.75):
-        raise NotImplementedError
+        self.k1, self.b = k1, b
+        self.tfs = [Counter(d) for d in docs]
+        self.doc_len = np.array([len(d) for d in docs], dtype=np.float32)
+        self.avgdl = float(self.doc_len.mean()) if docs else 0.0
+        df = Counter(t for d in docs for t in set(d))
+        n = len(docs)
+        self.idf = {t: math.log(1 + (n - f + 0.5) / (f + 0.5)) for t, f in df.items()}
 
     def scores(self, query_tokens: list[str]) -> np.ndarray:
-        raise NotImplementedError
+        out = np.zeros(len(self.tfs), dtype=np.float32)
+        norm = self.k1 * (1 - self.b + self.b * self.doc_len / max(self.avgdl, 1e-9))
+        for t in set(query_tokens):
+            idf = self.idf.get(t)
+            if idf is None:
+                continue
+            tf = np.array([d.get(t, 0) for d in self.tfs], dtype=np.float32)
+            out += idf * tf * (self.k1 + 1) / (tf + norm)
+        return out

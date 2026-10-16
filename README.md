@@ -36,7 +36,28 @@ tests/cases/    JSONL test sets
 ```
 
 ## Model choice & 4GB VRAM feasibility
-TODO
+
+| Role | Model | Quant | File | Device |
+|---|---|---|---|---|
+| Generation | `unsloth/Qwen3.5-0.8B-GGUF` | Q4_K_M | 533 MB | GPU (all layers) |
+| Embedding | `Qwen/Qwen3-Embedding-0.6B-GGUF` | Q8_0 | 639 MB | CPU |
+
+Embedding model comparison on `tests/cases/retrieval.jsonl` (30 zh/en/mixed queries):
+
+| Embedding | dense Hit@1 | hybrid Hit@1 | hybrid MRR | query p50 (CPU) | file |
+|---|---|---|---|---|---|
+| Qwen3-Embedding-0.6B Q8_0 (w/ instruction) | 0.933 | 0.967 | 0.983 | 64 ms | 639 MB |
+| Qwen3-Embedding-0.6B Q8_0 (no instruction) | 0.933 | 0.933 | 0.967 | 21 ms | 639 MB |
+| bge-m3 F16 | 0.933 | 0.967 | 0.983 | 20 ms | 1158 MB |
+
+TODO: VRAM measurements.
+
+## Troubleshooting
+
+- `ModuleNotFoundError: aorus_assistant` on macOS: some setups (e.g. iCloud-synced Desktop) set the
+  `hidden` flag on files inside `.venv`, and Python skips hidden `.pth` files. Fix with
+  `chflags -R nohidden .venv`. `pytest` is unaffected (`pythonpath = ["src"]` in pyproject).
+- `VIRTUAL_ENV=... does not match` warning: an outer conda/venv is active; harmless, or run `conda deactivate`.
 
 ## Results
 TODO: see `benchmark_moderation.md`.

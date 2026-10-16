@@ -19,8 +19,8 @@ PRODUCT_URLS = {
 
 @dataclass
 class LLMConfig:
-    repo_id: str = "Qwen/Qwen2.5-3B-Instruct-GGUF"
-    filename: str = "qwen2.5-3b-instruct-q4_k_m.gguf"
+    repo_id: str = "unsloth/Qwen3.5-0.8B-GGUF"
+    filename: str = "Qwen3.5-0.8B-Q4_K_M.gguf"
     n_ctx: int = 4096
     n_gpu_layers: int = -1  # -1 = offload all layers
     max_tokens: int = 512
@@ -29,9 +29,17 @@ class LLMConfig:
 
 @dataclass
 class EmbedConfig:
-    repo_id: str = "CompendiumLabs/bge-m3-gguf"
-    filename: str = "bge-m3-q8_0.gguf"
+    repo_id: str = "Qwen/Qwen3-Embedding-0.6B-GGUF"
+    filename: str = "Qwen3-Embedding-0.6B-Q8_0.gguf"
     n_gpu_layers: int = 0  # keep embedder on CPU to save VRAM
+    n_ctx: int = 1024
+    # Asymmetric retrieval: Qwen3-Embedding expects an instruction on the query side only.
+    # Set to "" for symmetric models such as bge-m3.
+    query_prefix: str = (
+        "Instruct: Given a user question about a laptop, retrieve the matching "
+        "specification entry\nQuery: "
+    )
+    doc_prefix: str = ""
 
 
 @dataclass

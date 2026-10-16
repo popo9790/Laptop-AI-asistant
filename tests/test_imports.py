@@ -11,6 +11,7 @@ MODULES = [
     "aorus_assistant.rag.chunker",
     "aorus_assistant.rag.index",
     "aorus_assistant.rag.retriever",
+    "aorus_assistant.rag.embedder",
     "aorus_assistant.llm.generator",
     "aorus_assistant.moderation.input_guard",
     "aorus_assistant.moderation.retrieval_filter",

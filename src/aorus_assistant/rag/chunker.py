@@ -90,7 +90,8 @@ def _lineup_chunk(product: str, diff_rows: list[list[SpecRecord]], source_url: s
         diffs = "; ".join(f"{row[i].field_zh}: {', '.join(row[i].lines)}" for row in diff_rows)
         lines.append(f"- {sku} ({_short_sku(sku)}): {diffs}")
     lines.append("其餘規格各版本相同 / All other specs are identical across SKUs.")
-    lines.append("關鍵字 Keywords: 版本, 型號, 配置, 差異, 比較, SKU, versions, models, difference, 哪一台")
+    # Avoid generic words like "版本" here: "HDMI 版本" / "藍牙版本" would all hit this chunk.
+    lines.append("關鍵字 Keywords: 型號, 配置, 規格差異, SKU, configurations, models, variants")
     return Chunk(
         id="lineup",
         text="\n".join(lines),
