@@ -157,9 +157,14 @@ llama.cpp buffer accounting (`scripts/measure_memory.py`, identical on CUDA up t
 - Moderation adds **no GPU memory**: lexicons are compiled regexes and the prototype matrix is
   91 × 1024 float32 (0.4 MB). GPU allocation is static after load, so the peak equals the loaded
   size regardless of query or answer length (up to n_ctx).
-- On NVIDIA add the CUDA context (typically a few hundred MB, not counted by llama.cpp): expected
-  ~2.0–2.2 GB device VRAM, i.e. within 4 GB with ~1.8 GB headroom. **Measured confirmation:
-  run `notebooks/colab_4gb_verify.ipynb`** (NVML peak during full answers; TODO: paste result).
+- **Measured on NVIDIA (Colab T4, NVML, `notebooks/colab_4gb_verify.ipynb`)**: process peak
+  while answering **2378 MiB** (n_ubatch 512) / **2006 MiB** (128); whole-device peak 2828 / 2456 MiB,
+  of which 447 MiB was held by another process before our models loaded. Both are below 4096 MiB.
+  Decode 72–81 tok/s, TTFT 109–515 ms for 335–885-token prompts.
+- The T4 run exposed a VRAM cost the Mac (Metal) did not show: llama.cpp's CUDA backend reserved a
+  456 MiB GPU compute buffer for the CPU-resident embedder (op offload). It is now disabled
+  (`EmbedConfig.op_offload=False`), which should bring the process peak to ~1.9 / ~1.55 GB
+  (re-measurement pending).
 - `n_ubatch` 512 → 128 saves 370 MiB GPU for ~5% slower prefill on ~500-token prompts.
 
 ## 4. RAG quality

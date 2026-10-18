@@ -267,7 +267,7 @@ def main() -> None:
     print("cases:", {k: len(v) for k, v in cases.items()}, "total", sum(map(len, cases.values())))
     embedder = Embedder(cfg.embed)
     report = {"config": {"llm": cfg.llm.filename, "embed": cfg.embed.filename,
-                         "sem_margin": cfg.moderation.sem_margin, "holdback": cfg.moderation.holdback_chars}}
+                         "sem_margin": cfg.moderation.sem_margin}}
 
     report["input_stage"] = eval_input(cases, embedder, cfg)
     print_summary("INPUT STAGE (input guard only)", report["input_stage"]["summary"])

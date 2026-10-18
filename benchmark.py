@@ -118,7 +118,6 @@ def main() -> None:
         "platform": f"{platform.system()} {platform.machine()}",
         "llm": cfg.llm.filename, "embed": cfg.embed.filename,
         "n_ctx": cfg.llm.n_ctx, "n_ubatch": cfg.llm.n_ubatch,
-        "holdback_chars": cfg.moderation.holdback_chars,
         "memory": {
             "accelerator_buffers_mib": round(llm_gpu + emb_gpu, 1),
             "cpu_buffers_mib": round(llm_cpu + emb_cpu, 1),

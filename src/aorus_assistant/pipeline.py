@@ -92,7 +92,7 @@ class AssistantPipeline:
             self.lex.prototypes, self.embedder.embed_queries, self.cfg.embed.filename
         )
         self.input_guard = InputGuard(self.lex, self.cfg.moderation, classifier)
-        self.output_guard = OutputGuard(self.lex, self.cfg.moderation.holdback_chars)
+        self.output_guard = OutputGuard(self.lex)
         self.audit = AuditLogger(self.cfg.audit_log_path) if audit else None
         self._count = lambda t: len(self.llm.tokenize(t.encode(), add_bos=False, special=False))
 

@@ -1,0 +1,93 @@
+{
+  "platform": "Linux x86_64",
+  "llm": "Qwen3.5-2B-Q4_K_M.gguf",
+  "embed": "Qwen3-Embedding-0.6B-Q8_0.gguf",
+  "n_ctx": 4096,
+  "n_ubatch": 512,
+  "buffers_mib": {
+    "llm": {
+      "CPU": {
+        "model": 397.85
+      },
+      "CUDA0": {
+        "model": 1211.05,
+        "KV": 48.0,
+        "RS": 19.27,
+        "compute": 493.0
+      },
+      "CUDA_Host": {
+        "output": 0.95,
+        "compute": 18.02
+      }
+    },
+    "embedder": {
+      "CPU": {
+        "model": 603.87,
+        "output": 149.11,
+        "KV": 112.0
+      },
+      "CUDA0": {
+        "compute": 455.6
+      },
+      "CUDA_Host": {
+        "compute": 12.01
+      }
+    }
+  },
+  "accelerator_total_mib": 2257.9,
+  "cpu_total_mib": 1262.8,
+  "snapshots": [
+    {
+      "stage": "baseline",
+      "rss_mb": 29.9,
+      "vram_device_mb": 447.3,
+      "vram_process_mb": null
+    },
+    {
+      "stage": "embedder_loaded",
+      "rss_mb": 1243.6,
+      "vram_device_mb": 1008.2,
+      "vram_process_mb": 558.0
+    },
+    {
+      "stage": "llm_loaded",
+      "rss_mb": 1751.3,
+      "vram_device_mb": 2782.2,
+      "vram_process_mb": 2332.0
+    },
+    {
+      "stage": "after_requests",
+      "rss_mb": 1929.2,
+      "vram_device_mb": 2828.2,
+      "vram_process_mb": 2378.0
+    }
+  ],
+  "peak_during_requests": {
+    "rss_mb": 1929.2,
+    "vram_device_mb": 2828.2,
+    "samples": 399
+  },
+  "requests": [
+    {
+      "query": "這台有哪幾個版本？差在哪裡",
+      "prompt_tokens": 885,
+      "output_tokens": 264,
+      "ttft_ms": 425.4,
+      "decode_tps": 79.0
+    },
+    {
+      "query": "這台筆電的顯示卡是什麼？",
+      "prompt_tokens": 538,
+      "output_tokens": 86,
+      "ttft_ms": 171.0,
+      "decode_tps": 80.7
+    },
+    {
+      "query": "What is the battery capacity?",
+      "prompt_tokens": 335,
+      "output_tokens": 9,
+      "ttft_ms": 108.5,
+      "decode_tps": 72.7
+    }
+  ]
+}

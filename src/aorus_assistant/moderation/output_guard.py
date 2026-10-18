@@ -69,7 +69,6 @@ def context_text(contexts: list[RetrievedChunk]) -> str:
 @dataclass
 class OutputGuard:
     lex: Lexicon
-    holdback: int = 16  # kept for config compatibility; v3 releases per clause
 
     def check_policy(
         self, answer: str, query: str, allowed_brands: set[str] | None = None

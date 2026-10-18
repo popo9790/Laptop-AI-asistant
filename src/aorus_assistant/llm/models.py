@@ -39,5 +39,7 @@ def load_embedder(cfg: EmbedConfig, verbose: bool = False):
         n_batch=cfg.n_batch,
         n_ubatch=cfg.n_ubatch,
         n_gpu_layers=cfg.n_gpu_layers,
+        op_offload=cfg.op_offload,
+        offload_kqv=cfg.n_gpu_layers != 0,
         verbose=verbose,
     )

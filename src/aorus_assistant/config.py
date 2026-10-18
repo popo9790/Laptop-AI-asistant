@@ -39,6 +39,10 @@ class EmbedConfig:
     repo_id: str = "Qwen/Qwen3-Embedding-0.6B-GGUF"
     filename: str = "Qwen3-Embedding-0.6B-Q8_0.gguf"
     n_gpu_layers: int = 0  # keep embedder on CPU to save VRAM
+    # With a CUDA build llama.cpp still offloads large batch ops of a CPU-resident model to the
+    # GPU and reserves a GPU compute buffer for it (455 MiB measured on a T4, none on Metal).
+    # Disabled so the embedder really uses no VRAM.
+    op_offload: bool = False
     n_ctx: int = 1024
     n_batch: int = 512
     n_ubatch: int = 512
@@ -105,8 +109,6 @@ class ModerationConfig:
     # semantic off-topic match (that let "台獨是對的嗎" and "嗨～你今天過得怎麼樣" through).
     # Own data: product questions >= 0.45 in 85%, off-topic/sensitive prototypes in 5%.
     product_spec_sim: float = 0.45
-    # Output guard: characters held back from the stream until checked.
-    holdback_chars: int = 16
 
 
 @dataclass

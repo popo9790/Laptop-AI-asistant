@@ -35,6 +35,11 @@ def decompose(query: str, max_parts: int = 3) -> list[str]:
 
 
 def load_chunks(path: Path) -> list[Chunk]:
+    if not path.exists():
+        raise FileNotFoundError(
+            f"{path} not found: run `uv run python scripts/prepare_data.py` and "
+            "`uv run python scripts/build_index.py` first (data/processed/ is generated, not committed)"
+        )
     with path.open(encoding="utf-8") as f:
         return [Chunk(**json.loads(line)) for line in f if line.strip()]
 

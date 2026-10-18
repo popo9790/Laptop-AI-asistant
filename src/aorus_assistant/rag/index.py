@@ -29,6 +29,8 @@ class VectorIndex:
 
     @classmethod
     def load(cls, path: Path) -> "VectorIndex":
+        if not path.exists():
+            raise FileNotFoundError(f"{path} not found: run `uv run python scripts/build_index.py` first")
         data = np.load(path)
         return cls(data["embeddings"], data["ids"].tolist(), str(data["model"]))
 

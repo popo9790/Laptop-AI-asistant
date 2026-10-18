@@ -16,7 +16,7 @@ every pipeline stage, targeting a **4GB VRAM** consumer laptop.
 | Legitimate questions refused by moderation (held-out) | 5.7% | [benchmark §2.2](benchmark_moderation.md#22-end-to-end-full-pipeline-llm-included) |
 | Poisoned knowledge base: poison reaching the LLM | 0% with moderation, 75% without | [benchmark §2.3](benchmark_moderation.md#23-poisoned-knowledge-base-adversarial-4-of-the-task) |
 | Moderation overhead | +79 ms TTFT p50, 0 MB extra VRAM | [benchmark §3](benchmark_moderation.md#3-performance-and-resources) |
-| GPU memory (llama.cpp accounting) | 1771 MiB, or 1402 MiB with `n_ubatch=128` | [§ 4GB VRAM](#4gb-vram-feasibility) |
+| **VRAM measured on NVIDIA T4 (NVML, process peak)** | **2378 MiB** (2006 MiB with `n_ubatch=128`), < 4096 ✅ | [§ 4GB VRAM](#4gb-vram-feasibility) |
 
 ## Quick start
 
@@ -117,10 +117,21 @@ GPU allocation is static after load. It is the same for every query until `n_ctx
 | Recurrent state | 19 |
 | **Total** | **1771 → 1402** |
 
-- On an NVIDIA GPU, add the CUDA context, which llama.cpp does not count. Expected device VRAM is ~2.0–2.2 GB, leaving ≥1.8 GB of headroom inside 4 GB.
+- On an NVIDIA GPU, add the CUDA context, which llama.cpp does not count.
 - The embedding model and the token-embedding table run on the CPU (~2.0 GB of RAM).
 - Moderation adds no GPU memory.
-- **Verification on NVIDIA:** [notebooks/colab_4gb_verify.ipynb](notebooks/colab_4gb_verify.ipynb) runs the same scripts on a Colab T4 and reads the real peak VRAM via NVML while answering. A T4 cannot be hard-capped at 4 GB, so the check is "peak device VRAM < 4096 MiB". *Result: TODO (run the notebook and paste the numbers here).*
+**Verification on NVIDIA.** [notebooks/colab_4gb_verify.ipynb](notebooks/colab_4gb_verify.ipynb) runs the same scripts on a Colab T4 and reads the real VRAM via NVML, sampled every 20 ms during full answers. Raw output: `logs/memory_colab_*.json`.
+
+| Colab T4, NVML | `n_ubatch` 512 | `n_ubatch` 128 |
+|---|---|---|
+| **This process, peak while answering** | **2378 MiB** | **2006 MiB** |
+| Whole device, peak (includes 447 MiB held by another process before our models loaded) | 2828 MiB | 2456 MiB |
+| of which: GPU compute buffer that llama.cpp reserved for the CPU embedder (op offload) | 456 MiB | 456 MiB |
+| Decode / TTFT (335–885-token prompts) | 73–81 tok/s / 109–425 ms | 72–81 tok/s / 129–515 ms |
+
+- **Both configurations pass**: peak < 4096 MiB, even counting the whole device.
+- A T4 cannot be hard-capped at 4 GB, so the check is the measured peak.
+- The measurement exposed something the Mac could not: with a CUDA build, llama.cpp offloads batch ops of the CPU-resident embedder and reserves 456 MiB of VRAM for them. `EmbedConfig.op_offload=False` now disables this. The expected process peak is then ~1.9 GB (~1.55 GB with `n_ubatch=128`). *Re-measurement with the fix: pending.*
 
 ## Performance
 

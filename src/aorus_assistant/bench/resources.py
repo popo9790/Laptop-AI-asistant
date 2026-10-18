@@ -27,7 +27,8 @@ _BUF_RE = re.compile(
     r"(?P<dev>[A-Za-z0-9_]+?)(?:_Mapped|_REPACK)?\s+(?P<kind>model|KV|RS|compute|output) buffer size\s*=\s*"
     r"(?P<mib>[\d.]+) MiB"
 )
-CPU_DEVICES = {"CPU"}
+# Host-side buffers. CUDA_Host is pinned *host* memory used for transfers, not VRAM.
+CPU_DEVICES = {"CPU", "CUDA_Host"}
 
 
 @contextmanager
