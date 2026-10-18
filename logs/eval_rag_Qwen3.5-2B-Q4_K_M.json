@@ -1,0 +1,722 @@
+{
+  "n": 30,
+  "summary": {
+    "bm25": {
+      "hit@1": 0.933,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.961
+    },
+    "dense": {
+      "hit@1": 0.933,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.961
+    },
+    "hybrid_w0.3": {
+      "hit@1": 0.967,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.983
+    },
+    "hybrid_w0.5": {
+      "hit@1": 0.967,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.983
+    },
+    "hybrid_w0.6": {
+      "hit@1": 0.967,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.983
+    },
+    "hybrid_w0.7": {
+      "hit@1": 0.967,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.983
+    }
+  },
+  "failures": {
+    "bm25": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "lineup",
+          "row07-all",
+          "row02-BZH"
+        ]
+      },
+      {
+        "id": "ret-020",
+        "query": "How thick is the laptop?",
+        "gold": [
+          "row14-all"
+        ],
+        "top3": [
+          "row00-all",
+          "row15-all",
+          "row14-all"
+        ]
+      }
+    ],
+    "dense": [
+      {
+        "id": "ret-013",
+        "query": "有支援 Thunderbolt 5 嗎？",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "row02-BZH",
+          "row02-BXH",
+          "row07-all"
+        ]
+      },
+      {
+        "id": "ret-029",
+        "query": "what colour is it",
+        "gold": [
+          "row16-all"
+        ],
+        "top3": [
+          "row15-all",
+          "row16-all",
+          "row14-all"
+        ]
+      }
+    ],
+    "hybrid_w0.3": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "lineup",
+          "row07-all",
+          "row03-all"
+        ]
+      }
+    ],
+    "hybrid_w0.5": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "lineup",
+          "row07-all",
+          "row03-all"
+        ]
+      }
+    ],
+    "hybrid_w0.6": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "lineup",
+          "row07-all",
+          "row03-all"
+        ]
+      }
+    ],
+    "hybrid_w0.7": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "lineup",
+          "row07-all",
+          "row03-all"
+        ]
+      }
+    ]
+  },
+  "query_latency_ms": {
+    "p50": 94.7,
+    "p95": 144.9
+  },
+  "embed_model": "Qwen3-Embedding-0.6B-Q8_0.gguf",
+  "answers": {
+    "summary": {
+      "n_answerable": 30,
+      "answer_accuracy": 1.0,
+      "false_refusal_rate": 0.0,
+      "n_unanswerable": 9,
+      "no_data_refusal_rate": 1.0,
+      "simplified_zh_rate": 0.0,
+      "ttft_ms_p50": 685.65,
+      "decode_tps_mean": 43.224,
+      "by_lang": {
+        "zh": 1.0,
+        "en": 1.0,
+        "mixed": 1.0
+      }
+    },
+    "rows": [
+      {
+        "id": "ret-001",
+        "query": "這台筆電的顯示卡是什麼？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，這台筆電的顯示晶片（GPU）依版本不同而有所差異：\n\n*   **BZH 版**：NVIDIA GeForce RTX 5090 Laptop GPU\n*   **BYH 版**：NVIDIA GeForce RTX 5080 Laptop GPU\n*   **BXH 版**：NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.6,
+        "simplified": false,
+        "ttft_ms": 704.8,
+        "decode_tps": 51.4,
+        "n_tokens": 86
+      },
+      {
+        "id": "ret-002",
+        "query": "What GPU does it have?",
+        "lang": "en",
+        "answer": "The GPU depends on the specific SKU configuration:\n\n*   **BZH Version**: NVIDIA GeForce RTX 5090 Laptop GPU\n*   **BYH Version**: NVIDIA GeForce RTX 5080 Laptop GPU\n*   **BXH Version**: NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.657,
+        "simplified": false,
+        "ttft_ms": 1753.1,
+        "decode_tps": 51.4,
+        "n_tokens": 64
+      },
+      {
+        "id": "ret-003",
+        "query": "5070 Ti 版本的 TGP 是多少瓦？",
+        "lang": "mixed",
+        "answer": "根據提供的規格資料，AORUS MASTER 16 AM6H 筆記型電腦中，**BXH 版**（對應 NVIDIA GeForce RTX 5070 Ti Laptop GPU）的 TGP 為 **140W**。\n\n相關資訊如下：\n- **顯示晶片**: NVIDIA GeForce RTX 5070 Ti Laptop GPU\n- **TGP (最大顯卡功耗)**: 140W",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.476,
+        "simplified": false,
+        "ttft_ms": 1267.1,
+        "decode_tps": 48.4,
+        "n_tokens": 91
+      },
+      {
+        "id": "ret-004",
+        "query": "BZH 的顯存多大",
+        "lang": "mixed",
+        "answer": "根據提供的規格資料，BZH 版的顯示記憶體 VRAM（顯存）為 **24GB GDDR7**。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.458,
+        "simplified": false,
+        "ttft_ms": 953.2,
+        "decode_tps": 44.5,
+        "n_tokens": 26
+      },
+      {
+        "id": "ret-005",
+        "query": "螢幕更新率多少 Hz？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，螢幕更新率為 **240Hz**。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.6,
+        "simplified": false,
+        "ttft_ms": 876.9,
+        "decode_tps": 41.5,
+        "n_tokens": 15
+      },
+      {
+        "id": "ret-006",
+        "query": "Is the display OLED?",
+        "lang": "en",
+        "answer": "Yes, the display is OLED.\n\nAccording to the specifications provided:\n- Panel: **OLED WQXGA**",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.588,
+        "simplified": false,
+        "ttft_ms": 862.4,
+        "decode_tps": 47.6,
+        "n_tokens": 25
+      },
+      {
+        "id": "ret-007",
+        "query": "記憶體最多可以擴充到多少？",
+        "lang": "zh",
+        "answer": "根據提供的規格資訊，該筆記型電腦的記憶體最大容量可擴充至 **64GB**。\n\n此外，產品也支援 2x SO-DIMM 插槽以進行擴展。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.598,
+        "simplified": false,
+        "ttft_ms": 488.3,
+        "decode_tps": 48.8,
+        "n_tokens": 41
+      },
+      {
+        "id": "ret-008",
+        "query": "How much RAM can I install?",
+        "lang": "en",
+        "answer": "Based on the provided context, you can install a maximum of **64GB** of RAM.\n\nThe specific details are:\n*   **Max capacity:** Up to 64GB\n*   **Type:** DDR5\n*   **Speed:** 5600MHz",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.527,
+        "simplified": false,
+        "ttft_ms": 551.1,
+        "decode_tps": 45.9,
+        "n_tokens": 59
+      },
+      {
+        "id": "ret-009",
+        "query": "可以裝兩條 SSD 嗎",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，**可以裝兩條 SSD**。\n\n產品規格中明確標示：\n- **M.2 插槽 Slot**: 1x PCIe Gen5 M.2 slot\n- **M.2 插槽 Slot**: 1x PCIe Gen4x4 M.2 slots\n\n總共提供 **2 個** M.2 插槽，因此可以同時安裝兩條 SSD。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.553,
+        "simplified": false,
+        "ttft_ms": 741.2,
+        "decode_tps": 48.3,
+        "n_tokens": 84
+      },
+      {
+        "id": "ret-010",
+        "query": "有幾個 M.2 slot？",
+        "lang": "mixed",
+        "answer": "根據提供的規格資料，該筆記型電腦的 M.2 插槽數量如下：\n\n*   **1x PCIe Gen5 M.2 slot**\n*   **1x PCIe Gen4x4 M.2 slots**\n\n總計共有 **2** 個 M.2 插槽。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.591,
+        "simplified": false,
+        "ttft_ms": 817.4,
+        "decode_tps": 44.0,
+        "n_tokens": 63
+      },
+      {
+        "id": "ret-011",
+        "query": "CPU 是哪一顆",
+        "lang": "mixed",
+        "answer": "根據提供的規格資料，該筆記型電腦的中央處理器（CPU）型號為 **Intel Core Ultra 9 Processor 275HX**。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.631,
+        "simplified": false,
+        "ttft_ms": 652.9,
+        "decode_tps": 38.1,
+        "n_tokens": 31
+      },
+      {
+        "id": "ret-012",
+        "query": "How many cores does the processor have?",
+        "lang": "en",
+        "answer": "The processor has 24 cores.",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.623,
+        "simplified": false,
+        "ttft_ms": 596.1,
+        "decode_tps": 34.1,
+        "n_tokens": 8
+      },
+      {
+        "id": "ret-013",
+        "query": "有支援 Thunderbolt 5 嗎？",
+        "lang": "mixed",
+        "answer": "根據產品規格，本機型支援 **Thunderbolt 5**。\n\n具體連接埠資訊如下：\n- **Type-C with Thunderbolt5**（支援 USB4、DisplayPort 2.1 與 Power Delivery 3.0）",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.509,
+        "simplified": false,
+        "ttft_ms": 788.9,
+        "decode_tps": 49.4,
+        "n_tokens": 51
+      },
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "lang": "mixed",
+        "answer": "根據提供的規格資料，AORUS MASTER 16 AM6H 筆記型電腦的 **HDMI** 連接埠版本為：\n\n*   **1 x HDMI 2.1**",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.418,
+        "simplified": false,
+        "ttft_ms": 1377.5,
+        "decode_tps": 50.8,
+        "n_tokens": 42
+      },
+      {
+        "id": "ret-015",
+        "query": "有讀卡機嗎",
+        "lang": "zh",
+        "answer": "根據產品規格，本筆記型電腦在右側設有**讀卡機**。\n\n具體資訊如下：\n- **讀卡機 Card reader**: 1 x MicroSD (UHS-II)",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.499,
+        "simplified": false,
+        "ttft_ms": 747.6,
+        "decode_tps": 48.0,
+        "n_tokens": 41
+      },
+      {
+        "id": "ret-016",
+        "query": "電池容量多大？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的電池容量為 **99Wh**。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.559,
+        "simplified": false,
+        "ttft_ms": 506.9,
+        "decode_tps": 44.0,
+        "n_tokens": 32
+      },
+      {
+        "id": "ret-017",
+        "query": "What is the battery capacity?",
+        "lang": "en",
+        "answer": "The battery capacity is 99Wh.",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.478,
+        "simplified": false,
+        "ttft_ms": 525.4,
+        "decode_tps": 31.4,
+        "n_tokens": 9
+      },
+      {
+        "id": "ret-018",
+        "query": "充電器幾瓦",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，該筆記型電腦的變壓器功率為 **330W**。\n\n因此，充電器的電量（瓦數）是 **330 瓦**。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.545,
+        "simplified": false,
+        "ttft_ms": 558.4,
+        "decode_tps": 43.2,
+        "n_tokens": 40
+      },
+      {
+        "id": "ret-019",
+        "query": "這台多重？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，這台筆記型電腦的重量約為 **2.5 kg**。\n\n註：實際重量可能會因配置、製造工藝及測量方法而略有不同。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.601,
+        "simplified": false,
+        "ttft_ms": 526.4,
+        "decode_tps": 45.3,
+        "n_tokens": 37
+      },
+      {
+        "id": "ret-020",
+        "query": "How thick is the laptop?",
+        "lang": "en",
+        "answer": "The laptop thickness is between **23 mm and 29.9 mm**.",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.578,
+        "simplified": false,
+        "ttft_ms": 731.3,
+        "decode_tps": 41.7,
+        "n_tokens": 17
+      },
+      {
+        "id": "ret-021",
+        "query": "有支援 WiFi 7 嗎",
+        "lang": "mixed",
+        "answer": "是的，本產品支援 WiFi 7。\n\n根據規格說明：\n- **無線網路 Wi-Fi**: WIFI 7 (802.11be 2x2)",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.537,
+        "simplified": false,
+        "ttft_ms": 565.0,
+        "decode_tps": 46.7,
+        "n_tokens": 38
+      },
+      {
+        "id": "ret-022",
+        "query": "藍牙版本",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，該筆記型電腦的藍牙版本為 **Bluetooth v5.4**。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.472,
+        "simplified": false,
+        "ttft_ms": 560.8,
+        "decode_tps": 43.9,
+        "n_tokens": 21
+      },
+      {
+        "id": "ret-023",
+        "query": "鏡頭支援 Windows Hello 人臉辨識嗎？",
+        "lang": "mixed",
+        "answer": "是的，該筆記型電腦的視訊鏡頭支援 Windows Hello 人臉辨識。\n\n根據規格說明：\n- **視訊鏡頭 Webcam**: FHD (1080p) IR Webcam\n- **Build-in array Microphone**\n- **Support Windows Hello Face Authentication**",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.632,
+        "simplified": false,
+        "ttft_ms": 509.4,
+        "decode_tps": 46.7,
+        "n_tokens": 58
+      },
+      {
+        "id": "ret-024",
+        "query": "鍵盤有 RGB 背光嗎",
+        "lang": "mixed",
+        "answer": "根據提供的規格資料，該筆記型電腦的鍵盤為 **3-zone RGB Backlit Keyboard**（三區 RGB 背光鍵盤），因此確實擁有 RGB 背光功能。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.696,
+        "simplified": false,
+        "ttft_ms": 520.0,
+        "decode_tps": 43.7,
+        "n_tokens": 36
+      },
+      {
+        "id": "ret-025",
+        "query": "喇叭有幾顆？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，喇叭（Speakers）有 **4** 顆。\n\n具體資訊如下：\n- Speakers: 4x 2W speakers",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.544,
+        "simplified": false,
+        "ttft_ms": 666.5,
+        "decode_tps": 25.3,
+        "n_tokens": 33
+      },
+      {
+        "id": "ret-026",
+        "query": "有 TPM 嗎",
+        "lang": "mixed",
+        "answer": "有。\n\n根據產品規格，該筆記型電腦搭載了 **Firmware-based TPM**（固件式可信執行環境），並支援 Intel Platform Trust Technology (Intel PTT)。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.628,
+        "simplified": false,
+        "ttft_ms": 611.9,
+        "decode_tps": 46.2,
+        "n_tokens": 37
+      },
+      {
+        "id": "ret-027",
+        "query": "預載什麼作業系統",
+        "lang": "zh",
+        "answer": "根據提供的規格資訊，GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦預載的作業系統為：\n\n*   **Windows 11 Pro**（建議企業使用者使用）\n*   Windows 11 Home\n*   UEFI Shell OS",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.598,
+        "simplified": false,
+        "ttft_ms": 466.4,
+        "decode_tps": 45.6,
+        "n_tokens": 61
+      },
+      {
+        "id": "ret-028",
+        "query": "這台有哪幾個版本？差在哪裡",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，AORUS MASTER 16 AM6H 筆記型電腦共有 **3 個版本**（SKU），分別為：\n\n1.  **BZH (BZH)**\n    *   顯示晶片：NVIDIA GeForce RTX 5090 Laptop GPU\n    *   記憶體：24GB GDDR7\n    *   最大顯卡功率：175W\n    *   AI Boost：1797 MHz\n\n2.  **BYH (BYH)**\n    *   顯示晶片：NVIDIA GeForce RTX 5080 Laptop GPU\n    *   記憶體：16GB GDDR7\n    *   最大顯卡功率：175W\n    *   AI Boost：1902 MHz\n\n3.  **BXH (BXH)**\n    *   顯示晶片：NVIDIA GeForce RTX 5070 Ti Laptop GPU\n    *   記憶體：12GB GDDR7\n    *   最大顯卡功率：140W\n    *   AI Boost：1962 MHz\n\n**差異點總結：**\n這三個版本的主要區別在於 **顯示晶片（GPU）** 的型號與 **記憶體容量**。\n*   **BZH** 擁有 RTX 5090 晶片，且配備了最大的 24GB GDDR7 記憶體。\n*   **BYH** 使用 RTX 5080 晶片，記憶體縮減至 16GB。\n*   **BXH** 則採用 RTX 5070 Ti 晶片，並搭配最小的 12GB GDDR7 記憶體。\n\n其餘規格（如最大顯卡功率、AI Boost 頻率等）在各版本中均相同。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.501,
+        "simplified": false,
+        "ttft_ms": 1308.4,
+        "decode_tps": 32.8,
+        "n_tokens": 382
+      },
+      {
+        "id": "ret-029",
+        "query": "what colour is it",
+        "lang": "en",
+        "answer": "Based on the provided context, the color is **Dark Tide**.",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.442,
+        "simplified": false,
+        "ttft_ms": 417.2,
+        "decode_tps": 36.0,
+        "n_tokens": 13
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，該顯示器在遊戲順暢度與殘影表現上如下：\n\n1.  **關於遊戲順暢度**\n    *   **更新率 (Refresh rate)**: 240Hz。此高刷新率通常能大幅減少畫面切換時的延遲感，提升動作流暢度。\n    *   **解析度 (Resolution)**: 2560×1600 (WQXGA)。雖然為全高清，但配合 240Hz 的更新率，在一般遊戲中應能呈現良好的畫質與響應速度。\n\n2.  **關於殘影問題**\n    *   **反應時間 (Response time)**: 1ms。這表示像素點從切換到顯示新畫面所需的最短時間極短，能有效避免傳統 LCD 螢幕常見的「殘影」或「拖影」現象。\n    *   **面板類型**: OLED WQXGA。OLED 技術本身在響應速度上通常優於液晶面板，且具備高對比度與精準的像素控制，有助於減少畫面模糊感。\n\n**總結**：該顯示器擁有 **240Hz 的高更新率**與 **1ms 極短的反應時間**，理論上能提供非常順暢的遊戲體驗並有效避免殘影問題。",
+        "expect_refusal": false,
+        "refused_by": null,
+        "correct": true,
+        "top_dense": 0.452,
+        "simplified": false,
+        "ttft_ms": 877.6,
+        "decode_tps": 45.3,
+        "n_tokens": 280
+      },
+      {
+        "id": "nodata-001",
+        "query": "這台筆電的電池在零下 20 度能撐多久？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，筆電電池容量為 **99Wh**（Li-ion），但產品說明中**未提及**電池在零下 20 度環境下的耐用時間或溫度適應性數據。\n\n因此，無法從現有資訊推測該筆電在零下 20 度的使用時長。",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.394,
+        "simplified": false,
+        "ttft_ms": 571.2,
+        "decode_tps": 44.1,
+        "n_tokens": 68
+      },
+      {
+        "id": "nodata-002",
+        "query": "這台售價多少錢？",
+        "lang": "zh",
+        "answer": "根據您提供的規格資訊，這份資料僅包含重量、尺寸、中央處理器（CPU）、顯示晶片（GPU）及顯存等硬體參數，**並未提及售價**。\n\n因此，無法從本產品規格中回答該筆記型電腦的售價。",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.463,
+        "simplified": false,
+        "ttft_ms": 1573.9,
+        "decode_tps": 45.3,
+        "n_tokens": 54
+      },
+      {
+        "id": "nodata-003",
+        "query": "保固幾年？",
+        "lang": "zh",
+        "answer": "目前的產品資料中沒有這項資訊。您可以詢問 AORUS MASTER 16 AM6H 的處理器、顯示卡、螢幕、記憶體、連接埠、電池等規格。",
+        "expect_refusal": true,
+        "refused_by": "retrieval_threshold",
+        "correct": true,
+        "top_dense": 0.339,
+        "simplified": false,
+        "ttft_ms": 0.0,
+        "decode_tps": 0.0,
+        "n_tokens": 0
+      },
+      {
+        "id": "nodata-004",
+        "query": "玩 Cyberpunk 2077 可以跑幾 FPS？",
+        "lang": "mixed",
+        "answer": "根據您提供的產品規格，GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的硬體配置如下：\n\n*   **顯示晶片 (GPU)**: NVIDIA GeForce RTX 5090 Laptop GPU\n*   **顯存 (VRAM)**: 24GB GDDR7\n*   **最大功耗 (TGP)**: 175W Maximum Graphics Power with Dynamic Boost\n\n**關於 Cyberpunk 2077 的 FPS 表現：**\n\n由於您提供的規格中**未包含「遊戲效能測試數據」**或「FPS 跑分」等資訊，因此無法直接回答該電腦在 Cyberpunk 2077 中可以跑出幾 FPS。\n\n不過，從硬體配置來看：\n1.  **顯存容量 (24GB)**：對於需要高畫質或超高分辨率的 Cyberpunk 2077 來說，這是一個非常充裕的資源，通常能避免因記憶體不足而導致畫面撕裂或降頻。\n2.  **GPU 型號**：RTX 5090 Laptop GPU 是針對筆記型電腦設計的頂端級別顯卡（通常用於工作站），其效能遠高於一般家用遊戲顯卡，理論上在 Cyberpunk 2077 中擁有極高的性能潛力。\n\n**結論：**\n由於缺乏實際的遊戲測試數據，無法給出確切的 FPS 數字。但從硬體配置來看，這是一台**極具競爭力且能輕鬆跑滿高畫質設定**的頂端筆記型電腦，具體 FPS 數值需透過實際遊戲效能測試軟體（如 Cinebench、3DMark 或 Cyberpunk 2077 官方效能測試）來確認。",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.489,
+        "simplified": false,
+        "ttft_ms": 1602.3,
+        "decode_tps": 44.3,
+        "n_tokens": 366
+      },
+      {
+        "id": "nodata-005",
+        "query": "風扇噪音多大聲？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，**未提及風扇噪音大小**。\n\n該產品僅列出了以下音效相關資訊：\n- 喇叭 Speakers: 4x 2W speakers\n- Microphone\n- Dolby Atmos\n- Smart Amp Technology\n\n因此，無法從現有資料中回答風扇噪音的具體數值。",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.407,
+        "simplified": false,
+        "ttft_ms": 503.3,
+        "decode_tps": 40.2,
+        "n_tokens": 67
+      },
+      {
+        "id": "nodata-006",
+        "query": "What is the screen's PWM frequency?",
+        "lang": "en",
+        "answer": "Based on the provided context, there is no information regarding the screen's PWM (Pulse Width Modulation) frequency. The specifications listed include resolution, refresh rate, panel type, brightness, contrast ratio, and other display features, but they do not mention PWM settings or frequencies.\n\nTherefore, according to the product data provided: **The screen's PWM frequency is not specified.**",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.471,
+        "simplified": false,
+        "ttft_ms": 1006.6,
+        "decode_tps": 28.8,
+        "n_tokens": 76
+      },
+      {
+        "id": "nodata-007",
+        "query": "買這台有附滑鼠嗎？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，**未提及**該筆記型電腦附贈滑鼠。\n\n文中僅列出了以下配件資訊：\n*   **讀卡機 (Card reader)**：1 x MicroSD (UHS-II)\n*   **耳機麥克風孔 (Audio jack)**：1 x Audio Jack support mic / headphone combo\n\n因此，購買時需確認是否另行購買滑鼠。",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.378,
+        "simplified": false,
+        "ttft_ms": 1338.1,
+        "decode_tps": 50.8,
+        "n_tokens": 83
+      },
+      {
+        "id": "nodata-008",
+        "query": "散熱模組用了幾根導熱管？",
+        "lang": "zh",
+        "answer": "根據提供的規格資料，**AORUS MASTER 16 AM6H 筆記型電腦的散熱模組並未明確標示使用幾根導熱管**。\n\n該產品規格僅列出了以下資訊：\n- **中央處理器 (CPU)**：Intel Core Ultra 9 Processor 275HX（24 核心、24 執行緒）。\n- **連接埠 (I/O Port)**：包含 Type-C Thunderbolt 5/4 等介面。\n- **儲存裝置 (Storage)**：支援 PCIe Gen5 M.2 SSD，最大容量至 4TB。\n- **版本總覽**：列出 BZH、BYH、BXH 三種不同顯示晶片配置的 SKU。\n\n由於資料中未提及散熱模組（Cooling Module）的具體設計細節（如導熱管數量），因此無法從現有資訊回答此問題。",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.399,
+        "simplified": false,
+        "ttft_ms": 2162.4,
+        "decode_tps": 41.8,
+        "n_tokens": 184
+      },
+      {
+        "id": "nodata-009",
+        "query": "Does the keyboard have a numpad?",
+        "lang": "en",
+        "answer": "Based on the provided context, there is no information regarding whether the keyboard includes a numpad. The text only specifies that it features a 3-zone RGB backlit design and supports up to 1.7mm key-travel (with N-Key support).\n\nTherefore, according to the available data: **Product data does not provide this information.**",
+        "expect_refusal": true,
+        "refused_by": "llm",
+        "correct": true,
+        "top_dense": 0.529,
+        "simplified": false,
+        "ttft_ms": 642.4,
+        "decode_tps": 37.2,
+        "n_tokens": 71
+      }
+    ]
+  },
+  "llm_model": "Qwen3.5-2B-Q4_K_M.gguf"
+}

@@ -14,8 +14,8 @@ models/*
 # generated artifacts
 data/processed/*
 !data/processed/.gitkeep
-logs/*
-!logs/.gitkeep
+# runtime audit log is local; evaluation / benchmark reports are committed as evidence
+logs/audit.jsonl
 
 .DS_Store
 .ipynb_checkpoints/

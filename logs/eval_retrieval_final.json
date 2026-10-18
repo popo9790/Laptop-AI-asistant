@@ -1,0 +1,253 @@
+{
+  "n": 30,
+  "summary": {
+    "bm25": {
+      "hit@1": 0.867,
+      "hit@3": 0.967,
+      "hit@5": 1.0,
+      "mrr": 0.919
+    },
+    "dense": {
+      "hit@1": 0.867,
+      "hit@3": 0.967,
+      "hit@5": 1.0,
+      "mrr": 0.925
+    },
+    "hybrid_w0.3": {
+      "hit@1": 0.933,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.961
+    },
+    "hybrid_w0.5": {
+      "hit@1": 0.933,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.961
+    },
+    "hybrid_w0.6": {
+      "hit@1": 0.933,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.961
+    },
+    "hybrid_w0.7": {
+      "hit@1": 0.933,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "mrr": 0.961
+    }
+  },
+  "failures": {
+    "bm25": [
+      {
+        "id": "ret-003",
+        "query": "5070 Ti 版本的 TGP 是多少瓦？",
+        "gold": [
+          "row02-BXH",
+          "lineup"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row02-BXH"
+        ]
+      },
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row07-all"
+        ]
+      },
+      {
+        "id": "ret-020",
+        "query": "How thick is the laptop?",
+        "gold": [
+          "row14-all"
+        ],
+        "top3": [
+          "row00-all",
+          "row16-all",
+          "row15-all"
+        ]
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "gold": [
+          "row03-all"
+        ],
+        "top3": [
+          "perf",
+          "row03-all",
+          "row10-all"
+        ]
+      }
+    ],
+    "dense": [
+      {
+        "id": "ret-013",
+        "query": "有支援 Thunderbolt 5 嗎？",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "perf",
+          "row02-BZH",
+          "row02-BXH"
+        ]
+      },
+      {
+        "id": "ret-028",
+        "query": "這台有哪幾個版本？差在哪裡",
+        "gold": [
+          "lineup"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row01-all"
+        ]
+      },
+      {
+        "id": "ret-029",
+        "query": "what colour is it",
+        "gold": [
+          "row16-all"
+        ],
+        "top3": [
+          "row15-all",
+          "row16-all",
+          "row14-all"
+        ]
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "gold": [
+          "row03-all"
+        ],
+        "top3": [
+          "perf",
+          "row03-all",
+          "row02-BXH"
+        ]
+      }
+    ],
+    "hybrid_w0.3": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row07-all"
+        ]
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "gold": [
+          "row03-all"
+        ],
+        "top3": [
+          "perf",
+          "row03-all",
+          "row10-all"
+        ]
+      }
+    ],
+    "hybrid_w0.5": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row07-all"
+        ]
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "gold": [
+          "row03-all"
+        ],
+        "top3": [
+          "perf",
+          "row03-all",
+          "row10-all"
+        ]
+      }
+    ],
+    "hybrid_w0.6": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row07-all"
+        ]
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "gold": [
+          "row03-all"
+        ],
+        "top3": [
+          "perf",
+          "row03-all",
+          "row10-all"
+        ]
+      }
+    ],
+    "hybrid_w0.7": [
+      {
+        "id": "ret-014",
+        "query": "HDMI 是哪個版本",
+        "gold": [
+          "row07-all"
+        ],
+        "top3": [
+          "perf",
+          "lineup",
+          "row07-all"
+        ]
+      },
+      {
+        "id": "ret-030",
+        "query": "玩遊戲順不順，螢幕會不會有殘影",
+        "gold": [
+          "row03-all"
+        ],
+        "top3": [
+          "perf",
+          "row03-all",
+          "row10-all"
+        ]
+      }
+    ]
+  },
+  "query_latency_ms": {
+    "p50": 47.3,
+    "p95": 87.3
+  },
+  "embed_model": "Qwen3-Embedding-0.6B-Q8_0.gguf"
+}

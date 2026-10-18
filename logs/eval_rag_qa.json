@@ -1,0 +1,4117 @@
+{
+  "baseline": {
+    "summary": {
+      "context_recall": 0.614,
+      "context_recall_by_type": {
+        "compatibility": 0.8,
+        "multi_field": 0.3,
+        "single_field": 1.0,
+        "sku": 1.0,
+        "workload": 0.0
+      },
+      "avg_context_chunks": 1.75,
+      "answer_accuracy": 0.705,
+      "answer_accuracy_by_type": {
+        "compatibility": 0.9,
+        "multi_field": 0.5,
+        "single_field": 1.0,
+        "sku": 0.833,
+        "workload": 0.25
+      },
+      "answer_accuracy_by_lang": {
+        "zh": 0.714,
+        "en": 0.692,
+        "mixed": 0.7
+      },
+      "unanswerable_refusal": 1.0,
+      "unanswered_rate": 0.273
+    },
+    "rows": [
+      {
+        "id": "qa-001",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "這台螢幕刷新率多高？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，這台螢幕的刷新率為 **240Hz**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-002",
+        "type": "single_field",
+        "lang": "en",
+        "query": "How heavy is it?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": true,
+        "answer": "The weight of the GIGABYTE AORUS MASTER 16 AM6H notebook is approximately **2.5 kg**.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-003",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "電池是幾瓦時的",
+        "expect_refusal": false,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，該筆記型電腦的電池容量為 **99Wh**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-004",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "CPU 是哪一顆？",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，該筆記型電腦的中央處理器（CPU）型號為 **Intel Core Ultra 9 Processor 275HX**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-005",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "記億體最大可以加到多少",
+        "expect_refusal": false,
+        "context": [
+          "row04-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，該筆記型電腦的記憶體最大容量為 **64GB**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-006",
+        "type": "single_field",
+        "lang": "en",
+        "query": "what wifi does it have",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, it has **WIFI 7** (specifically 802.11be 2x2).",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-007",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "鍵盤背光是什麼樣的？",
+        "expect_refusal": false,
+        "context": [
+          "row06-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，該筆記型電腦的鍵盤背光是 **3-zone RGB Backlit**（三區 RGB 背光）。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-008",
+        "type": "single_field",
+        "lang": "en",
+        "query": "What colour is the chassis?",
+        "expect_refusal": false,
+        "context": [
+          "row16-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, the chassis color is **Dark Tide**.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-009",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "變壓器 wattage 多少",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的變壓器功率（Wattage）為 **330W**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-010",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "出廠預載什麼作業系統",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資訊，GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的作業系統為**Windows 11 Pro**（建議企業使用）或 **Windows 11 Home**。\n\n此外，該產品還支援 **UEFI Shell OS**（此為 UEFI 預設安裝模式）。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-011",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "視訊鏡頭解析度多少？喇叭是什麼配置？",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，該產品的資訊如下：\n\n1.  **視訊鏡頭解析度**：FHD (1080p)\n2.  **喇叭配置**：Build-in array Microphone（內建陣列麥克風）",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-012",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What are its width and weight?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": false,
+        "answer": "Based on the provided context, here are the specifications:\n\n*   **Weight**: ~2.5 kg\n    *(Note: The weight may vary according to configuration and measurement method.)*\n\nThe provided text does not contain information regarding the width of the laptop.",
+        "refused": true,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-013",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，關於您詢問的「TB5 孔支援 PD 充電」及「原廠變壓器功率」的問題，**產品資料中未提供相關資訊**。\n\n現有的 <context> 僅顯示：\n- 變壓器功率 Power: 330W\n- AC Adapter\n\n但並未提及插頭規格（如 TB5）、PD 支援情況或具體的變壓器型號。若需確認這些細節，建議您直接參考 GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的官方產品說明書或聯繫原廠客服以獲取完整資訊。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-014",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "電池容量跟變壓器功率各是多少",
+        "expect_refusal": false,
+        "context": [
+          "row12-all",
+          "row13-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料：\n\n*   **變壓器功率**：330W\n*   **電池容量**：99Wh",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-015",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What M.2 slots does it have, and how much RAM can it take?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": false,
+        "answer": "Based on the provided context, here are the specifications regarding M.2 slots and RAM capacity:\n\n**M.2 Slots:**\nThe product has **1x PCIe Gen5 M.2 slot**. It also includes **1x PCIe Gen4x4 M.2 slot**, totaling 2 M.2 slots.\n\n*Note on RAM:* The provided context does not contain information regarding the maximum RAM capacity or supported memory types for this specific model (GIGABYTE AORUS MASTER 16 AM6H).",
+        "refused": true,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-016",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "螢幕多大？機身最厚的地方幾 mm？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row14-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料：\n\n1.  **螢幕尺寸**：16\"\n2.  **機身最厚的地方**：\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": false
+      },
+      {
+        "id": "qa-017",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "Windows Hello 臉部辨識跟 TPM 都有嗎",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資訊，該筆記型電腦支援 **Windows Hello Face Authentication（臉部辨識）**。\n\n關於 TPM 硬體模組的資訊，**產品資料中未提供此項規格**。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-018",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context:\n\n*   **Bluetooth Version:** The product uses Bluetooth v5.4.\n*   **Audio Jack Type:** Yes, it supports a headset combo (indicated by \"Audio Jack support mic / headphone combo\").",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-019",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，關於您詢問的 HDMI 版本與螢幕原生解析度如下：\n\n1. **HDMI 版本**\n2.1 或 3.0）。\n\n2. **螢幕原生解析度**\n   螢幕的原生解析度為 **2560×1600**。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-020",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "CPU 幾核心？RAM 是什麼規格",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料：\n\n*   **CPU 核心數**：24 cores\n*   **RAM 規格**：資料中未提供 RAM 的具體容量或頻率資訊。",
+        "refused": true,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-021",
+        "type": "sku",
+        "lang": "zh",
+        "query": "5080 版顯存幾 G",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，5080 版（BYH 版）的顯示記憶體 VRAM 為 **16GB GDDR7**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-022",
+        "type": "sku",
+        "lang": "en",
+        "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "No, the 5070 Ti model does not get the same max graphics power as the 5090 model.\n\nAccording to the specifications provided:\n- **AORUS MASTER 16 BZH (5090 model)**: Maximum Graphics Power with Dynamic Boost is **175W**.\n- **AORUS MASTER 16 BXH (5070 Ti model)**: Maximum Graphics Power with Dynamic Boost is **140W**.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-023",
+        "type": "sku",
+        "lang": "mixed",
+        "query": "三個 SKU 的 VRAM 各是多少？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，三個 SKU 的 VRAM 配置如下：\n\n*   **BZH 版**：24GB GDDR7\n*   **BYH 版**：16GB GDDR7\n*   **BXH 版**：12GB GDDR7",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-024",
+        "type": "sku",
+        "lang": "zh",
+        "query": "每個版本的 CPU 都一樣嗎？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row01-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，**每個版本的 CPU 都一樣**。\n\n在【中央處理器 / CPU（全系列相同 All SKUs）】一欄中明確指出：\n- **型號 Model**: Intel Core Ultra 9 Processor 275HX\n- **核心數 Cores**: 24 cores\n- **執行緒 Threads**: 24 threads\n\n此外，規格中也提到「其餘規格各版本相同 / All other specs are identical across SKUs」，這表示除了顯示晶片（GPU）不同外，CPU 的型號、核心數及執行緒數量在所有配置中均保持一致。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-025",
+        "type": "sku",
+        "lang": "en",
+        "query": "What's the AI Boost clock on the BYH?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, the AI Boost clock for the **BYH** version is **1902 MHz**.\n\nThis value includes a 200 MHz overclock (OC) added to its base boost clock of 1702 MHz.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-026",
+        "type": "sku",
+        "lang": "zh",
+        "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，AORUS MASTER 16 AM6H 筆記型電腦的 BZH 版與 BYH 版在**顯示晶片（GPU）**、**顯存（VRAM）**以及**最大功耗（TGP）**上完全相同。\n\n兩者唯一的差別在於**加速時脈（Boost Clock）**：\n*   **BZH 版**：AI Boost 為 1797 MHz（其中 Boost Clock 為 1597 MHz，OC 模式 +200 MHz）。\n*   **BYH 版**：AI Boost 為 1902 MHz（其中 Boost Clock 為 1702 MHz，OC 模式 +200 MHz）。\n\n因此，BZH 與 BYH 的主要差異僅在於 CPU 的加速時脈設定不同。",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-027",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "藍牙滑鼠可以直接連嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，筆記型電腦支援 **藍牙 v5.4** 的連接埠。\n\n因此，只要您的滑鼠是支援藍牙（Bluetooth）功能的產品，即可直接連接到該筆電。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-028",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I add a second PCIe Gen4 NVMe SSD?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, there is no information regarding whether a second PCIe Gen4 NVMe SSD can be added. The text only states that the M.2 slot supports **one** PCIe Gen5 M.2 slot and one PCIe Gen4x4 M.2 slot in total for all SKUs.\n\nTherefore, product data does not provide this specific information.",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-029",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，該筆記型電腦支援的 HDMI 介面為 **HDMI 2.1**（位於左側）。\n\n因此，使用 HDMI 連接是**可以**的。不過需注意以下幾點：\n1.  **解析度限制**：雖然螢幕支持 4K (2560×1600) 解析度，若使用 HDMI 連接，畫面將無法呈現真正的 4K 畫質（會自動降為 2K）。\n2.  **刷新率限制**：雖然螢幕支持 240Hz，但該筆記型電腦的顯示器介面僅支援 **1ms** 反應時間，且未明確標示支援 HDMI 2.1 的高刷輸出（通常需搭配特定顯卡或驅動），實際運作可能受限于系統設定。\n\n總結來說：**可以連接，無法呈現真正的 4K。**\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": true,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-030",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？",
+        "expect_refusal": false,
+        "context": [
+          "row04-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦支援 **2x SO-DIMM sockets**（即兩個記憶體插槽），因此可以自行購買 DDR5 SO-DIMM 記憶體進行加裝。\n\n關於容量限制：\n- 最大容量為 **Up to 64GB**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-031",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I charge it with a USB-C PD charger?",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": false,
+        "answer": "Based on the provided context, there is no information regarding USB-C PD compatibility or charging specifications for this product. The context only lists the adapter power as 330W and does not mention USB ports or charging protocols.\n\nTherefore, I cannot answer whether it can be charged with a USB-C PD charger using only the given data.",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-032",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "相機用的 UHS-II microSD 卡讀得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，該筆記型電腦右側支援 **1 x MicroSD (UHS-II)** 讀卡機。\n\n因此，**可以**使用 UHS-II 標準的 microSD 卡進行讀取操作。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-033",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，外接 Thunderbolt 5 的 SSD 外接盒**可以**使用。\n\n要連接該設備，請將線材插入電腦右側的 **「Type-C with Thunderbolt5」** 孔位（位於電源孔與讀卡機之間）。",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-034",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the specifications provided for the GIGABYTE AORUS MASTER 16 AM6H, a monitor that requires **DisplayPort 2.1** will work over USB-C if it supports the following conditions:\n\n*   The USB-C port must support **Thunderbolt5**.\n*   The USB-C port must support **Power Delivery 3.0**.\n\nThe product description states that the Type-C port with Thunderbolt5 \"support [DisplayPort 2.1 and Power Delivery 3.0]\". Therefore, if your monitor is compatible with these specific DisplayPort versions via the Thunderbolt5 interface on this laptop, it will function correctly.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-035",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，這台筆記型電腦支援 **WIFI 7 (802.11be 2x2)**。\n\n因此，您可以使用該路由器連接此電腦，因為它們的通訊標準（Wi-Fi 7）是相容的。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-036",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎",
+        "expect_refusal": false,
+        "context": [
+          "row08-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，\n\n因此，**無法確認**該筆記型電腦支援單孔耳麥（耳機麥克風二合一）的耳機插入功能。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-037",
+        "type": "workload",
+        "lang": "zh",
+        "query": "剪 4K 影片夠力嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH",
+          "row10-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，該筆記型電腦**無法直接剪 4K 影片**。\n\n原因如下：\n1. **顯示晶片 (GPU) 支援度不足**：資料中明確標示為「NVIDIA GeForce RTX 5090 / 5080 / 5070 Ti」，但**未提及支援 4K 解析度的顯示晶片規格**。且未明確列出 4K 支援。\n2. **顯示記憶體 (VRAM) 容量有限**：\n   - BZH 版擁有 24GB VRAM（通常可處理高畫質影片），但由於 GPU 本身可能不支援 4K 解析度，即使有足夠的顯存，也可能無法有效渲染 4K 畫面。\n   - BYH 版與 BXH 版的 VRAM (16GB / 12GB) 同樣**未明確標示支援 4K 解析度**。\n\n**結論：**\n若使用者需剪輯 4K 影片，目前提供的資料中，**未明確列出 4K 支援資訊**，因此無法確定其剪輯 4K 影片的能力。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": true,
+        "redacted": true,
+        "correct": false
+      },
+      {
+        "id": "qa-038",
+        "type": "workload",
+        "lang": "en",
+        "query": "Is it good for Blender Cycles rendering?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": false,
+        "answer": "Based on the provided context, there is no specific information regarding Blender Cycles rendering performance or capabilities for this product. The text only lists the GPU models (RTX 5090/5080/5070 Ti), VRAM sizes, and power specifications available in different SKUs (BZH/BYH/BXH).\n\nTherefore, I cannot answer whether it is good for Blender Cycles rendering based solely on the provided data.",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-039",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，關於 GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的 **VRAM**（顯存）與 **系統 RAM**（記憶體）容量，**產品規格中並未提供具體數值**。\n\n該段文字僅列出了作業系統支援版本：\n- Windows 11 Pro (GIGABYTE recommends Windows 11 Pro for business.)\n- Windows 11 Home\n- UEFI Shell OS\n\n因此，無法從現有資訊推測其顯存或記憶體的大小。",
+        "refused": true,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-040",
+        "type": "workload",
+        "lang": "zh",
+        "query": "玩 3A 大作開高畫質會順嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all",
+          "row14-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，**無法直接回答「順不順」**，因為該產品僅提供了作業系統（Windows 11 Pro / Home）與尺寸資訊，並未包含關於 **CPU、GPU、記憶體或硬碟容量** 等影響遊戲性能的關鍵硬體規格。\n\n若要判斷是否能玩 3A 大作並達到高畫質，建議您參考以下幾點：\n1. **CPU 效能**：\n2. **GPU 性能**：\n3. **記憶體容量**：建議至少為 16GB，若為 3A 大作且高畫質設定，\n4. **硬碟容量**：若需大量遊戲與影片儲存，\n\n若您能提供這些硬體規格（例如 CPU、顯卡、記憶體等），我可以為您進一步評估其適合度。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": true,
+        "redacted": true,
+        "correct": false
+      },
+      {
+        "id": "qa-041",
+        "type": "workload",
+        "lang": "en",
+        "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row04-all",
+          "row05-all",
+          "row06-all"
+        ],
+        "context_ok": false,
+        "answer": "Based on the specifications provided in your context, yes, this machine is capable of streaming to Twitch while gaming.\n\nHere is why:\n*   **Display Output:** The product does not explicitly list a display output port (such as HDMI or DisplayPort) in its specification section. However, it includes an **M.2 PCIe Gen5 M.2 slot** for storage and supports up to 64GB of DDR5 RAM. Most modern gaming laptops with this configuration include a built-in graphics card capable of driving external monitors via HDMI/DP.\n*   **Performance:** The CPU (Intel Core Ultra 9 275HX) has a maximum clock speed of up to 5.4 GHz and 24 cores, which is sufficient for high-performance gaming and streaming tasks.\n\n**Note on Streaming Hardware Requirements:** While the *gaming laptop* meets the hardware requirements for running games and rendering video, Twitch itself requires specific **streaming software** (like OBS Studio) and a dedicated **streaming PC** or monitor with an HDMI/DisplayPort output to receive your stream signal. The gaming machine you have is optimized for performance, but it may not be equipped with the necessary external display ports to connect directly to Twitch without additional hardware.",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-042",
+        "type": "workload",
+        "lang": "zh",
+        "query": "BXH 跑 Stable Diffusion 夠用嗎",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，**AORUS MASTER 16 BXH 版本對於跑 Stable Diffusion 是足夠的**。\n\n以下是具體依據：\n*   **顯卡類型**：BXH 版搭載的是 NVIDIA GeForce RTX 5070 Ti Laptop GPU。\n*   **VRAM 記憶體**：該版本配備 **12GB GDDR7** 顯示記憶體，這對於跑 Stable Diffusion（尤其是使用 SDXL 或更高畫質模型時）通常已屬主流規格，足以滿足日常生成需求。\n\n因此，您可以放心使用 BXH 版進行 Stable Diffusion 的運算與生成。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-043",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": false,
+        "answer": "根據您提供的產品規格，針對 Unreal Engine 開發多開 VM 的需求，分析如下：\n\n**1. RAM (記憶體) 評估：**\n*   **最大容量：** 64GB。\n*   **類型與頻率：** DDR5 @ 5600MHz。\n*   **結論：** **足夠**。Unreal Engine 的開發環境（特別是多開 VM）通常需要大量的記憶體來處理遊戲資源、模擬器載入及編譯效能。64GB 的容量對於現代 Unreal Engine 5 的多開場景完全夠用，且 DDR5 5600MHz 的頻率能提供良好的效能與穩定性。\n\n**2. CPU (處理器) 評估：**\n*   **型號：** Intel Core Ultra 9 Processor 275HX。\n*   **核心數/執行緒：** 24 核 / 24 執行緒。\n*   **最高時脈：** up to 5.4 GHz。\n*   **結論：** **非常足夠**。Unreal Engine 的編譯與渲染效能高度依賴 CPU 的多核心處理能力。該處理器擁有 24 個核心，且支援 24 條執行緒，這對於同時運行多個 VM、進行資源管理以及編譯大型遊戲項目來說，性能表現優異，足以應對高負載開發需求。\n\n**總結建議：**\n您的 **64GB DDR5 RAM** 與 **Intel Core Ultra 9 275HX CPU** 在處理 Unreal Engine 多開 VM 的場景下，均具備足夠的性能容量與效能，適合進行專業級開發工作。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-044",
+        "type": "workload",
+        "lang": "zh",
+        "query": "攝影師修 RAW 檔，色域跟效能夠嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，**無法確認**該筆記型電腦是否支援攝影師修 RAW 檔所需的色域與效能。\n\n原因如下：\n1. **未提及影像處理功能**：提供的文字僅列出了「視訊鏡頭 Webcam: FHD (1080p) IR Webcam」及相關硬體特性（陣列麥克風、Windows Hello Face Authentication），並未說明內建影像處理器或支援 RAW 檔案格式。\n2. **無效能規格**：資料中未提供 CPU/GPU 等影響修圖效能的具體數值，因此無法判斷其色域與處理能力是否適合專業攝影師使用。\n\n若您需確認此資訊，建議您查詢該機型的完整規格書或參照同系列其他產品（如 AORUS MASTER 16 AM6H）以獲取更詳細的影像支援說明。",
+        "refused": true,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-045",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "這台現在賣多少錢？",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row02-BXH",
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": null,
+        "answer": "根據您提供的規格資訊，這份資料僅包含硬體參數（如 CPU、GPU 型號、重量等），並**未提及售價或價格**。\n\n因此，無法從此內容得知這台筆記型電腦現在賣多少錢。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-046",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How many hours does the battery last when browsing the web?",
+        "expect_refusal": true,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": null,
+        "answer": "Based on the provided context, there is no information regarding how many hours the battery lasts when browsing the web. The product specifications only state that the capacity is 99Wh and it uses Li-ion technology.",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-047",
+        "type": "unanswerable",
+        "lang": "mixed",
+        "query": "滿載的時候風扇 noise 大概幾 dB",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row08-all",
+          "row14-all"
+        ],
+        "context_ok": null,
+        "answer": "根據提供的規格資料，**無法回答**「滿載時風扇噪音大概幾 dB」的資訊。\n\n原因如下：\n1.  **未提供噪音數據**：在給出的規格清單中（喇叭、CPU、尺寸），僅列出了硬體參數與功能特性（如 Dolby Atmos、Smart Amp Technology），並未包含關於風扇轉速或噪音分貝（dB）的測試數據。\n2.  **無環境條件說明**：即使有噪音數據，通常也需配合「靜音模式」、「遊戲模式」或特定使用環境（如桌面/移動）來區分，而此處未提供相關設定選項。\n\n因此，產品資料中確實沒有關於滿載時風扇噪音數值的資訊。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-048",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "打遊戲的時候 GPU 會跑到幾度？",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": null,
+        "answer": "根據提供的規格資料，關於 GPU 運轉溫度（即您所指的「幾度」）的資訊並**未提供**。\n\n該產品僅列出了顯示晶片（GPU）的型號、顯存容量、最大功耗（TGP）以及加速時脈等硬體規格。若要得知實際遊戲時的運行溫度，通常需要參考該機型的官方測試數據或用戶評測報告。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-049",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How much does the 330W power brick weigh?",
+        "expect_refusal": true,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": null,
+        "answer": "The provided context does not contain information regarding the weight of the power brick.",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-050",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "保固是幾年？",
+        "expect_refusal": true,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": null,
+        "answer": "根據提供的規格資料，**未提及產品的保固年限**。\n\n該段落僅列出了儲存裝置（Storage）的規格資訊：\n- M.2 插槽 Slot: 1x PCIe Gen5 M.2 slot\n- M.2 插槽 Slot: 1x PCIe Gen4x4 M.2 slots\n- 最大容量 Max capacity: Up to 4TB PCIe NVMe M.2 SSD\n\n若需確認保固年限，建議您直接聯繫當地經銷商或零售商取得最新資訊。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      }
+    ]
+  },
+  "+dense_union": {
+    "summary": {
+      "context_recall": 0.727,
+      "context_recall_by_type": {
+        "compatibility": 0.9,
+        "multi_field": 0.5,
+        "single_field": 1.0,
+        "sku": 1.0,
+        "workload": 0.25
+      },
+      "avg_context_chunks": 2.045
+    },
+    "rows": [
+      {
+        "id": "qa-001",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "這台螢幕刷新率多高？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-002",
+        "type": "single_field",
+        "lang": "en",
+        "query": "How heavy is it?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-003",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "電池是幾瓦時的",
+        "expect_refusal": false,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-004",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "CPU 是哪一顆？",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-005",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "記億體最大可以加到多少",
+        "expect_refusal": false,
+        "context": [
+          "row02-BZH",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-006",
+        "type": "single_field",
+        "lang": "en",
+        "query": "what wifi does it have",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-007",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "鍵盤背光是什麼樣的？",
+        "expect_refusal": false,
+        "context": [
+          "row06-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-008",
+        "type": "single_field",
+        "lang": "en",
+        "query": "What colour is the chassis?",
+        "expect_refusal": false,
+        "context": [
+          "row14-all",
+          "row16-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-009",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "變壓器 wattage 多少",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-010",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "出廠預載什麼作業系統",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-011",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "視訊鏡頭解析度多少？喇叭是什麼配置？",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-012",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What are its width and weight?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-013",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-014",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "電池容量跟變壓器功率各是多少",
+        "expect_refusal": false,
+        "context": [
+          "row12-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-015",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What M.2 slots does it have, and how much RAM can it take?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-016",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "螢幕多大？機身最厚的地方幾 mm？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row14-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-017",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "Windows Hello 臉部辨識跟 TPM 都有嗎",
+        "expect_refusal": false,
+        "context": [
+          "row10-all",
+          "row11-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-018",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-019",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-020",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "CPU 幾核心？RAM 是什麼規格",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-021",
+        "type": "sku",
+        "lang": "zh",
+        "query": "5080 版顯存幾 G",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-022",
+        "type": "sku",
+        "lang": "en",
+        "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-023",
+        "type": "sku",
+        "lang": "mixed",
+        "query": "三個 SKU 的 VRAM 各是多少？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-024",
+        "type": "sku",
+        "lang": "zh",
+        "query": "每個版本的 CPU 都一樣嗎？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-025",
+        "type": "sku",
+        "lang": "en",
+        "query": "What's the AI Boost clock on the BYH?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-026",
+        "type": "sku",
+        "lang": "zh",
+        "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-027",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "藍牙滑鼠可以直接連嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-028",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I add a second PCIe Gen4 NVMe SSD?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-029",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-030",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？",
+        "expect_refusal": false,
+        "context": [
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-031",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I charge it with a USB-C PD charger?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-032",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "相機用的 UHS-II microSD 卡讀得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-033",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔",
+        "expect_refusal": false,
+        "context": [
+          "row05-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-034",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-035",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-036",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎",
+        "expect_refusal": false,
+        "context": [
+          "row08-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-037",
+        "type": "workload",
+        "lang": "zh",
+        "query": "剪 4K 影片夠力嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH",
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-038",
+        "type": "workload",
+        "lang": "en",
+        "query": "Is it good for Blender Cycles rendering?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-039",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all",
+          "row02-BZH",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-040",
+        "type": "workload",
+        "lang": "zh",
+        "query": "玩 3A 大作開高畫質會順嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all",
+          "row02-BXH",
+          "row02-BZH",
+          "row14-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-041",
+        "type": "workload",
+        "lang": "en",
+        "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row04-all",
+          "row05-all",
+          "row06-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-042",
+        "type": "workload",
+        "lang": "zh",
+        "query": "BXH 跑 Stable Diffusion 夠用嗎",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-043",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row02-BYH",
+          "row02-BZH",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-044",
+        "type": "workload",
+        "lang": "zh",
+        "query": "攝影師修 RAW 檔，色域跟效能夠嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-045",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "這台現在賣多少錢？",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row02-BXH",
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-046",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How many hours does the battery last when browsing the web?",
+        "expect_refusal": true,
+        "context": [
+          "row09-all",
+          "row12-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-047",
+        "type": "unanswerable",
+        "lang": "mixed",
+        "query": "滿載的時候風扇 noise 大概幾 dB",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row08-all",
+          "row14-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-048",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "打遊戲的時候 GPU 會跑到幾度？",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-049",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How much does the 330W power brick weigh?",
+        "expect_refusal": true,
+        "context": [
+          "row13-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-050",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "保固是幾年？",
+        "expect_refusal": true,
+        "context": [
+          "row00-all",
+          "row05-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      }
+    ]
+  },
+  "+perf_chunk": {
+    "summary": {
+      "context_recall": 0.727,
+      "context_recall_by_type": {
+        "compatibility": 0.8,
+        "multi_field": 0.3,
+        "single_field": 1.0,
+        "sku": 1.0,
+        "workload": 0.625
+      },
+      "avg_context_chunks": 1.568
+    },
+    "rows": [
+      {
+        "id": "qa-001",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "這台螢幕刷新率多高？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-002",
+        "type": "single_field",
+        "lang": "en",
+        "query": "How heavy is it?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-003",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "電池是幾瓦時的",
+        "expect_refusal": false,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-004",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "CPU 是哪一顆？",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-005",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "記億體最大可以加到多少",
+        "expect_refusal": false,
+        "context": [
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-006",
+        "type": "single_field",
+        "lang": "en",
+        "query": "what wifi does it have",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-007",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "鍵盤背光是什麼樣的？",
+        "expect_refusal": false,
+        "context": [
+          "row06-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-008",
+        "type": "single_field",
+        "lang": "en",
+        "query": "What colour is the chassis?",
+        "expect_refusal": false,
+        "context": [
+          "row16-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-009",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "變壓器 wattage 多少",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-010",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "出廠預載什麼作業系統",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-011",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "視訊鏡頭解析度多少？喇叭是什麼配置？",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-012",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What are its width and weight?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-013",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-014",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "電池容量跟變壓器功率各是多少",
+        "expect_refusal": false,
+        "context": [
+          "row12-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-015",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What M.2 slots does it have, and how much RAM can it take?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-016",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "螢幕多大？機身最厚的地方幾 mm？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row14-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-017",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "Windows Hello 臉部辨識跟 TPM 都有嗎",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-018",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-019",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-020",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "CPU 幾核心？RAM 是什麼規格",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-021",
+        "type": "sku",
+        "lang": "zh",
+        "query": "5080 版顯存幾 G",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-022",
+        "type": "sku",
+        "lang": "en",
+        "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-023",
+        "type": "sku",
+        "lang": "mixed",
+        "query": "三個 SKU 的 VRAM 各是多少？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-024",
+        "type": "sku",
+        "lang": "zh",
+        "query": "每個版本的 CPU 都一樣嗎？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-025",
+        "type": "sku",
+        "lang": "en",
+        "query": "What's the AI Boost clock on the BYH?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-026",
+        "type": "sku",
+        "lang": "zh",
+        "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-027",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "藍牙滑鼠可以直接連嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-028",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I add a second PCIe Gen4 NVMe SSD?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-029",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-030",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？",
+        "expect_refusal": false,
+        "context": [
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-031",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I charge it with a USB-C PD charger?",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-032",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "相機用的 UHS-II microSD 卡讀得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-033",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-034",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-035",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-036",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎",
+        "expect_refusal": false,
+        "context": [
+          "row08-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-037",
+        "type": "workload",
+        "lang": "zh",
+        "query": "剪 4K 影片夠力嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-038",
+        "type": "workload",
+        "lang": "en",
+        "query": "Is it good for Blender Cycles rendering?",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-039",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-040",
+        "type": "workload",
+        "lang": "zh",
+        "query": "玩 3A 大作開高畫質會順嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row00-all",
+          "row14-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-041",
+        "type": "workload",
+        "lang": "en",
+        "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-042",
+        "type": "workload",
+        "lang": "zh",
+        "query": "BXH 跑 Stable Diffusion 夠用嗎",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-043",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-044",
+        "type": "workload",
+        "lang": "zh",
+        "query": "攝影師修 RAW 檔，色域跟效能夠嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-045",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "這台現在賣多少錢？",
+        "expect_refusal": true,
+        "context": [
+          "perf",
+          "row01-all",
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-046",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How many hours does the battery last when browsing the web?",
+        "expect_refusal": true,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-047",
+        "type": "unanswerable",
+        "lang": "mixed",
+        "query": "滿載的時候風扇 noise 大概幾 dB",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row08-all",
+          "row14-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-048",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "打遊戲的時候 GPU 會跑到幾度？",
+        "expect_refusal": true,
+        "context": [
+          "perf"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-049",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How much does the 330W power brick weigh?",
+        "expect_refusal": true,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-050",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "保固是幾年？",
+        "expect_refusal": true,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": null
+      }
+    ]
+  },
+  "+subqueries": {
+    "summary": {
+      "context_recall": 0.75,
+      "context_recall_by_type": {
+        "compatibility": 0.8,
+        "multi_field": 0.8,
+        "single_field": 1.0,
+        "sku": 1.0,
+        "workload": 0.125
+      },
+      "avg_context_chunks": 2.0
+    },
+    "rows": [
+      {
+        "id": "qa-001",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "這台螢幕刷新率多高？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-002",
+        "type": "single_field",
+        "lang": "en",
+        "query": "How heavy is it?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-003",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "電池是幾瓦時的",
+        "expect_refusal": false,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-004",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "CPU 是哪一顆？",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-005",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "記億體最大可以加到多少",
+        "expect_refusal": false,
+        "context": [
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-006",
+        "type": "single_field",
+        "lang": "en",
+        "query": "what wifi does it have",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-007",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "鍵盤背光是什麼樣的？",
+        "expect_refusal": false,
+        "context": [
+          "row06-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-008",
+        "type": "single_field",
+        "lang": "en",
+        "query": "What colour is the chassis?",
+        "expect_refusal": false,
+        "context": [
+          "row16-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-009",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "變壓器 wattage 多少",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-010",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "出廠預載什麼作業系統",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-011",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "視訊鏡頭解析度多少？喇叭是什麼配置？",
+        "expect_refusal": false,
+        "context": [
+          "row08-all",
+          "row10-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-012",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What are its width and weight?",
+        "expect_refusal": false,
+        "context": [
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-013",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-014",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "電池容量跟變壓器功率各是多少",
+        "expect_refusal": false,
+        "context": [
+          "row12-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-015",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What M.2 slots does it have, and how much RAM can it take?",
+        "expect_refusal": false,
+        "context": [
+          "row04-all",
+          "row05-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-016",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "螢幕多大？機身最厚的地方幾 mm？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row14-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-017",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "Windows Hello 臉部辨識跟 TPM 都有嗎",
+        "expect_refusal": false,
+        "context": [
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-018",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-019",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-020",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "CPU 幾核心？RAM 是什麼規格",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-021",
+        "type": "sku",
+        "lang": "zh",
+        "query": "5080 版顯存幾 G",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-022",
+        "type": "sku",
+        "lang": "en",
+        "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-023",
+        "type": "sku",
+        "lang": "mixed",
+        "query": "三個 SKU 的 VRAM 各是多少？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-024",
+        "type": "sku",
+        "lang": "zh",
+        "query": "每個版本的 CPU 都一樣嗎？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-025",
+        "type": "sku",
+        "lang": "en",
+        "query": "What's the AI Boost clock on the BYH?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-026",
+        "type": "sku",
+        "lang": "zh",
+        "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-027",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "藍牙滑鼠可以直接連嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-028",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I add a second PCIe Gen4 NVMe SSD?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-029",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-030",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？",
+        "expect_refusal": false,
+        "context": [
+          "row04-all",
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-031",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I charge it with a USB-C PD charger?",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-032",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "相機用的 UHS-II microSD 卡讀得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-033",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-034",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-035",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row09-all",
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-036",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎",
+        "expect_refusal": false,
+        "context": [
+          "row08-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-037",
+        "type": "workload",
+        "lang": "zh",
+        "query": "剪 4K 影片夠力嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH",
+          "row10-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-038",
+        "type": "workload",
+        "lang": "en",
+        "query": "Is it good for Blender Cycles rendering?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-039",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all",
+          "row05-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-040",
+        "type": "workload",
+        "lang": "zh",
+        "query": "玩 3A 大作開高畫質會順嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row00-all",
+          "row14-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-041",
+        "type": "workload",
+        "lang": "en",
+        "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row04-all",
+          "row05-all",
+          "row06-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-042",
+        "type": "workload",
+        "lang": "zh",
+        "query": "BXH 跑 Stable Diffusion 夠用嗎",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-043",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎",
+        "expect_refusal": false,
+        "context": [
+          "row01-all",
+          "row02-BZH",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-044",
+        "type": "workload",
+        "lang": "zh",
+        "query": "攝影師修 RAW 檔，色域跟效能夠嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row08-all",
+          "row10-all",
+          "row16-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-045",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "這台現在賣多少錢？",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row02-BXH",
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-046",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How many hours does the battery last when browsing the web?",
+        "expect_refusal": true,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-047",
+        "type": "unanswerable",
+        "lang": "mixed",
+        "query": "滿載的時候風扇 noise 大概幾 dB",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row08-all",
+          "row14-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-048",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "打遊戲的時候 GPU 會跑到幾度？",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-049",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How much does the 330W power brick weigh?",
+        "expect_refusal": true,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-050",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "保固是幾年？",
+        "expect_refusal": true,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": null
+      }
+    ]
+  },
+  "+union+perf+subq": {
+    "summary": {
+      "context_recall": 0.932,
+      "context_recall_by_type": {
+        "compatibility": 0.9,
+        "multi_field": 1.0,
+        "single_field": 1.0,
+        "sku": 1.0,
+        "workload": 0.75
+      },
+      "avg_context_chunks": 2.045
+    },
+    "rows": [
+      {
+        "id": "qa-001",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "這台螢幕刷新率多高？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-002",
+        "type": "single_field",
+        "lang": "en",
+        "query": "How heavy is it?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-003",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "電池是幾瓦時的",
+        "expect_refusal": false,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-004",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "CPU 是哪一顆？",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-005",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "記億體最大可以加到多少",
+        "expect_refusal": false,
+        "context": [
+          "row02-BZH",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-006",
+        "type": "single_field",
+        "lang": "en",
+        "query": "what wifi does it have",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-007",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "鍵盤背光是什麼樣的？",
+        "expect_refusal": false,
+        "context": [
+          "row06-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-008",
+        "type": "single_field",
+        "lang": "en",
+        "query": "What colour is the chassis?",
+        "expect_refusal": false,
+        "context": [
+          "row14-all",
+          "row16-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-009",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "變壓器 wattage 多少",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-010",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "出廠預載什麼作業系統",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-011",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "視訊鏡頭解析度多少？喇叭是什麼配置？",
+        "expect_refusal": false,
+        "context": [
+          "row08-all",
+          "row10-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-012",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What are its width and weight?",
+        "expect_refusal": false,
+        "context": [
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-013",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-014",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "電池容量跟變壓器功率各是多少",
+        "expect_refusal": false,
+        "context": [
+          "row12-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-015",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What M.2 slots does it have, and how much RAM can it take?",
+        "expect_refusal": false,
+        "context": [
+          "row04-all",
+          "row05-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-016",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "螢幕多大？機身最厚的地方幾 mm？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row14-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-017",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "Windows Hello 臉部辨識跟 TPM 都有嗎",
+        "expect_refusal": false,
+        "context": [
+          "row10-all",
+          "row11-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-018",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-019",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-020",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "CPU 幾核心？RAM 是什麼規格",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-021",
+        "type": "sku",
+        "lang": "zh",
+        "query": "5080 版顯存幾 G",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-022",
+        "type": "sku",
+        "lang": "en",
+        "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-023",
+        "type": "sku",
+        "lang": "mixed",
+        "query": "三個 SKU 的 VRAM 各是多少？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-024",
+        "type": "sku",
+        "lang": "zh",
+        "query": "每個版本的 CPU 都一樣嗎？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row01-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-025",
+        "type": "sku",
+        "lang": "en",
+        "query": "What's the AI Boost clock on the BYH?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-026",
+        "type": "sku",
+        "lang": "zh",
+        "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-027",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "藍牙滑鼠可以直接連嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-028",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I add a second PCIe Gen4 NVMe SSD?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-029",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-030",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？",
+        "expect_refusal": false,
+        "context": [
+          "row04-all",
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-031",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I charge it with a USB-C PD charger?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row13-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-032",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "相機用的 UHS-II microSD 卡讀得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-033",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔",
+        "expect_refusal": false,
+        "context": [
+          "row05-all",
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-034",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-035",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row09-all",
+          "row15-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-036",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎",
+        "expect_refusal": false,
+        "context": [
+          "row08-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-037",
+        "type": "workload",
+        "lang": "zh",
+        "query": "剪 4K 影片夠力嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-038",
+        "type": "workload",
+        "lang": "en",
+        "query": "Is it good for Blender Cycles rendering?",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-039",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row00-all",
+          "row02-BZH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-040",
+        "type": "workload",
+        "lang": "zh",
+        "query": "玩 3A 大作開高畫質會順嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row00-all",
+          "row14-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-041",
+        "type": "workload",
+        "lang": "en",
+        "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row02-BXH"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-042",
+        "type": "workload",
+        "lang": "zh",
+        "query": "BXH 跑 Stable Diffusion 夠用嗎",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-043",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": true
+      },
+      {
+        "id": "qa-044",
+        "type": "workload",
+        "lang": "zh",
+        "query": "攝影師修 RAW 檔，色域跟效能夠嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row10-all",
+          "row16-all"
+        ],
+        "context_ok": false
+      },
+      {
+        "id": "qa-045",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "這台現在賣多少錢？",
+        "expect_refusal": true,
+        "context": [
+          "perf",
+          "row01-all",
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-046",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How many hours does the battery last when browsing the web?",
+        "expect_refusal": true,
+        "context": [
+          "row09-all",
+          "row12-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-047",
+        "type": "unanswerable",
+        "lang": "mixed",
+        "query": "滿載的時候風扇 noise 大概幾 dB",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row08-all",
+          "row14-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-048",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "打遊戲的時候 GPU 會跑到幾度？",
+        "expect_refusal": true,
+        "context": [
+          "perf",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-049",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How much does the 330W power brick weigh?",
+        "expect_refusal": true,
+        "context": [
+          "row13-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      },
+      {
+        "id": "qa-050",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "保固是幾年？",
+        "expect_refusal": true,
+        "context": [
+          "row00-all",
+          "row05-all",
+          "row15-all"
+        ],
+        "context_ok": null
+      }
+    ]
+  },
+  "full (+prompt)": {
+    "summary": {
+      "context_recall": 0.932,
+      "context_recall_by_type": {
+        "compatibility": 0.9,
+        "multi_field": 1.0,
+        "single_field": 1.0,
+        "sku": 1.0,
+        "workload": 0.75
+      },
+      "avg_context_chunks": 2.045,
+      "answer_accuracy": 0.909,
+      "answer_accuracy_by_type": {
+        "compatibility": 0.9,
+        "multi_field": 0.9,
+        "single_field": 1.0,
+        "sku": 0.833,
+        "workload": 0.875
+      },
+      "answer_accuracy_by_lang": {
+        "zh": 0.857,
+        "en": 1.0,
+        "mixed": 0.9
+      },
+      "unanswerable_refusal": 0.833,
+      "unanswered_rate": 0.045
+    },
+    "rows": [
+      {
+        "id": "qa-001",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "這台螢幕刷新率多高？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all"
+        ],
+        "context_ok": true,
+        "answer": "根據產品規格，這台螢幕的刷新率為 **240Hz**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-002",
+        "type": "single_field",
+        "lang": "en",
+        "query": "How heavy is it?",
+        "expect_refusal": false,
+        "context": [
+          "row15-all"
+        ],
+        "context_ok": true,
+        "answer": "The weight of the GIGABYTE AORUS MASTER 16 AM6H notebook is approximately **2.5 kg**.\n\nNote: The actual weight may vary slightly depending on the configuration, manufacturing process, and measurement method.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-003",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "電池是幾瓦時的",
+        "expect_refusal": false,
+        "context": [
+          "row12-all"
+        ],
+        "context_ok": true,
+        "answer": "根據產品規格，本機電池容量為 **99Wh**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-004",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "CPU 是哪一顆？",
+        "expect_refusal": false,
+        "context": [
+          "row01-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，本機（GIGABYTE AORUS MASTER 16 AM6H）的中央處理器（CPU）型號為：\n\n**Intel Core Ultra 9 Processor 275HX**",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-005",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "記億體最大可以加到多少",
+        "expect_refusal": false,
+        "context": [
+          "row02-BZH",
+          "row04-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，本機（GIGABYTE AORUS MASTER 16 AM6H）的記憶體最大容量為 **64GB**。\n\n此資訊適用於全系列產品（All SKUs），且目前僅支援 DDR5 類型。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-006",
+        "type": "single_field",
+        "lang": "en",
+        "query": "what wifi does it have",
+        "expect_refusal": false,
+        "context": [
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, this product has **WIFI 7** (802.11be 2x2).",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-007",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "鍵盤背光是什麼樣的？",
+        "expect_refusal": false,
+        "context": [
+          "row06-all"
+        ],
+        "context_ok": true,
+        "answer": "根據產品規格，本機鍵盤背光是 **3-zone RGB Backlit**（三區 RGB 背光）。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-008",
+        "type": "single_field",
+        "lang": "en",
+        "query": "What colour is the chassis?",
+        "expect_refusal": false,
+        "context": [
+          "row14-all",
+          "row16-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, the chassis color is **Dark Tide**.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-009",
+        "type": "single_field",
+        "lang": "mixed",
+        "query": "變壓器 wattage 多少",
+        "expect_refusal": false,
+        "context": [
+          "row13-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，本機變壓器的功率（Wattage）為 **330W**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-010",
+        "type": "single_field",
+        "lang": "zh",
+        "query": "出廠預載什麼作業系統",
+        "expect_refusal": false,
+        "context": [
+          "row00-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資訊，本機（GIGABYTE AORUS MASTER 16 AM6H）出廠預載的作業系統為：\n\n*   **Windows 11 Pro**\n    *   註解：GIGABYTE 建議使用 Windows 11 Pro。\n*   **Windows 11 Home**\n*   **UEFI Shell OS**",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-011",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "視訊鏡頭解析度多少？喇叭是什麼配置？",
+        "expect_refusal": false,
+        "context": [
+          "row08-all",
+          "row10-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，本機（GIGABYTE AORUS MASTER 16 AM6H）的相關資訊如下：\n\n**1. 視訊鏡頭解析度：**\n*   **解析度：** FHD (1080p)\n*   **說明：** 支援 IR 夜視功能。\n\n**2. 喇叭配置：**\n*   **數量與功率：\n*   **音效技術：** 支援 Dolby Atmos 及 Smart Amp Technology。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": false
+      },
+      {
+        "id": "qa-012",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What are its width and weight?",
+        "expect_refusal": false,
+        "context": [
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context:\n\n*   **Width (W):** 357 mm\n*   **Weight:** ~2.5 kg",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-013",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row13-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料：\n\n1.  **關於 TB5 孔支援 PD 充電**：\n    *   在「連接埠 / I/O Port」的右側列表中，標註為 **「Type-C with Thunderbolt4」** 的孔（即 TB5 孔）。\n    *   該項目的描述明確指出其支援功能包括：USB4、DisplayPort 1.4 與 **Power Delivery 3.0**。\n    *   因此，TB5 孔確實支援 PD (PD 3.0) 充電。\n\n2.  **關於原廠變壓器功率**：\n    *   在「變壓器 / Adapter」一欄中，明確標示為 **「全系列相同 All SKUs」**。\n    *   對應的功率數值為：**330W**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-014",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "電池容量跟變壓器功率各是多少",
+        "expect_refusal": false,
+        "context": [
+          "row12-all",
+          "row13-all"
+        ],
+        "context_ok": true,
+        "answer": "根據產品規格，本機（GIGABYTE AORUS MASTER 16 AM6H）的相關數據如下：\n\n*   **電池容量**：99Wh\n    *   資料標示為「全系列相同」，因此所有版本（BZH / BYH / BXH）均為此數值。\n*   **變壓器功率**：330W\n    *   資料標示為「全系列相同」，因此所有版本（BZH / BYH / BXH）均為此數值。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-015",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "What M.2 slots does it have, and how much RAM can it take?",
+        "expect_refusal": false,
+        "context": [
+          "row04-all",
+          "row05-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, here are the specifications:\n\n**M.2 Slots:**\n*   1x PCIe Gen5 M.2 slot\n*   1x PCIe Gen4x4 M.2 slots (Total of 2)\n\n**Maximum RAM Capacity:**\n*   Up to 64GB DDR5",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-016",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "螢幕多大？機身最厚的地方幾 mm？",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row14-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料：\n\n1.  **螢幕尺寸**：\n    *   螢幕尺寸為 **16吋**。\n    *   解析度為 2560×1600，更新率為 240Hz。\n\n2.  **機身最厚的地方**：\n    *   機身高度 (Height) 規格標示為 **23~29.9 mm**。\n    *   因此，機身最厚的地方是 **29.9 mm**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-017",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "Windows Hello 臉部辨識跟 TPM 都有嗎",
+        "expect_refusal": false,
+        "context": [
+          "row10-all",
+          "row11-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料：\n\n1.  **Windows Hello 臉部辨識**：\n    *   規格項目：【視訊鏡頭 / Webcam（全系列相同 All SKUs）】\n    *   數值/說明：支援「Support Windows Hello Face Authentication」。\n    *   回答：**有**。本機全系列皆支援此功能。\n\n2.  **TPM (Trusted Platform Module)**：\n    *   規格項目：【安全裝置 / Security（全系列相同 All SKUs）】\n    *   數值/說明：具備「Firmware-based TPM」。\n    *   回答：**有**。本機全系列皆搭載基於固件的 TPM。\n\n**總結**：Windows Hello 臉部辨識與 TPM 功能在本機上均有支援，且為「全系列相同」的規格。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-018",
+        "type": "multi_field",
+        "lang": "en",
+        "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context:\n\n*   **Bluetooth Version:** The device uses Bluetooth v5.4.\n*   **Audio Jack Type:** Yes, it supports a headset combo (specifically listed as \"Audio Jack support mic / headphone combo\").",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-019",
+        "type": "multi_field",
+        "lang": "zh",
+        "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料：\n\n1.  **左邊 HDMI 版本**：\n    *   在【連接埠 / I/O Port】的「Left Side」列表中，明確標示為：**HDMI 2.1**。\n\n2.  **螢幕原生解析度**：\n    *   在【顯示器 / Display（全系列相同 All SKUs）】的規格中，標示為：**2560×1600**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-020",
+        "type": "multi_field",
+        "lang": "mixed",
+        "query": "CPU 幾核心？RAM 是什麼規格",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，回答如下：\n\n**CPU 核心數：**\n*   **核心數 (Cores)：** 24 cores\n*   **執行緒 (Threads)：** 24 threads\n\n**RAM 規格：**\n*   **最大容量 (Max capacity)：** Up to 64GB\n*   **類型 (Type)：** DDR5\n*   **頻率 (Speed)：** 5600MHz\n*   **插槽數量：** 2x SO-DIMM sockets for expansion\n\n*(註：資料標示「全系列相同 All SKUs」，故 BZH、BYH、BXH 三個版本在 CPU 核心數與 RAM 規格上均一致。)*",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-021",
+        "type": "sku",
+        "lang": "zh",
+        "query": "5080 版顯存幾 G",
+        "expect_refusal": false,
+        "context": [
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，5080 版（BYH 版）的顯示記憶體 VRAM 為 **16GB GDDR7**。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-022",
+        "type": "sku",
+        "lang": "en",
+        "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "No, the 5070 Ti model does not get the same max graphics power as the 5090 model.\n\nAccording to the specifications provided:\n*   **AORUS MASTER 16 BZH (5090 model):** Maximum Graphics Power with Dynamic Boost is **175W**.\n*   **AORUS MASTER 16 BXH (5070 Ti model):** Maximum Graphics Power with Dynamic Boost is **140W**.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-023",
+        "type": "sku",
+        "lang": "mixed",
+        "query": "三個 SKU 的 VRAM 各是多少？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據產品規格，三個 SKU 的顯示記憶體 VRAM 分別如下：\n\n*   **BZH 版**：24GB GDDR7\n*   **BYH 版**：16GB GDDR7\n*   **BXH 版**：12GB GDDR7",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-024",
+        "type": "sku",
+        "lang": "zh",
+        "query": "每個版本的 CPU 都一樣嗎？",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row01-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，**所有版本的 CPU 都一樣**。\n\n*   **型號**：Intel Core Ultra 9 Processor 275HX\n*   **核心數與執行緒**：24 cores / 24 threads\n*   **快取 Cache**：36MB cache\n*   **最高時脈 (Max clock)**：up to 5.4 GHz\n\n資料中明確標示「全系列 All SKUs」，因此 CPU 的規格在三種配置（BZH、BYH、BXH）之間完全相同。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-025",
+        "type": "sku",
+        "lang": "en",
+        "query": "What's the AI Boost clock on the BYH?",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "perf",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, the AI Boost clock for the **BYH** (AORUS MASTER 16 BYH) configuration is **1902 MHz**.\n\nThis value includes a 200 MHz overclock over the base boost clock of 1702 MHz.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-026",
+        "type": "sku",
+        "lang": "zh",
+        "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別",
+        "expect_refusal": false,
+        "context": [
+          "lineup",
+          "row02-BXH",
+          "row02-BYH",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，AORUS MASTER 16 AM6H 筆記型電腦的 BZH 版與 BYH 版在**顯示晶片（GPU）**、**顯存容量**以及**最大功耗**上完全相同。\n\n兩者唯一的差別在於**加速時脈（Boost Clock）**：\n*   **BZH 版**：AI Boost 為 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)。\n*   **BYH 版**：AI Boost 為 1902 MHz (1702 MHz Boost Clock + 200 MHz OC)。\n\n因此，\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": false
+      },
+      {
+        "id": "qa-027",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "藍牙滑鼠可以直接連嗎？",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row09-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，本機支援 **藍牙 v5.4** 的連接埠（Bluetooth）。\n\n因此，只要您的滑鼠是符合藍牙 v5.4 標準的設備，就可以直接連接到本機的藍牙功能。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-028",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I add a second PCIe Gen4 NVMe SSD?",
+        "expect_refusal": false,
+        "context": [
+          "row05-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, **no**, you cannot add a second PCIe Gen4 NVMe SSD.\n\nThe specification explicitly states:\n*   **\"1x PCIe Gen5 M.2 slot\"** (Note: The text mentions \"Gen5\" in one line but lists \"PCIe Gen4x4\" for the other slot; however, neither allows for an additional drive).\n*   **\"1x PCIe Gen4x4 M.2 slots\"**\n\nThe product only provides **one** M.2 slot total, and it is already configured as a single unit (either Gen5 or Gen4x4), leaving no space for another SSD.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-029",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎",
+        "expect_refusal": false,
+        "context": [
+          "row03-all",
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，本機支援 **HDMI 2.1**（位於左側介面），因此可以連接 HDMI 線。\n\n不過，要達到您提到的「4K 144Hz」效果，僅有 HDMI 接口還不夠，因為：\n1.  **解析度限制**：本機支援的解析度最高為 **2560×1600**（即 QHD），若要顯示 4K 畫面，需搭配外接螢幕或轉接器將訊號轉換後再輸入本機。\n2.  **刷新率限制**：雖然 HDMI 介面本身支援最高至 240Hz（本機規格），但實際能達到的 144Hz 取決於您使用的 HDMI 線品質、外接螢幕的支援度以及系統設定，並非單純由 HDMI 接口決定。\n\n**結論：**\n*   **可以連接**：可以使用 HDMI 線連接。\n*   **畫質與效能**：本機無法直接輸出 4K 解析度或穩定達到 144Hz（需配合外接設備），且螢幕本身為 2560×1600 規格，非原生 4K。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-030",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？",
+        "expect_refusal": false,
+        "context": [
+          "row04-all",
+          "row15-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，可以回答以下問題：\n\n1.  **是否可以加裝 DDR5 SO-DIMM 記憶體？**\n    *   **可以**。在「最大容量 Max capacity」一欄明確註明為「Up to 64GB」，且下方註釋指出有「2x SO-DIMM sockets for expansion」（2 個 SO-DIMM 插槽用於擴展）。這表示該筆記型電腦支援外接記憶體模組。\n\n2.  **最多可以加裝到多少容量？**\n    *   **64 GB**。規格中明確標示最大容量為「Up to 64GB」。\n\n**補充資訊：**\n*   目前本機預設的系統記憶體頻率為 DDR5 5600MHz。請在加裝前確認其頻率是否與主機板相容，以免導致無法啟動或效能下降。\n*   由於本機重量約為 2.5 kg，且屬於筆記型電腦，建議您購買時注意體積大小（如 16GB、並確保加裝後不會影響筆電的正常使用與散熱性能。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-031",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Can I charge it with a USB-C PD charger?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all",
+          "row13-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the provided context, **yes**, you can charge it with a USB-C PD charger.\n\nThe specifications list the following ports:\n*   **Type-C with Thunderbolt5**: This port supports **Power Delivery 3.0**.\n*   **Type-C with Thunderbolt4**: This port also supports **Power Delivery 3.0**.\n\nSince both available Type-C ports support Power Delivery 3.0, they are compatible with USB-C PD chargers.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-032",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "相機用的 UHS-II microSD 卡讀得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格，本機右側支援 **1 x MicroSD (UHS-II)** 讀卡機介面。\n\n因此，**可以**使用符合 UHS-II 標準的 microSD 卡進行讀取操作。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-033",
+        "type": "compatibility",
+        "lang": "mixed",
+        "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔",
+        "expect_refusal": false,
+        "context": [
+          "row05-all",
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，**無法直接外接 Thunderbolt 5 SSD**。\n\n原因如下：\n1. **介面限制**：本機右側的 Type-C 埠支援的是「Thunderbolt4」，而非 Thunderbolt5。\n2. **插槽數量**：本機僅有一個 M.2 插槽（PCIe Gen5），且該插槽目前只支援 PCIe Gen5 M.2 SSD，無法同時滿足外接盒對多個介面或特定 SSD 的兼容需求。\n\n**建議方案：**\n若要使用 Thunderbolt 5 SSD，您需要購買並連接 **Thunderbolt 5 轉接器**。雖然本機本身沒有直接支援此介面，但您可以透過以下方式解決：\n*   將 SSD 插入 M.2 插槽（需確認 SSD 為 PCIe Gen5 規格）。\n*   使用外接的 Thunderbolt 5 轉接器連接至本機的 Type-C 埠。\n\n**注意**：由於本機右側 Type-C 僅支援 Thunderbolt4，若您的外接盒是純 Thunderbolt5 介面且未搭配轉接器，則無法直接連接。",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-034",
+        "type": "compatibility",
+        "lang": "en",
+        "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?",
+        "expect_refusal": false,
+        "context": [
+          "row07-all"
+        ],
+        "context_ok": true,
+        "answer": "Based on the specifications provided for the GIGABYTE AORUS MASTER 16 AM6H:\n\n**Yes**, a monitor that requires **DisplayPort 2.1** can work over USB-C, but with specific conditions regarding power delivery and bandwidth.\n\nAccording to the \"Type-C with Thunderbolt5\" port description on the left side of the device:\n*   It supports **Thunderbolt5**.\n*   It explicitly lists support for **DisplayPort 2.1**.\n\n\nTherefore, it will work over this USB-C port. If the monitor only supports lower bandwidth versions of DisplayPort or does not require high-power delivery, it may still function but with limited performance compared to using a dedicated HDMI port.\n(Some content beyond the product specification data was omitted.)",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-035",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎",
+        "expect_refusal": false,
+        "context": [
+          "row09-all",
+          "row15-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，這台筆記型電腦支援 **WIFI 7 (802.11be 2x2)**。\n\n因此，您家裡換的 Wi-Fi 7 路由器與本機完全相容，可以正常連接使用。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-036",
+        "type": "compatibility",
+        "lang": "zh",
+        "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎",
+        "expect_refusal": false,
+        "context": [
+          "row08-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，本機（GIGABYTE AORUS MASTER 16 AM6H）的音效系統包含 **4x 2W speakers**（喇叭），並支援 **Dolby Atmos**。\n\n關於單孔耳麥（耳機麥克風二合一）是否可以插入：\n因此無法確認本機是否具備標準的耳機插孔。\n\n若確認有此介面，則可能可以插入；若為其他類型或無對應接口，則無法使用。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-037",
+        "type": "workload",
+        "lang": "zh",
+        "query": "剪 4K 影片夠力嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，關於剪 4K 影片的能力分析如下：\n\n**1. CPU 效能 (Intel Core Ultra 9 275HX)**\n*   **核心數與頻率**：擁有 24 個核心、24 個執行緒，最高頻率達 5.4 GHz。\n*   **結論**：**足夠**。該處理器具備強大的運算能力，完全支援處理高畫質影片編碼（如 H.265/HEVC）與解碼。對於剪 4K 影片來說，CPU 是主要效能瓶頸之一，但此規格已能輕鬆應對日常至中階的專業工作負載。\n\n**2. GPU 效能 (依版本不同)**\n*   **BZH 版 (RTX 5090 Laptop GPU)**：擁有 175W 最大顯示功率與 AI Boost 技術，支援 24GB GDDR7 記憶體。此為目前頂級的移動繪圖晶片，**極其足夠**。不僅能輕鬆處理 4K 影片編碼，還能提供強大的渲染效能以加速剪輯流程。\n*   **BYH 版 (RTX 5080 Laptop GPU)**：擁有 175W 最大顯示功率與 AI Boost 技術，支援 16GB GDDR7 記憶體。**足夠**。效能略低於 BZH 版，但對於 4K 影片剪輯而言，已完全具備所需能力。\n*   **BXH 版 (RTX 5070 Ti Laptop GPU)**：擁有 140W 最大顯示功率與 AI Boost 技術，支援 12GB GDDR7 記憶體。**足夠**。雖然顯示功率較低，但對於剪 4K 影片而言，其效能已完全滿足需求。\n\n**3. 儲存裝置 (Storage)**\n*   **規格**：提供 1x PCIe Gen5 M.2 插槽與 1x PCIe Gen4x4 M.2 插槽，支援最高 4TB NVMe SSD。\n*   **結論**：**足夠**。剪輯 4K 影片通常需要大量暫存空間來存放原始素材、中間檔及最終成品。此規格提供的儲存容量足以滿足一般專業使用者的需求（通常建議至少 1TB 以上）。\n\n---\n\n### **總結回答**\n\n**是的，AORUS MASTER ",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-038",
+        "type": "workload",
+        "lang": "en",
+        "query": "Is it good for Blender Cycles rendering?",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "Based on the specifications provided for the **GIGABYTE AORUS MASTER 16 AM6H** laptop, here is an analysis of its suitability for Blender Cycles rendering:\n\n### **CPU Performance (Intel Core Ultra 9 275HX)**\n*   **Verdict:** Excellent.\n*   **Reasoning:** The CPU features a **24-core and 24-thread** configuration with up to **5.4 GHz**. This high core count and speed are ideal for Blender's rendering engine, which heavily utilizes multi-threaded operations during the render pass phase (e.g., Cycles Render Pass).\n\n### **GPU Performance (NVIDIA GeForce RTX 5090 Laptop GPU)**\n*   **Verdict:** Excellent.\n*   **Reasoning:** The laptop is equipped with an **RTX 5090** (BZH version), which offers:\n    *   **24GB of GDDR7 VRAM**: This provides ample memory for large, complex scenes without needing to swap textures or lose performance during rendering.\n    *   **175W TGP and AI Boost Clocks**: These specifications indicate high-performance capabilities suitable for demanding 3D workloads like Cycles.\n\n### **Conclusion**\nYes, this laptop is **very good** for Blender Cycles rendering. It combines a powerful multi-core CPU with a high-end dedicated graphics card (RTX 5090) and significant VRAM, which are the critical factors required to handle complex 3D scenes efficiently in Blender.",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-039",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row00-all",
+          "row02-BZH"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，關於您想跑 Local LLM 所需的 VRAM 與系統 RAM 容量如下：\n\n**1. 顯示記憶體 (VRAM)**\n*   **BZH 版 (RTX 5090):** 24GB GDDR7\n    *   *註：資料中未明確列出「最大顯卡功耗 TGP」的具體數值，僅標示為 175W Maximum Graphics Power with Dynamic Boost。若需跑 LLM，建議確認該版型的實際 TGP 是否足夠支援高負載模型（通常 RTX 5090 系列具備此能力）。*\n*   **BYH 版 (RTX 5080):** 16GB GDDR7\n*   **BXH 版 (RTX 5070 Ti):** 12GB GDDR7\n\n**2. 系統記憶體 (System Memory)**\n*   **全系列 All SKUs:** Up to 64GB DDR5 5600MHz\n    *   *註：資料中未明確列出「最大系統記憶體容量」的具體數值，僅標示為 Up to 64GB。若需跑 Local LLM，建議確認該版型的實際系統 RAM 是否支援 64GB（部分版本可能受晶片限制無法達到此上限）。*\n\n**總結建議：**\n若要跑 Local LLM，請優先選擇 **BZH 版 (RTX 5090)**，因其擁有 **24GB VRAM** 與 **Up to 64GB System RAM**。若 BZH 版因 TGP 或系統記憶體上限無法滿足需求，則需考慮 BYH 版（16GB VRAM, Up to 64GB RAM）或 BXH 版。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-040",
+        "type": "workload",
+        "lang": "zh",
+        "query": "玩 3A 大作開高畫質會順嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row00-all",
+          "row14-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，關於玩 3A 大作開高畫質的順暢度，可以從以下幾個關鍵指標進行推論：\n\n**1. 中央處理器 (CPU)：**\n本機搭載 **Intel Core Ultra 9 Processor 275HX**。這是一款高性能 CPU，擁有高達 **24 核 24 線程** 的配置。對於處理遊戲中的物理模擬、AI 計算或複雜的場景渲染來說，這個 CPU 的運算能力通常足以支撐高畫質設定。\n\n**2. 顯示晶片 (GPU)：**\n這是影響順暢度的關鍵因素，且本機提供三種版本：\n*   **BZH 版 (RTX 5090 Laptop GPU)**：擁有 **175W 最大顯卡功率**、**24GB GDDR7** 記憶體以及 **AI Boost** 技術。這是最強的一線選擇，通常能完美支援高畫質甚至超高分辨率的 3A 大作。\n*   **BYH 版 (RTX 5080 Laptop GPU)**：擁有 **16GB GDDR7** 記憶體和 **140W 最大顯卡功率**。這也是一個非常強大的選擇，通常能穩定運行高畫質設定。\n*   **BXH 版 (RTX 5070 Ti Laptop GPU)**：擁有 **12GB GDDR7** 記憶體和 **140W 最大顯卡功率**。雖然顯卡功率與 BYH 相同，但記憶體容量較小（12GB vs 16GB），在處理大型 3A 遊戲時，可能會導致高畫質設定下出現偶爾的畫面撕裂或性能下降。\n\n**結論：**\n*   **若選擇 BZH 版 (RTX 5090)**：絕對會順暢，且能支援最高畫質。\n*   **若選擇 BYH 版 (RTX 5080)**：極大概率會順暢，適合高畫質設定。\n*   **若選擇 BXH 版 (RTX 5070 Ti)**：在運行大型 3A 大作時，建議將畫質設定降低至中低畫質以確保穩定性；若要追求最高畫質，可能會遇到不順暢的情況（如畫面撕裂或降頻）。\n\n**總結：**\n本機",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-041",
+        "type": "workload",
+        "lang": "en",
+        "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row02-BXH"
+        ],
+        "context_ok": true,
+        "answer": "Based on the specifications provided for the **GIGABYTE AORUS MASTER 16 AM6H** laptop, here is an analysis of whether it can handle streaming to Twitch while gaming:\n\n### Hardware Analysis\n*   **CPU (Intel Core Ultra 9 275HX):** This processor supports high frame rates and complex rendering tasks required for both gaming and live streaming. It has a base clock up to 5.4 GHz, which is sufficient for the CPU-intensive workloads involved in streaming.\n*   **GPU (RTX 5070 Ti Laptop GPU - BXH Version):** The BXH version features an NVIDIA GeForce RTX 5070 Ti with:\n    *   **12GB GDDR7 VRAM:** This provides ample memory for high-resolution textures and effects, which is crucial for smooth streaming.\n    *   **140W TGP (Maximum Graphics Power):** This allows the GPU to deliver peak performance when needed,\n    *   **AI Boost Clock:** The boost clock of 1962 MHz indicates strong performance capabilities under load.\n\n### Conclusion: Is the hardware up to it?\n**Yes, the hardware is generally considered capable for streaming while gaming.**\n\nThe combination of a powerful CPU and a high-end RTX 5070 Ti GPU (specifically the BXH version with 140W power) provides the necessary processing power and graphics throughput to stream Twitch smoothly. which is ideal for streaming.\n\n**Note:** While the hardware supports this task, actual performance will depend on your specific **RAM configuration**, **storage speed**, and **operating system optimization**. For example:\n\n*   A fast NVMe SSD is highly recommended for quick game loading and streaming buffer management.\n(Some content beyond the product specification data was omitted.)",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-042",
+        "type": "workload",
+        "lang": "zh",
+        "query": "BXH 跑 Stable Diffusion 夠用嗎",
+        "expect_refusal": false,
+        "context": [
+          "perf"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，**BXH 版**的 NVIDIA GeForce RTX 5070 Ti Laptop GPU 具備運行 Stable Diffusion 的能力。\n\n具體分析如下：\n1. **顯存容量**：BXH 版的顯示晶片搭載 **12GB GDDR7** 顯存。Stable Diffusion 模型（尤其是 SDXL 或更高版本）通常需要至少 8GB 的顯存才能穩定運行，因此該配置在顯存方面是足夠的。\n2. **GPU 效能與 AI Boost**：BXH 版支援 **Dynamic Boost** 技術，AI Boost 頻率可達 **1962 MHz**。這意味著 GPU 在高負載下（如生成圖像時）能達到更高的運算速度，能夠有效處理 Stable Diffusion 的推理或生成任務。\n3. **效能總覽定位**：該機型被標註為「AORUS MASTER」系列，通常這類高端筆記型電腦專為高階效能設計，足以支援複雜的 AI 工作負載。\n\n**結論**：BXH 版完全具備運行 Stable Diffusion 的需求，且顯存與 AI Boost 頻率均符合一般高畫質生成或推理的標準要求。",
+        "refused": false,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-043",
+        "type": "workload",
+        "lang": "mixed",
+        "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row01-all",
+          "row04-all"
+        ],
+        "context_ok": true,
+        "answer": "根據提供的規格資料，針對您提到的「Unreal Engine 開發 + 多開 VM」的需求，分析如下：\n\n**1. CPU (Intel Core Ultra 9 Processor 275HX)**\n*   **核心數與執行緒：** 該機型搭載 **24 核 24 執行緒**。這對於 Unreal Engine 的渲染引擎（如虚幻 5/6）來說，通常已經足夠支援高畫質、多任務並行運算。\n*   **時脈效能：** 最高時脈達 **5.4 GHz**，配合 RTX 5070 Ti (BXH) 或 RTX 5090 (BZH) 的 GPU，整體效能足以處理複雜場景與大量 VM 模擬。\n\n**2. RAM (System Memory)**\n*   **最大容量：** 支援 **64GB DDR5**。\n*   **多開需求評估：** Unreal Engine 本身會佔用大量記憶體（通常數 GB），加上多個 VM 環境，若每個 VM 僅需 1-2GB，64GB 的總空間對於開發與測試階段是**足夠**的。但需注意：\n    *   若同時運行多個大型 VM 或頻繁切換，\n    *   DDR5 5600MHz 的頻率對於現代遊戲引擎與虛擬化環境來說，性能已完全足夠。\n\n**結論：**\n效能**夠用**。\n*   **RAM (64GB)**：在開發階段**夠用**，但若需同時運行多個大型 VM 或頻繁切換，\n\n**補充提示：**\n由於該機型支援 PCIe Gen5 M.2 SSD (1x) 與 Gen4x4 M.2 (1x)，若需安裝大型 Unreal Engine 專案或頻繁更新遊戲素材，建議搭配 **Gen5 SSD** 以提升讀取速度；同時，Unreal Engine 官方通常提供專屬的「UE 開發者工具包」及支援的驅動軟體，請務必下載並安裝以獲得最佳效能。\n（部分超出產品規格資料範圍的內容已省略。）",
+        "refused": false,
+        "redacted": true,
+        "correct": true
+      },
+      {
+        "id": "qa-044",
+        "type": "workload",
+        "lang": "zh",
+        "query": "攝影師修 RAW 檔，色域跟效能夠嗎？",
+        "expect_refusal": false,
+        "context": [
+          "perf",
+          "row10-all",
+          "row16-all"
+        ],
+        "context_ok": false,
+        "answer": "根據提供的規格資料，關於您詢問的「攝影師修 RAW 檔」所需的色域與效能條件，本機具備以下資訊：\n\n1.  **色域 (Color Gamut)**\n    *   產品名稱為「AORUS MASTER 16 AM6H 筆記型電腦」。\n    *   規格中**未提及**具體的色域範圍（如 DCI-P3, Adobe RGB 等）或色彩管理軟體支援情況。\n    *   **結論**：資料未提供此資訊，無法確認是否適合攝影師修 RAW 檔所需的特定色域需求。\n\n2.  **效能 (Performance)**\n    *   **中央處理器 CPU**：Intel Core Ultra 9 Processor 275HX (24 核 24 线程)，最高頻率 5.4 GHz。此效能足以處理一般影像編輯與 RAW 檔案的初步處理。\n    *   **顯示晶片 Video Graphics**：\n        *   **BZH 版**：NVIDIA GeForce RTX 5090 Laptop GPU (175W)。\n        *   **BYH 版**：NVIDIA GeForce RTX 5080 Laptop GPU (175W)。\n        *   **BXH 版**：NVIDIA GeForce RTX 5070 Ti Laptop GPU (140W)。\n    *   **結論**：本機具備強大的圖形處理能力（RTX 系列），完全具備執行 RAW 檔案的色階轉換、濾鏡應用及色彩校正等專業效能。\n\n**總結建議：**\n*   **色域**：目前資料未說明，若需特定色域請參考產品包裝或官方詳細規格書。\n*   **效能**：本機（特別是 BZH 版與 BYH 版）擁有極高的圖形處理能力，完全具備攝影師修 RAW 檔所需的專業效能。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-045",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "這台現在賣多少錢？",
+        "expect_refusal": true,
+        "context": [
+          "perf",
+          "row01-all",
+          "row14-all",
+          "row15-all"
+        ],
+        "context_ok": null,
+        "answer": "根據您提供的規格資訊，這份資料僅包含硬體參數（重量、CPU、尺寸、效能等），**並未列出該產品的售價或價格**。\n\n要得知「現在賣多少錢」，您需要查詢：\n1. **GIGABYTE 官方網站**的「產品頁面」。\n2. **實體店面**或經銷商。\n3. **電商平台**（如 Lazada、PChome、Momo 等）的產品價格。\n\n目前提供的規格中沒有包含價格資訊，僅能說明這是一款搭載 Intel Core Ultra 9 275HX 與 NVIDIA RTX 系列顯卡的筆記型電腦。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-046",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How many hours does the battery last when browsing the web?",
+        "expect_refusal": true,
+        "context": [
+          "row09-all",
+          "row12-all"
+        ],
+        "context_ok": null,
+        "answer": "Based on the provided context, there is no information regarding battery life or how long the battery lasts when browsing the web. The document only specifies the battery capacity (99Wh) and communication standards (Wi-Fi 7, Ethernet LAN 1G, Bluetooth v5.4).",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-047",
+        "type": "unanswerable",
+        "lang": "mixed",
+        "query": "滿載的時候風扇 noise 大概幾 dB",
+        "expect_refusal": true,
+        "context": [
+          "row01-all",
+          "row08-all",
+          "row14-all"
+        ],
+        "context_ok": null,
+        "answer": "根據提供的規格資料，本機（GIGABYTE AORUS MASTER 16 AM6H）的風扇噪音**無法直接回答**。\n\n原因如下：\n1. **未提供噪音數據**：在給出的規格清單中，僅列出了喇叭數量 (4x 2W speakers)、中央處理器 (CPU) 參數、尺寸等硬體資訊，但**沒有包含風扇轉速範圍或噪音分貝 (dB) 的說明**。\n2. **使用情境影響**：風扇噪音通常取決於實際運行狀態（例如是輕度使用還是滿載運轉），而本機規格僅提供了「最高時脈」等硬體參數，未提供對應的負載測試數據。\n\n因此，基於現有資料，無法推斷其滿載時的具體噪音分貝數值。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-048",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "打遊戲的時候 GPU 會跑到幾度？",
+        "expect_refusal": true,
+        "context": [
+          "perf",
+          "row02-BXH",
+          "row02-BZH"
+        ],
+        "context_ok": null,
+        "answer": "根據提供的規格資料，關於 GPU 運轉溫度（TGP）的資訊如下：\n\n*   **BZH 版**：最大顯卡功耗 TGP 為 **175W**。\n*   **BXH 版**：最大顯卡功耗 TGP 為 **140W**。\n\n資料中未直接列出 GPU 運轉時的具體溫度數值，但提供了對應的功耗（TGP）數據。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      },
+      {
+        "id": "qa-049",
+        "type": "unanswerable",
+        "lang": "en",
+        "query": "How much does the 330W power brick weigh?",
+        "expect_refusal": true,
+        "context": [
+          "row13-all",
+          "row15-all"
+        ],
+        "context_ok": null,
+        "answer": "Based on the provided context, the weight of the 330W power brick is **~2.5 kg**.\n\nThe text states: \"【重量 / Weight（全系列相同 All SKUs）】- 重量 Weight: ~2.5 kg\".",
+        "refused": false,
+        "redacted": false,
+        "correct": false
+      },
+      {
+        "id": "qa-050",
+        "type": "unanswerable",
+        "lang": "zh",
+        "query": "保固是幾年？",
+        "expect_refusal": true,
+        "context": [
+          "row00-all",
+          "row05-all",
+          "row15-all"
+        ],
+        "context_ok": null,
+        "answer": "根據提供的規格資料，**GIGABYTE AORUS MASTER 16 AM6H 筆記型電腦的保固資訊並未明確列出**。\n\n文中僅提及了以下內容：\n*   **作業系統 (OS)**：支援 Windows 11 Pro、Windows 11 Home 及 UEFI Shell OS。\n*   **儲存裝置 (Storage)**：支援 PCIe Gen5 M.2 SSD，最大容量至 4TB。\n*   **重量 (Weight)**：約 2.5 kg（註明依配置與測量方式可能略有差異）。\n\n此外，文中關於「儲存容量」的註釋提到：「若保固期間內出現無法歸因於 Gigabyte/AORUS 之異常狀況，則不屬於保固範圍。」這表示產品本身**沒有直接說明保固年數**。\n\n因此，僅能確認本機資料未提供具體的保固年數資訊。",
+        "refused": true,
+        "redacted": false,
+        "correct": true
+      }
+    ]
+  }
+}

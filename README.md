@@ -1,76 +1,180 @@
 # Laptop AI Assistant: GIGABYTE AORUS MASTER 16 AM6H
 
-Local RAG hardware assistant with content moderation, designed for a **4GB VRAM** target.
-No RAG frameworks: chunking, retrieval, generation, and moderation are plain Python; inference uses **llama.cpp**.
+A local RAG hardware assistant for the GIGABYTE AORUS MASTER 16 AM6H, with content moderation at
+every pipeline stage, targeting a **4GB VRAM** consumer laptop.
+
+- **No RAG frameworks.** Scraping, parsing, chunking, the vector index, BM25, retrieval, prompt
+  building and moderation are plain Python, with numpy for the vector math.
+- **Inference uses llama.cpp** (`llama-cpp-python`) for both generation and embeddings.
+- The environment is managed with **uv**.
+- Supports Traditional Chinese, English and mixed zh/en questions, with streaming answers.
+
+| | Result | Details |
+|---|---|---|
+| RAG answer accuracy (independent 50-question set) | **0.909**, up from a 0.705 baseline | [benchmark §4](benchmark_moderation.md#4-rag-quality) |
+| Harmful requests blocked (blind held-out set) | **0.912** (injection 1.0) | [benchmark §2](benchmark_moderation.md#2-moderation-results) |
+| Legitimate questions refused by moderation (held-out) | 5.7% | [benchmark §2.2](benchmark_moderation.md#22-end-to-end-full-pipeline-llm-included) |
+| Poisoned knowledge base: poison reaching the LLM | 0% with moderation, 75% without | [benchmark §2.3](benchmark_moderation.md#23-poisoned-knowledge-base-adversarial-4-of-the-task) |
+| Moderation overhead | +79 ms TTFT p50, 0 MB extra VRAM | [benchmark §3](benchmark_moderation.md#3-performance-and-resources) |
+| GPU memory (llama.cpp accounting) | 1771 MiB, or 1402 MiB with `n_ubatch=128` | [§ 4GB VRAM](#4gb-vram-feasibility) |
 
 ## Quick start
 
 ```bash
-uv sync                                   # create env + install deps
-uv run python scripts/download_models.py  # fetch GGUF models into models/
-uv run python scripts/prepare_data.py     # parse spec pages -> specs.json + chunks.jsonl (--fetch to re-download)
-uv run python scripts/build_index.py      # embed chunks -> index
-uv run aorus-chat                         # streaming chat
+uv sync                                   # Python 3.12 env + deps (builds llama-cpp-python)
+uv run python scripts/download_models.py  # GGUF models -> models/ (~1.9 GB)
+uv run python scripts/prepare_data.py     # data/raw/*.html -> specs.json + chunks.jsonl
+uv run python scripts/build_index.py      # embed chunks -> data/processed/index.npz
+uv run aorus-chat --explain               # streaming chat; --explain prints moderation decisions + timings
 ```
+
+- The scraped spec pages are committed (`data/raw/`), so setup works offline. To re-scrape, run `prepare_data.py --fetch`. gigabyte.com is behind Akamai and needs browser headers, which the scraper sends.
+- On NVIDIA, build with CUDA: `CMAKE_ARGS="-DGGML_CUDA=on" uv sync`. See `notebooks/colab_4gb_verify.ipynb`.
+
+Example session (actual output):
+```
+> 這台的顯示卡是什麼？
+根據提供的規格資料，這台筆記型電腦的顯示晶片（GPU）依版本不同而有所差異：
+*   **BZH 版**：NVIDIA GeForce RTX 5090 Laptop GPU
+*   **BYH 版**：NVIDIA GeForce RTX 5080 Laptop GPU
+*   **BXH 版**：NVIDIA GeForce RTX 5070 Ti Laptop GPU
+
+> 跟 ROG Strix SCAR 16 比哪台好？
+抱歉，我無法提供其他品牌產品的規格、價格或比較，只能介紹 AORUS MASTER 16 AM6H。您可以詢問 AORUS MASTER 16 AM6H 的處理器、顯示卡、螢幕、記憶體、連接埠、電池等規格。
+```
+
+## Architecture
+
+```
+query ─► normalise + embed once (Qwen3-Embedding, CPU) ─┬─► [1] Input guard ── refuse/redirect (no LLM call)
+                                                        │      rules: injection, competitor entities+intent,
+                                                        │      sensitive keywords+stance; kNN over intent
+                                                        │      prototypes; off-topic fallback
+                                                        ▼
+        hybrid retrieval: dense (numpy cosine) + BM25 (zh char uni/bigrams + en words)
+        scope pre-filter: only chunks whose product == AM6H are ever scored
+        + sub-queries for multi-part questions
+                                                        ▼
+        [2] Retrieval filter: drop chunks with competitor mentions / instruction-like text / sensitive content
+        no-data threshold ── "not in the product data" (no LLM call)
+        context selection: hybrid cutoff ∪ dense top-k ∪ sub-query best, max 4
+                                                        ▼
+        [3] Generation guard: grounded system prompt, <context> declared as data, labelled key-value facts
+        Qwen3.5-2B Q4_K_M on GPU, streaming
+                                                        ▼
+        [4] Output guard: release clause by clause; competitor/sensitive → fallback;
+            ungrounded number → clause removed + notice
+                                                        ▼
+        [5] Audit: logs/audit.jsonl (per-stage category, action, reason, matched rules, latency)
+```
+
+### Data and chunking
+- [parser.py](src/aorus_assistant/rag/parser.py) reads the spec comparison table: **3 SKUs × 17 fields**. BZH = RTX 5090, BYH = RTX 5080, BXH = RTX 5070 Ti; only the GPU differs between them. The zh-TW and English pages are merged by row, so every field carries both names, e.g. `顯示晶片 / Video Graphics`.
+- [chunker.py](src/aorus_assistant/rag/chunker.py) splits by field, not by length, into 21 chunks:
+  - 16 chunks for fields that are identical across SKUs.
+  - 3 per-SKU GPU chunks.
+  - A SKU-lineup chunk.
+  - A performance-overview chunk (CPU + GPU + RAM + storage) for workload questions.
+  - Chunks also carry colloquial aliases, used for BM25 only.
+- [attributes.py](src/aorus_assistant/rag/attributes.py) turns packed spec lines into labelled key-value facts for the prompt. For example, "OLED WQXGA (2560×1600) 240Hz, 1ms…" becomes `更新率 Refresh rate: 240Hz` and `解析度 Resolution: 2560×1600`. This stopped the model from answering "1600 Hz".
+
+### Moderation
+- Policy, categories, edge cases and the third-party-brand rules are in [moderation_policy.md](moderation_policy.md).
+- The maintainable lists live in `data/policy/*.yaml`: brands/aliases, scope vocabulary, sensitive topics, injection patterns and intent prototypes. Adding a competitor alias needs no code change.
+
+## Model choice
+
+| Role | Model | Quant | File | Device |
+|---|---|---|---|---|
+| Generation | `unsloth/Qwen3.5-2B-GGUF` | Q4_K_M | 1281 MB | GPU, all layers |
+| Embedding | `Qwen/Qwen3-Embedding-0.6B-GGUF` | Q8_0 | 639 MB | CPU (keeps VRAM for the LLM) |
+
+**Generation model: 2B instead of 0.8B.** Tested with `eval_rag.py --llm-file <gguf>` on 30 answerable and 9 unanswerable questions, using the same prompt and context:
+
+| LLM (Q4_K_M) | Answer acc. | No-data refusal | Decode (Apple M4) |
+|---|---|---|---|
+| Qwen3.5-0.8B | 0.867 | 0.556 | ~70–90 tok/s |
+| **Qwen3.5-2B** | **1.000** | **1.000** | ~45–55 tok/s |
+
+- 0.8B hallucinated answers to unanswerable questions, e.g. a price or a heat-pipe count. Q8_0 made the same errors, so the limit is model capacity, not quantisation.
+- **Q4_K_M** is the quantisation sweet spot for 2B here: 1.28 GB of weights leaves room for the KV cache and compute buffers inside 4 GB.
+- Qwen3.5 is a hybrid architecture: only 6 of its 24 layers are full attention, the rest are linear-attention layers with a fixed-size state. The KV cache is therefore only 48 MiB at 4096 context.
+
+**Embedding model: Qwen3-Embedding-0.6B.** Compared with bge-m3, retrieval quality was the same: hybrid Hit@1 0.967 and MRR 0.983 for both. Qwen3-Embedding wins because:
+- Its file is half the size: 639 MB vs 1158 MB.
+- It is instruction-aware.
+- The same query embedding is reused by the moderation kNN, so moderation needs no extra model call.
+
+## 4GB VRAM feasibility
+
+GPU allocation is static after load. It is the same for every query until `n_ctx` is exhausted, so the peak equals the loaded size. llama.cpp accounting from [scripts/measure_memory.py](scripts/measure_memory.py):
+
+| GPU buffer | MiB |
+|---|---|
+| Weights | 1211 |
+| Compute buffer (`n_ubatch` 512 → 128) | 493 → 123 |
+| KV cache (n_ctx 4096) | 48 |
+| Recurrent state | 19 |
+| **Total** | **1771 → 1402** |
+
+- On an NVIDIA GPU, add the CUDA context, which llama.cpp does not count. Expected device VRAM is ~2.0–2.2 GB, leaving ≥1.8 GB of headroom inside 4 GB.
+- The embedding model and the token-embedding table run on the CPU (~2.0 GB of RAM).
+- Moderation adds no GPU memory.
+- **Verification on NVIDIA:** [notebooks/colab_4gb_verify.ipynb](notebooks/colab_4gb_verify.ipynb) runs the same scripts on a Colab T4 and reads the real peak VRAM via NVML while answering. A T4 cannot be hard-capped at 4 GB, so the check is "peak device VRAM < 4096 MiB". *Result: TODO (run the notebook and paste the numbers here).*
+
+## Performance
+
+Measured on an Apple M4 laptop GPU. Absolute numbers are indicative; see [benchmark §3](benchmark_moderation.md#3-performance-and-resources).
+
+| Metric | Moderation off | Moderation on |
+|---|---|---|
+| TTFT p50 (to first text the user sees) | 1130 ms | 1209 ms |
+| Decode | 44.8 tok/s | 44.7 tok/s |
+| Moderation compute per request (p50) | — | 27 ms (input guard 0.2 ms) |
 
 ## Evaluation
 
 ```bash
-uv run pytest -m "not llm"                # unit tests (no model needed)
-uv run python eval_moderation.py          # moderation metrics
-uv run python eval_rag.py                 # RAG quality
-uv run python benchmark.py                # TTFT / TPS / VRAM
+uv run pytest                                                       # 63 unit tests, no LLM needed
+uv run python eval_moderation.py [--input-only] [--cases-dir tests/cases_holdout]
+uv run python eval_rag.py [--qa | --retrieval-only | --llm-file X.gguf]
+uv run python benchmark.py --runs 3
+uv run python scripts/measure_memory.py [--n-ubatch 128]
 ```
+
+- Test sets are in `tests/cases/` (main + `rag_qa.jsonl`) and `tests/cases_holdout/`. Schema and file list: [tests/cases/README.md](tests/cases/README.md).
+- The moderation and RAG test sets were written by a separate agent from the policy document alone, with no access to the code, lexicons or prototypes.
+- The held-out set was written after tuning, so it gives the generalisation estimate.
+- Full results, version history, adversarial evaluation and every failure case: **[benchmark_moderation.md](benchmark_moderation.md)**.
 
 ## Project layout
 
 ```
 src/aorus_assistant/
-  rag/          scraper, parser, chunker, tokenize, index (numpy + BM25), retriever
-  llm/          model loading (llama.cpp), grounded streaming generator
-  moderation/   normalize, lexicon, input_guard, retrieval_filter, output_guard, responses, audit
-  bench/        TTFT/TPS timing, VRAM/RAM sampling
-  pipeline.py   end-to-end orchestration
-data/policy/    brands.yaml, sensitive_topics.yaml (maintainable lists)
-tests/cases/    JSONL test sets
+  config.py       every tunable, with the calibration that set it
+  pipeline.py     end-to-end orchestration (moderation on/off), streaming via callback
+  cli.py          `aorus-chat`
+  rag/            scraper, parser, attributes (key-value), chunker, tokenize, index (numpy + BM25),
+                  embedder, retriever (hybrid, scope mask, sub-queries, context selection)
+  llm/            model loading (llama.cpp), prompt + context formatting, streaming
+  moderation/     normalize, lexicon, input_guard, semantic (kNN), retrieval_filter,
+                  output_guard, responses, audit
+  bench/          TTFT/TPS timing, VRAM (NVML) / RAM sampling, llama.cpp buffer parsing
+data/raw/         scraped spec pages (zh-TW + en)
+data/policy/      brands, scope vocabulary, sensitive topics, injection patterns, intent prototypes
+tests/            unit tests + JSONL case sets
+eval_moderation.py  eval_rag.py  benchmark.py  scripts/  notebooks/
 ```
 
-## Model choice & 4GB VRAM feasibility
+## Known limitations
 
-| Role | Model | Quant | File | Device |
-|---|---|---|---|---|
-| Generation | `unsloth/Qwen3.5-2B-GGUF` | Q4_K_M | 1281 MB | GPU (all layers) |
-| Embedding | `Qwen/Qwen3-Embedding-0.6B-GGUF` | Q8_0 | 639 MB | CPU |
-
-Embedding model comparison on `tests/cases/retrieval.jsonl` (30 zh/en/mixed queries):
-
-| Embedding | dense Hit@1 | hybrid Hit@1 | hybrid MRR | query p50 (CPU) | file |
-|---|---|---|---|---|---|
-| Qwen3-Embedding-0.6B Q8_0 (w/ instruction) | 0.933 | 0.967 | 0.983 | 64 ms | 639 MB |
-| Qwen3-Embedding-0.6B Q8_0 (no instruction) | 0.933 | 0.933 | 0.967 | 21 ms | 639 MB |
-| bge-m3 F16 | 0.933 | 0.967 | 0.983 | 20 ms | 1158 MB |
-
-Generation model comparison (`uv run python eval_rag.py --llm-file <gguf>`; 30 answerable +
-9 unanswerable questions; same prompt and context; latency on Apple Silicon Metal, indicative only):
-
-| LLM | file | answer acc. | no-data refusal | false refusal | TTFT p50 | decode |
-|---|---|---|---|---|---|---|
-| Qwen3.5-0.8B Q4_K_M | 533 MB | 0.867 | 0.556 | 0.0 | ~190-260 ms | ~70-90 tok/s |
-| Qwen3.5-0.8B Q8_0 | 812 MB | same errors as Q4_K_M on spot checks | | | | slower |
-| **Qwen3.5-2B Q4_K_M** | 1281 MB | **1.0** | **1.0** | 0.0 | ~470-690 ms | ~43-55 tok/s |
-
-0.8B failure modes: answered one SKU when the GPU varies by SKU, misread HDMI/card-reader
-questions, and hallucinated values for unanswerable questions (a price, a heat-pipe count).
-Q8_0 did not fix them, so the limit is model capacity rather than quantisation.
-
-TODO: VRAM measurements on a 4GB-limited GPU.
+- Moderation recall is bounded by vocabulary and prototypes. Held-out misses include an unknown alias, regional bias, leetspeak in sensitive words and a résumé request; see [benchmark §6](benchmark_moderation.md#6-failure-cases-v31-nothing-omitted). A small classifier on the existing embedding is the next step.
+- The output guard removes clauses with numbers that are correct but not in the data (e.g. "3.5mm"). It cannot catch a grounded number attached to the wrong attribute.
+- A 2B model still makes reasoning errors over correct context, such as mixing up left and right ports.
 
 ## Troubleshooting
 
-- `ModuleNotFoundError: aorus_assistant` on macOS: some setups (e.g. iCloud-synced Desktop) set the
-  `hidden` flag on files inside `.venv`, and Python skips hidden `.pth` files. Fix with
-  `chflags -R nohidden .venv`. `pytest` is unaffected (`pythonpath = ["src"]` in pyproject).
-- `VIRTUAL_ENV=... does not match` warning: an outer conda/venv is active; harmless, or run `conda deactivate`.
-
-## Results
-TODO: see `benchmark_moderation.md`.
+- `ModuleNotFoundError: aorus_assistant` on macOS: some setups (e.g. an iCloud-synced Desktop) set the `hidden` flag on files inside `.venv`, and Python skips hidden `.pth` files.
+  - Fix it with `chflags -R nohidden .venv`, or prefix commands with `PYTHONPATH=src`.
+  - `pytest` is unaffected, because `pythonpath = ["src"]` is set in pyproject.
+- `VIRTUAL_ENV=... does not match` warning: an outer conda/venv is active. It is harmless; `conda deactivate` removes it.

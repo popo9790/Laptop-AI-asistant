@@ -1,0 +1,86 @@
+{
+  "platform": "Darwin arm64",
+  "llm": "Qwen3.5-2B-Q4_K_M.gguf",
+  "embed": "Qwen3-Embedding-0.6B-Q8_0.gguf",
+  "n_ctx": 4096,
+  "n_ubatch": 512,
+  "buffers_mib": {
+    "llm": {
+      "CPU": {
+        "model": 397.85,
+        "output": 0.95,
+        "compute": 18.02
+      },
+      "MTL0": {
+        "model": 1211.05,
+        "KV": 48.0,
+        "RS": 19.27,
+        "compute": 493.0
+      }
+    },
+    "embedder": {
+      "CPU": {
+        "model": 1046.9299999999998,
+        "output": 149.11,
+        "KV": 112.0,
+        "compute": 304.24
+      }
+    }
+  },
+  "accelerator_total_mib": 1771.3,
+  "cpu_total_mib": 2029.1,
+  "snapshots": [
+    {
+      "stage": "baseline",
+      "rss_mb": 34.0,
+      "vram_device_mb": null,
+      "vram_process_mb": null
+    },
+    {
+      "stage": "embedder_loaded",
+      "rss_mb": 1490.5,
+      "vram_device_mb": null,
+      "vram_process_mb": null
+    },
+    {
+      "stage": "llm_loaded",
+      "rss_mb": 2024.0,
+      "vram_device_mb": null,
+      "vram_process_mb": null
+    },
+    {
+      "stage": "after_requests",
+      "rss_mb": 2695.2,
+      "vram_device_mb": null,
+      "vram_process_mb": null
+    }
+  ],
+  "peak_during_requests": {
+    "rss_mb": 2695.2,
+    "vram_device_mb": null,
+    "samples": 448
+  },
+  "requests": [
+    {
+      "query": "這台有哪幾個版本？差在哪裡",
+      "prompt_tokens": 467,
+      "output_tokens": 382,
+      "ttft_ms": 607.2,
+      "decode_tps": 52.8
+    },
+    {
+      "query": "這台筆電的顯示卡是什麼？",
+      "prompt_tokens": 464,
+      "output_tokens": 86,
+      "ttft_ms": 593.3,
+      "decode_tps": 58.7
+    },
+    {
+      "query": "What is the battery capacity?",
+      "prompt_tokens": 208,
+      "output_tokens": 9,
+      "ttft_ms": 298.6,
+      "decode_tps": 55.1
+    }
+  ]
+}
