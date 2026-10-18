@@ -103,7 +103,9 @@ class InputGuard:
 
     def _sensitive(self, norm: str, spec_sim: float | None) -> tuple[ModerationDecision | None, list[str]]:
         notes: list[str] = []
-        product_ctx = self._product_ctx(norm, spec_sim)
+        # Lexical product context only: a sensitive keyword plus mere embedding similarity to the
+        # spec ("台獨是對的嗎" scored >= 0.45) must not pass (v3.1 regression fix).
+        product_ctx = self._product_ctx(norm)
         for topic, rx in self.lex.topic_keywords.items():
             kw = self.lex.has(rx, norm)
             if not kw:
@@ -119,16 +121,12 @@ class InputGuard:
             notes.append(f"sensitive_term_in_product_context:{topic}:{kw}")
         return None, notes
 
-    def _product_ctx(self, norm: str, spec_sim: float | None = None) -> str | None:
-        """Product context: product / hardware vocabulary, or the query is close to some spec
-        chunk (`spec_sim`, best cosine over in-scope chunks, computed from the shared query
-        embedding). Generic words ("model", "upgrade") are excluded: v1 let "Tesla Model Y"
-        and "upgrading my PS5" skip the off-topic check."""
-        if hit := self.lex.has(self.lex.product_terms, norm) or self.lex.has(self.lex.hardware_terms, norm):
-            return hit
-        if spec_sim is not None and spec_sim >= self.cfg.product_spec_sim:
-            return f"spec_sim={spec_sim:.2f}"
-        return None
+    def _product_ctx(self, norm: str) -> str | None:
+        """Lexical product context: product / hardware vocabulary. Generic words ("model",
+        "upgrade") are excluded: v1 let "Tesla Model Y" and "upgrading my PS5" skip the
+        off-topic check. Embedding similarity to the spec (`spec_sim`) is used separately and
+        only for the off-topic fallback."""
+        return self.lex.has(self.lex.product_terms, norm) or self.lex.has(self.lex.hardware_terms, norm)
 
     # ------------------------------------------------------------------ main entry
     def check(
@@ -160,7 +158,7 @@ class InputGuard:
         if dec:
             return dec
 
-        product_ctx = self._product_ctx(norm, spec_sim)
+        product_ctx = self._product_ctx(norm)
         own_sku = self.lex.has(self.lex.own_sku_terms, norm)
         if qvec is not None and self.clf is not None:
             sem = self.clf.classify(qvec)
@@ -187,7 +185,10 @@ class InputGuard:
                     confidence=sem.score,
                     notes=notes,
                 )
-            if not product_ctx and sem.product_score < self.cfg.offtopic_product_floor:
+            # spec_sim only rescues questions from this vocabulary-based fallback (no semantic
+            # evidence of anything else), e.g. "WD Black SN850X 4TB 裝得進去嗎"
+            spec_ctx = spec_sim is not None and spec_sim >= self.cfg.product_spec_sim
+            if not product_ctx and not spec_ctx and sem.product_score < self.cfg.offtopic_product_floor:
                 return self._decision(
                     Category.OFF_TOPIC,
                     f"no product vocabulary and product similarity {sem.product_score:.2f} "

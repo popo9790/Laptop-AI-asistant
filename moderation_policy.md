@@ -35,8 +35,9 @@ Detection must not rely on a keyword blacklist alone. The input guard combines:
 2. high-precision keyword rules, gated by product context and stance markers
    ("你支持…", "what do you think of…"),
 3. semantic similarity to labelled intent prototypes (catches paraphrases with no keyword),
-4. a product-context signal (hardware vocabulary, product names) that keeps product
-   questions with incidental sensitive words from being blocked.
+4. a product-context signal that keeps product questions with incidental sensitive words from
+   being blocked: hardware vocabulary / product names, **or** the query embedding being close
+   to some spec chunk (cosine >= 0.45; shared with retrieval, so no extra model call).
 
 ## 3. Competitor exclusion
 
@@ -85,13 +86,20 @@ Defence in depth: retrieved text is wrapped in `<context>` and declared as data;
 filter drops instruction-like chunks; the output guard checks the final text.
 
 ## 5. Output moderation
-The output guard checks streamed text before it is shown (a short hold-back buffer):
-- competitor laptop brand/model mentioned → fallback
-- sensitive-topic keywords → fallback
-- **ungrounded numbers**: a number in the answer that appears neither in the retrieved
-  context nor in the question → fallback to "data does not include this" (hallucination guard)
-When a violation is found mid-stream, generation stops and the fallback is shown instead of
-the remaining text.
+The output guard releases the streamed answer clause by clause (，、：；。！？ / newline) and checks
+each clause before the user sees it:
+- competitor laptop brand/model mentioned → generation stops, whole answer replaced by the
+  competitor fallback (brands the user legitimately named as peripheral vendors are exempt)
+- sensitive-topic keywords not present in the question → stop, replaced by fallback
+- **ungrounded numbers** (hallucination guard): a numeric claim that appears neither in the
+  retrieved context nor in the question → **only that clause is removed**, generation continues,
+  and a notice "部分超出產品規格資料範圍的內容已省略" is appended. If every clause is removed the
+  no-data fallback is shown. List numbering and digits inside identifiers (H.265, DDR4) are not
+  treated as claims.
+
+Design history (see `benchmark_moderation.md`): replacing the whole answer (v1) and truncating at
+the first ungrounded number (v2) both discarded correct grounded sentences; clause redaction (v3)
+keeps them.
 
 ## 6. Audit and explainability
 Every request appends a JSON line to `logs/audit.jsonl`: request id, query, per-stage decision
@@ -120,5 +128,8 @@ dropped chunk ids, and whether the output was replaced.
   `benchmark_moderation.md` for measured misses).
 - Brand aliases that are common words (e.g. "Blade", "Yoga", "Omen") need context to avoid
   false positives; they are only matched together with laptop/spec intent.
-- The ungrounded-number check can refuse correct answers that derive numbers
-  (e.g. "24GB − 16GB = 8GB").
+- The ungrounded-number check removes clauses with correct but derived or general-knowledge
+  numbers ("24GB − 16GB = 8GB", "3.5mm 耳機孔"), and cannot catch a grounded number attached
+  to the wrong attribute (the 2B model once gave the laptop's 2.5 kg as the adapter's weight).
+- Clause redaction can leave a dangling heading ("數量與功率：") when the removed clause was the
+  value of a list item.

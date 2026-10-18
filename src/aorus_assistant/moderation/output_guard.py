@@ -116,7 +116,7 @@ class GuardedStream:
     stream: Iterator[str]
     contexts: list[RetrievedChunk]
     query: str
-    fallback: str
+    fallback: str | dict  # text, or {Category: text} for category-specific fallbacks
     allowed_brands: set[str] = field(default_factory=set)
     lang: str = "zh"
     decision: ModerationDecision | None = None
@@ -177,4 +177,7 @@ class GuardedStream:
         close = getattr(self.stream, "close", None)
         if close:
             close()
-        yield ("\n\n" if self.released else "") + self.fallback
+        text = self.fallback
+        if isinstance(text, dict):
+            text = text.get(violation.category, text[Category.NO_DATA])
+        yield ("\n\n" if self.released else "") + text

@@ -56,18 +56,25 @@ def stats(xs) -> dict:
             "p95": round(float(np.percentile(xs, 95)), 1)}
 
 
-def run_mode(pipe: AssistantPipeline, runs: int) -> dict:
-    rows = []
-    with PeakSampler() as peak:
+def run_interleaved(pipes: dict[str, AssistantPipeline], runs: int) -> dict[str, list[dict]]:
+    """Alternate modes query by query so thermal / background drift on a laptop affects both
+    equally (running one mode after the other biased the second)."""
+    rows: dict[str, list[dict]] = {name: [] for name in pipes}
+    for pipe in pipes.values():
         pipe.answer(QUERIES[0])  # warm-up (Metal/CUDA kernel compilation)
-        for _ in range(runs):
-            for q in QUERIES:
+    for _ in range(runs):
+        for q in QUERIES:
+            for name, pipe in pipes.items():
                 r = pipe.answer(q)
-                rows.append({
+                rows[name].append({
                     "query": q, "refused": r.refused, "refusal_stage": r.refusal_stage,
-                    "n_tokens": r.n_tokens, **{k: round(v, 2) for k, v in r.timings_ms.items()},
-                    "decode_tps": r.decode_tps,
+                    "redacted": r.redacted, "n_tokens": r.n_tokens,
+                    **{k: round(v, 2) for k, v in r.timings_ms.items()}, "decode_tps": r.decode_tps,
                 })
+    return rows
+
+
+def summarize(rows: list[dict]) -> dict:
     moderation_ms = [
         r.get("input_guard", 0) + r.get("retrieval_filter", 0) + r.get("output_guard", 0) for r in rows
     ]
@@ -79,12 +86,11 @@ def run_mode(pipe: AssistantPipeline, runs: int) -> dict:
         "total_ms": stats(r.get("total") for r in rows),
         "decode_tps": stats(r["decode_tps"] for r in rows),
         "embed_ms": stats(r.get("embed") for r in rows),
+        "retrieval_ms": stats(r.get("retrieval") for r in rows),
         "input_guard_ms": stats(r.get("input_guard") for r in rows),
         "retrieval_filter_ms": stats(r.get("retrieval_filter") for r in rows),
         "output_guard_ms": stats(r.get("output_guard") for r in rows),
         "moderation_compute_ms": stats(moderation_ms),
-        "peak_rss_mb": round(peak.peak_rss_mb, 1),
-        "peak_vram_mb": round(peak.peak_vram_mb, 1) if peak.peak_vram_mb else None,
         "rows": rows,
     }
 
@@ -121,23 +127,28 @@ def main() -> None:
             "rss_after_load_mb": round(ram_used_mb(), 1),
         },
     }
-    for name, moderation in (("moderation_off", False), ("moderation_on", True)):
-        pipe = AssistantPipeline(cfg, moderation=moderation, llm=llm, embedder=embedder, audit=False)
-        report[name] = run_mode(pipe, args.runs)
+    pipes = {name: AssistantPipeline(cfg, moderation=mod, llm=llm, embedder=embedder, audit=False)
+             for name, mod in (("moderation_off", False), ("moderation_on", True))}
+    with PeakSampler() as peak:
+        rows = run_interleaved(pipes, args.runs)
+    for name in pipes:
+        report[name] = summarize(rows[name])
+    report["memory"]["peak_rss_mb"] = round(peak.peak_rss_mb, 1)
+    report["memory"]["peak_vram_mb"] = round(peak.peak_vram_mb, 1) if peak.peak_vram_mb else None
 
     off, on = report["moderation_off"], report["moderation_on"]
     print(f"platform {report['platform']}  LLM {cfg.llm.filename}  runs={args.runs} x {len(QUERIES)} queries")
     print(f"memory: accelerator buffers {report['memory']['accelerator_buffers_mib']} MiB, "
           f"CPU buffers {report['memory']['cpu_buffers_mib']} MiB, VRAM after load {report['memory']['vram_after_load_mb']}")
     print(f"{'metric':<26}{'moderation off':>18}{'moderation on':>18}")
-    for key in ("ttft_ms", "llm_ttft_ms", "total_ms", "decode_tps"):
+    for key in ("ttft_ms", "llm_ttft_ms", "total_ms", "decode_tps", "embed_ms", "retrieval_ms"):
         for s in ("p50", "mean"):
             print(f"{key + ' ' + s:<26}{off[key].get(s, '-'):>18}{on[key].get(s, '-'):>18}")
     for key in ("input_guard_ms", "retrieval_filter_ms", "output_guard_ms", "moderation_compute_ms"):
         print(f"{key + ' p50':<26}{'-':>18}{on[key].get('p50', '-'):>18}")
     print(f"{'refused (should be 0)':<26}{off['refused']:>18}{on['refused']:>18}")
-    print(f"{'peak RSS MB':<26}{off['peak_rss_mb']:>18}{on['peak_rss_mb']:>18}")
-    print(f"{'peak VRAM MB (NVML)':<26}{str(off['peak_vram_mb']):>18}{str(on['peak_vram_mb']):>18}")
+    print(f"peak RSS {report['memory']['peak_rss_mb']} MB, peak VRAM (NVML) {report['memory']['peak_vram_mb']} "
+          "(both modes share one process and the same loaded models)")
 
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

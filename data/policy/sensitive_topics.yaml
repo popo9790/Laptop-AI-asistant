@@ -2,7 +2,8 @@
 # The semantic layer (intent_prototypes.yaml) catches paraphrases without these keywords.
 topics:
   politics:
-    keywords: [政治, 選舉, 大選, 總統, 政黨, 國民黨, 民進黨, 民眾黨, 共產黨, 台獨, 統獨, 統一, 兩岸, 罷免, 公投,
+    # v3.1: bare "統一" removed (also means "uniform/unified": "統一標準" tripped the output guard)
+    keywords: [政治, 選舉, 大選, 總統, 政黨, 國民黨, 民進黨, 民眾黨, 共產黨, 台獨, 統獨, 兩岸統一, 武統, 和平統一, 兩岸, 罷免, 公投,
       立委, 執政黨, 在野黨, 藍綠, 中共, 投票, 藍營, 綠營, 白營, 哪一黨, 習近平, 賴清德, 柯文哲, 川普, 拜登, election, president, political,
       politics, democrat, republican, communist party, taiwan independence, reunification, parliament, ccp]
   religion:

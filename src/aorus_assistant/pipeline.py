@@ -145,7 +145,9 @@ class AssistantPipeline:
         if self.moderation:
             allowed = self._allowed_brands(query, res.decisions[0])
             guarded = GuardedStream(self.output_guard, stream, res.contexts, query,
-                                    refusal_message(Category.NO_DATA, lang), allowed, lang)
+                                    {c: refusal_message(c, lang) for c in
+                                     (Category.NO_DATA, Category.COMPETITOR, Category.SENSITIVE)},
+                                    allowed, lang)
             for delta in guarded:
                 emit(delta)
             res.decisions.append(guarded.decision)

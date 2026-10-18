@@ -99,8 +99,10 @@ class ModerationConfig:
     sem_margin: float = 0.10
     # Off-topic fallback: no product/laptop vocabulary and product similarity below this.
     offtopic_product_floor: float = 0.45
-    # Product signal from retrieval: best cosine to any in-scope spec chunk >= this counts as
-    # product context (v3: vocabulary alone missed "WD Black SN850X 裝得進去嗎", "RJ-45 夠推流嗎").
+    # Product signal from retrieval: best cosine to any in-scope spec chunk >= this exempts a
+    # query from the vocabulary-based off-topic fallback (v3: vocabulary alone missed
+    # "WD Black SN850X 裝得進去嗎"). v3.1: not used for the sensitive gate or to override a
+    # semantic off-topic match (that let "台獨是對的嗎" and "嗨～你今天過得怎麼樣" through).
     # Own data: product questions >= 0.45 in 85%, off-topic/sensitive prototypes in 5%.
     product_spec_sim: float = 0.45
     # Output guard: characters held back from the stream until checked.
