@@ -1,0 +1,75 @@
+# Intent vocabulary used by the input guard. All matching is on normalised text.
+
+# Terms that signal the user is asking about this product / laptop hardware.
+product_terms:
+  - aorus
+  - 技嘉
+  - gigabyte
+  - am6h
+  - bzh
+  - byh
+  - bxh
+  - master 16
+  - 這台
+  - 這款
+  - 此款
+  - 本機
+  - 這個筆電
+  - this laptop
+  - this notebook
+  - this machine
+  - this model
+
+# Hardware vocabulary: signals a laptop/hardware question (product context for the off-topic and
+# sensitive-term gates; also disambiguates ambiguous brand aliases).
+hardware_terms: [筆電, 筆記型電腦, 筆記本, 電競筆電, laptop, notebook, 規格, spec, specs, specification,
+  螢幕, 顯示器, 面板, display, screen, panel, 顯卡, 顯示卡, 獨顯, gpu, graphics, cpu, 處理器, processor,
+  記憶體, ram, 硬碟, ssd, storage, 儲存, 電池, battery, 續航, 重量, weight, 尺寸, 散熱, thermal,
+  cooling, 風扇, fan, 跑分, benchmark, fps, 幀, 鍵盤, keyboard, 連接埠, 接口, port, usb, hdmi, thunderbolt,
+  wifi, wi-fi, 藍牙, bluetooth, webcam, 鏡頭, 喇叭, speaker, 變壓器, 充電器, adapter, charger, 更新率,
+  refresh rate, hz, oled, 解析度, resolution, 插槽, slot, m.2, ddr5, tgp, rtx, geforce, nvidia, intel,
+  core ultra, 麥克風, microphone, 讀卡機, 剪輯, 渲染, render, rendering, 遊戲, gaming, 色域, dci-p3, nits]
+
+# Generic words that suggest a product question but also occur in unrelated requests
+# ("Model Y", "upgrading my PS5"); used only to disambiguate ambiguous brand aliases.
+generic_terms: [電腦, 價格, 售價, 多少錢, price, cost, 評價, review, 效能, performance, 擴充, upgrade,
+  升級, 瓦, watt, 機型, 型號, model, memory, 記憶]
+
+# This product's own SKUs / GPUs: comparisons among them are product questions, never competitor.
+own_sku_terms: [bzh, byh, bxh, rtx 5090, rtx 5080, rtx 5070 ti, 5090, 5080, 5070 ti, 5070ti, 5090 版, 5080 版, 5070 ti 版]
+
+# Peripherals / parts: a competitor brand next to these + compatibility intent is allowed.
+peripheral_terms: [螢幕, 顯示器, 外接螢幕, monitor, external display, 滑鼠, mouse, 鍵盤, keyboard, 耳機,
+  耳麥, headset, headphones, earbuds, airpods, ssd, 固態硬碟, 硬碟, hard drive, nvme, 記憶體, ram, 記憶體條,
+  memory, dimm, so-dimm, dock, docking, 擴充座, hub, 集線器, 充電器, charger, 行動電源, power bank, 喇叭,
+  speaker, 印表機, printer, 手機, phone, iphone, 平板, tablet, ipad, 手把, controller, 搖桿, 攝影機, webcam,
+  麥克風, microphone, mic, nas, 路由器, router, 外接盒, enclosure, egpu, 顯卡外接盒, 散熱墊, cooling pad,
+  電視, tv, 投影機, projector, 繪圖板, tablet pen, studio display, ultrasharp, display, 電競螢幕, 螢幕線,
+  odyssey, proart display]
+
+# Compatibility / usage intent (regex). Combined with peripheral_terms -> third-party mention allowed.
+compatibility_patterns:
+  - "(能|可以|可否|是否|能不能|可不可以|會不會).{0,8}(接|連|插|裝|加裝|搭配|相容|兼容|使用|用|配|驅動|支援)"
+  - "(外接|連接|接上|插上|加裝|搭配|相容|兼容|升級成|換成|擴充)"
+  # v2: bare verbs next to this laptop or a port ("用 HDMI 接這台", "插 USB-A 孔")
+  - "(接|插|連)(在|到|上)?(這台|本機|筆電|電腦|.{0,8}(孔|埠|port))"
+  - "(用|透過|走) ?(hdmi|usb|type-?c|thunderbolt|雷電|藍牙|bluetooth|dp|displayport).{0,10}(接|連|插|跑|輸出)"
+  - "(compatib|connect|plug|work(s)? with|use (it )?with|pair|install|upgrade (to|with)|support(s)? (a|an|my|the)|drive (a|an|two|my))"
+
+# Comparison / recommendation intent (regex). A competitor mention + this -> competitor even if
+# the brand also sells peripherals.
+comparison_patterns:
+  - "(比較|比起|相比|對比|對決|勝過|贏過|輸給|差在|差多少|哪台|哪一台|哪個好|哪個比較|還是買|值不值得換|vs\\.?|versus|PK)"
+  - "(compare|comparison|better than|worse than|faster than|instead of|or the|which (one|is better|laptop)|alternative)"
+
+# Indirect competitor intent without a brand name (regex).
+indirect_competitor_patterns:
+  - "(其他|其它|別|另一|另外)(的|個|家|款|台)?(品牌|牌子|廠牌|廠商|公司|家|款筆電|台筆電|筆電|電競筆電)"
+  - "(別家|別牌|他牌|友商|競品|競爭對手|對手)"
+  - "(比這台|比 ?am6h|比 ?aorus|比技嘉).{0,6}(更|還|較)?(好|強|便宜|划算|值得|輕|薄|推薦)"
+  - "(同價位|同等級|同級|類似價位|差不多價錢).{0,10}(推薦|有沒有|哪台|筆電|選擇|更好)"
+  - "(推薦|介紹).{0,6}(一台|幾台|其他|別的)?.{0,4}(電競)?(筆電|筆記型電腦)"
+  - "(other|another|rival|competing|competitor'?s?) (brand|brands|manufacturer|manufacturers|compan(y|ies)|laptops?|models?|products?)"
+  - "(competitor|competitors|alternatives? to)"
+  - "(cheaper|better|lighter|faster) (laptop|alternative|option|gaming laptop)s?"
+  - "(recommend|suggest).{0,20}(laptop|notebook)s?"

@@ -4,6 +4,8 @@ Strategy (the spec table is small and highly structured, so chunk by field, not 
   - fields identical across SKUs -> one shared chunk (avoids 3 near-duplicate chunks crowding top-k)
   - fields that differ           -> one chunk per SKU
   - one SKU-lineup chunk summarising the differing fields, for "which versions exist" questions
+  - one performance-overview chunk (CPU + GPU per SKU + memory + storage) for workload
+    questions ("剪 4K 影片會不會卡", "can it run a local LLM") that no single field answers
 Each chunk carries zh + en field names plus colloquial aliases so BM25 can match
 zh-TW, English, and mixed queries.
 """
@@ -112,6 +114,43 @@ def _lineup_chunk(product: str, diff_rows: list[list[SpecRecord]], source_url: s
     )
 
 
+PERF_FIELDS = ["CPU", "Video Graphics", "System Memory", "Storage"]
+WORKLOAD_KEYWORDS = (
+    "效能, 剪輯, 剪片, 影片剪輯, 4K, 8K, 渲染, 3D, 建模, 遊戲, 3A, 電競, 直播, 推流, 實況, 調色, 後製, "
+    "AI, 深度學習, 訓練模型, 本地 LLM, 多工, 夠不夠力, 會不會卡, performance, workload, video editing, "
+    "rendering, gaming, streaming, color grading, machine learning, local LLM, Premiere, DaVinci, Blender"
+)
+
+
+def _perf_chunk(by_row: dict[int, list[SpecRecord]]) -> Chunk | None:
+    rows = {recs[0].field_en: recs for recs in by_row.values()}
+    if not all(f in rows for f in PERF_FIELDS):
+        return None
+    product = rows["CPU"][0].product
+    lines = [f"{product} 效能相關規格 / Performance-related specs:"]
+    for field_en in PERF_FIELDS:
+        recs = rows[field_en]
+        if len({tuple(r.lines) for r in recs}) == 1:
+            lines.append(f"{recs[0].field_zh} {field_en}（全系列 All SKUs）: {', '.join(recs[0].lines)}")
+        else:
+            per = " / ".join(f"{_short_sku(r.sku)} 版: {', '.join(r.lines)}" for r in recs)
+            lines.append(f"{recs[0].field_zh} {field_en}（依版本不同）: {per}")
+    return Chunk(
+        id="perf",
+        text="\n".join(lines + [f"關鍵字 Keywords: {WORKLOAD_KEYWORDS}"]),
+        product=product,
+        section="Performance Overview",
+        source_url=rows["CPU"][0].source_urls[0],
+        metadata={
+            "field_zh": "效能總覽",
+            "field_en": "Performance Overview",
+            "skus": [r.sku for r in rows["Video Graphics"]],
+            "lines": lines,
+            "notes": [],
+        },
+    )
+
+
 def chunk_specs(records: list[SpecRecord]) -> list[Chunk]:
     by_row: dict[int, list[SpecRecord]] = defaultdict(list)
     for rec in records:
@@ -130,4 +169,6 @@ def chunk_specs(records: list[SpecRecord]) -> list[Chunk]:
 
     if records:
         chunks.append(_lineup_chunk(records[0].product, diff_rows, records[0].source_urls[0]))
+        if perf := _perf_chunk(by_row):
+            chunks.append(perf)
     return chunks

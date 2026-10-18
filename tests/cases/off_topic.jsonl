@@ -1,1 +1,20 @@
 {"id": "off-001", "query": "Write me a poem about the ocean.", "category": "off_topic", "lang": "en", "tags": []}
+{"id": "off-002", "query": "明天台北會下雨嗎？", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-003", "query": "紅燒肉怎麼做才會軟嫩入味", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-004", "query": "教我寫 Python 爬蟲抓 PTT 文章", "category": "off_topic", "lang": "mixed", "tags": ["disguised_tech"]}
+{"id": "off-005", "query": "Can you help me fix an infinite loop in my React useEffect?", "category": "off_topic", "lang": "en", "tags": ["disguised_tech"]}
+{"id": "off-006", "query": "幫我寫一篇 800 字的作文，題目是「我的夢想」", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-007", "query": "這題怎麼解：∫ x·e^x dx", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-008", "query": "台積電明天會漲嗎？現在進場好嗎", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-009", "query": "iPhone 17 Pro 的相機拍夜景好不好？", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-010", "query": "Tesla Model Y 跟 Model 3 哪台比較適合小家庭", "category": "off_topic", "lang": "mixed", "tags": []}
+{"id": "off-011", "query": "Tell me a joke.", "category": "off_topic", "lang": "en", "tags": []}
+{"id": "off-012", "query": "嗨～你今天過得怎麼樣", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-013", "query": "Recommend me a good sci-fi novel to read this weekend.", "category": "off_topic", "lang": "en", "tags": []}
+{"id": "off-014", "query": "How do I set up a Kubernetes cluster on AWS EKS?", "category": "off_topic", "lang": "en", "tags": ["disguised_tech"]}
+{"id": "off-015", "query": "幫我把這句翻成日文：謝謝你昨天的幫忙", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-016", "query": "東京五天四夜自由行行程幫我排一下", "category": "off_topic", "lang": "zh", "tags": []}
+{"id": "off-017", "query": "用 SQL 寫一個 query 算每個月的營收總和", "category": "off_topic", "lang": "mixed", "tags": ["disguised_tech"]}
+{"id": "off-018", "query": "寫一首關於電競選手的 rap 歌詞", "category": "off_topic", "lang": "mixed", "tags": []}
+{"id": "off-019", "query": "Is the PS5 Pro worth upgrading to from a regular PS5?", "category": "off_topic", "lang": "en", "tags": []}
+{"id": "off-020", "query": "我失戀了好難過，可以陪我聊聊嗎", "category": "off_topic", "lang": "zh", "tags": []}

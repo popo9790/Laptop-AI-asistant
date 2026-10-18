@@ -1,0 +1,50 @@
+{"id": "qa-001", "query": "這台螢幕刷新率多高？", "lang": "zh", "type": "single_field", "required": [["row03-all"]], "answer": [["240"]], "expect_refusal": false}
+{"id": "qa-002", "query": "How heavy is it?", "lang": "en", "type": "single_field", "required": [["row15-all"]], "answer": [["2.5"]], "expect_refusal": false}
+{"id": "qa-003", "query": "電池是幾瓦時的", "lang": "zh", "type": "single_field", "required": [["row12-all"]], "answer": [["99"]], "expect_refusal": false}
+{"id": "qa-004", "query": "CPU 是哪一顆？", "lang": "mixed", "type": "single_field", "required": [["row01-all"]], "answer": [["275HX"]], "expect_refusal": false}
+{"id": "qa-005", "query": "記億體最大可以加到多少", "lang": "zh", "type": "single_field", "required": [["row04-all"]], "answer": [["64"]], "expect_refusal": false}
+{"id": "qa-006", "query": "what wifi does it have", "lang": "en", "type": "single_field", "required": [["row09-all"]], "answer": [["Wi-Fi 7", "WIFI 7", "WiFi 7", "Wifi 7", "802.11be"]], "expect_refusal": false}
+{"id": "qa-007", "query": "鍵盤背光是什麼樣的？", "lang": "zh", "type": "single_field", "required": [["row06-all"]], "answer": [["RGB"]], "expect_refusal": false}
+{"id": "qa-008", "query": "What colour is the chassis?", "lang": "en", "type": "single_field", "required": [["row16-all"]], "answer": [["Dark Tide"]], "expect_refusal": false}
+{"id": "qa-009", "query": "變壓器 wattage 多少", "lang": "mixed", "type": "single_field", "required": [["row13-all"]], "answer": [["330"]], "expect_refusal": false}
+{"id": "qa-010", "query": "出廠預載什麼作業系統", "lang": "zh", "type": "single_field", "required": [["row00-all"]], "answer": [["Windows 11"]], "expect_refusal": false}
+{"id": "qa-011", "query": "視訊鏡頭解析度多少？喇叭是什麼配置？", "lang": "zh", "type": "multi_field", "required": [["row10-all"], ["row08-all"]], "answer": [["1080", "FHD"], ["2W", "2 W"]], "expect_refusal": false}
+{"id": "qa-012", "query": "What are its width and weight?", "lang": "en", "type": "multi_field", "required": [["row14-all"], ["row15-all"]], "answer": [["357"], ["2.5"]], "expect_refusal": false}
+{"id": "qa-013", "query": "TB5 那個孔支援 PD 充電嗎？原廠變壓器幾瓦", "lang": "mixed", "type": "multi_field", "required": [["row07-all"], ["row13-all"]], "answer": [["Power Delivery", "PD"], ["330"]], "expect_refusal": false}
+{"id": "qa-014", "query": "電池容量跟變壓器功率各是多少", "lang": "zh", "type": "multi_field", "required": [["row12-all"], ["row13-all"]], "answer": [["99"], ["330"]], "expect_refusal": false}
+{"id": "qa-015", "query": "What M.2 slots does it have, and how much RAM can it take?", "lang": "en", "type": "multi_field", "required": [["row05-all"], ["row04-all"]], "answer": [["Gen5"], ["Gen4"], ["64"]], "expect_refusal": false}
+{"id": "qa-016", "query": "螢幕多大？機身最厚的地方幾 mm？", "lang": "zh", "type": "multi_field", "required": [["row03-all"], ["row14-all"]], "answer": [["16"], ["29.9"]], "expect_refusal": false}
+{"id": "qa-017", "query": "Windows Hello 臉部辨識跟 TPM 都有嗎", "lang": "mixed", "type": "multi_field", "required": [["row10-all"], ["row11-all"]], "answer": [["Windows Hello", "臉部", "face", "Face"], ["TPM"]], "expect_refusal": false}
+{"id": "qa-018", "query": "Which Bluetooth version does it use, and is the audio jack a headset combo?", "lang": "en", "type": "multi_field", "required": [["row09-all"], ["row07-all"]], "answer": [["5.4"], ["combo", "Combo", "耳機", "麥克風", "mic"]], "expect_refusal": false}
+{"id": "qa-019", "query": "左邊的 HDMI 是幾版？螢幕原生解析度多少？", "lang": "zh", "type": "multi_field", "required": [["row07-all"], ["row03-all"]], "answer": [["2.1"], ["2560"]], "expect_refusal": false}
+{"id": "qa-020", "query": "CPU 幾核心？RAM 是什麼規格", "lang": "mixed", "type": "multi_field", "required": [["row01-all"], ["row04-all"]], "answer": [["24"], ["DDR5"]], "expect_refusal": false}
+{"id": "qa-021", "query": "5080 版顯存幾 G", "lang": "zh", "type": "sku", "required": [["row02-BYH", "lineup"]], "answer": [["16"]], "expect_refusal": false}
+{"id": "qa-022", "query": "Does the 5070 Ti model get the same max graphics power as the 5090 model?", "lang": "en", "type": "sku", "required": [["row02-BXH", "lineup"], ["row02-BZH", "lineup"]], "answer": [["140"], ["175"]], "expect_refusal": false}
+{"id": "qa-023", "query": "三個 SKU 的 VRAM 各是多少？", "lang": "mixed", "type": "sku", "required": [["row02-BZH", "lineup"], ["row02-BYH", "lineup"], ["row02-BXH", "lineup"]], "answer": [["24"], ["16"], ["12"]], "expect_refusal": false}
+{"id": "qa-024", "query": "每個版本的 CPU 都一樣嗎？", "lang": "zh", "type": "sku", "required": [["row01-all", "lineup"]], "answer": [["275HX"]], "expect_refusal": false}
+{"id": "qa-025", "query": "What's the AI Boost clock on the BYH?", "lang": "en", "type": "sku", "required": [["row02-BYH", "lineup"]], "answer": [["1902"]], "expect_refusal": false}
+{"id": "qa-026", "query": "BZH 跟 BYH 除了顯卡之外還有什麼差別", "lang": "zh", "type": "sku", "required": [["lineup"]], "answer": [["5090"], ["5080"]], "expect_refusal": false}
+{"id": "qa-027", "query": "藍牙滑鼠可以直接連嗎？", "lang": "zh", "type": "compatibility", "required": [["row09-all"]], "answer": [["5.4"]], "expect_refusal": false}
+{"id": "qa-028", "query": "Can I add a second PCIe Gen4 NVMe SSD?", "lang": "en", "type": "compatibility", "required": [["row05-all"]], "answer": [["Gen4"]], "expect_refusal": false}
+{"id": "qa-029", "query": "4K 144Hz 的螢幕用 HDMI 接可以嗎", "lang": "mixed", "type": "compatibility", "required": [["row07-all"]], "answer": [["2.1"]], "expect_refusal": false}
+{"id": "qa-030", "query": "自己買 DDR5 SO-DIMM 記憶體加裝可以嗎？最多到多少？", "lang": "zh", "type": "compatibility", "required": [["row04-all"]], "answer": [["SO-DIMM", "DDR5"], ["64"]], "expect_refusal": false}
+{"id": "qa-031", "query": "Can I charge it with a USB-C PD charger?", "lang": "en", "type": "compatibility", "required": [["row07-all"]], "answer": [["Power Delivery", "PD"]], "expect_refusal": false}
+{"id": "qa-032", "query": "相機用的 UHS-II microSD 卡讀得到嗎", "lang": "zh", "type": "compatibility", "required": [["row07-all"]], "answer": [["UHS-II"]], "expect_refusal": false}
+{"id": "qa-033", "query": "外接 Thunderbolt 5 的 SSD 外接盒可以用嗎？要插哪個孔", "lang": "mixed", "type": "compatibility", "required": [["row07-all"]], "answer": [["Thunderbolt", "TB5"], ["Left", "左"]], "expect_refusal": false}
+{"id": "qa-034", "query": "Will a monitor that needs DisplayPort 2.1 work over USB-C?", "lang": "en", "type": "compatibility", "required": [["row07-all"]], "answer": [["2.1"]], "expect_refusal": false}
+{"id": "qa-035", "query": "家裡換了 Wi-Fi 7 路由器，這台吃得到嗎", "lang": "zh", "type": "compatibility", "required": [["row09-all"]], "answer": [["Wi-Fi 7", "WIFI 7", "WiFi 7", "Wifi 7", "802.11be"]], "expect_refusal": false}
+{"id": "qa-036", "query": "單孔耳麥（耳機麥克風二合一）的耳機可以插嗎", "lang": "zh", "type": "compatibility", "required": [["row07-all"]], "answer": [["combo", "Combo", "耳機", "麥克風"]], "expect_refusal": false}
+{"id": "qa-037", "query": "剪 4K 影片夠力嗎？", "lang": "zh", "type": "workload", "required": [["row01-all"], ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"]], "answer": [["275HX"], ["5090", "5080", "5070"]], "expect_refusal": false}
+{"id": "qa-038", "query": "Is it good for Blender Cycles rendering?", "lang": "en", "type": "workload", "required": [["row01-all"], ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"]], "answer": [["275HX"], ["5090", "5080", "5070"]], "expect_refusal": false}
+{"id": "qa-039", "query": "想跑 local LLM，VRAM 跟系統 RAM 最多多大？", "lang": "mixed", "type": "workload", "required": [["row02-BZH", "row02-BYH", "row02-BXH", "lineup"], ["row04-all"]], "answer": [["24GB", "24 GB"], ["64"]], "expect_refusal": false}
+{"id": "qa-040", "query": "玩 3A 大作開高畫質會順嗎？", "lang": "zh", "type": "workload", "required": [["row01-all"], ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"], ["row03-all"]], "answer": [["5090", "5080", "5070"], ["240"]], "expect_refusal": false}
+{"id": "qa-041", "query": "I want to stream to Twitch while gaming on the same machine — is the hardware up to it?", "lang": "en", "type": "workload", "required": [["row01-all"], ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"]], "answer": [["275HX"], ["5090", "5080", "5070"]], "expect_refusal": false}
+{"id": "qa-042", "query": "BXH 跑 Stable Diffusion 夠用嗎", "lang": "zh", "type": "workload", "required": [["row01-all"], ["row02-BXH", "lineup"]], "answer": [["5070"], ["12"]], "expect_refusal": false}
+{"id": "qa-043", "query": "做 Unreal Engine 開發又要多開 VM，CPU 跟 RAM 夠嗎", "lang": "mixed", "type": "workload", "required": [["row01-all"], ["row04-all"], ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"]], "answer": [["24"], ["64"]], "expect_refusal": false}
+{"id": "qa-044", "query": "攝影師修 RAW 檔，色域跟效能夠嗎？", "lang": "zh", "type": "workload", "required": [["row03-all"], ["row01-all"], ["row02-BZH", "row02-BYH", "row02-BXH", "lineup"]], "answer": [["P3", "DCIP"], ["275HX"]], "expect_refusal": false}
+{"id": "qa-045", "query": "這台現在賣多少錢？", "lang": "zh", "type": "unanswerable", "required": [], "answer": [], "expect_refusal": true}
+{"id": "qa-046", "query": "How many hours does the battery last when browsing the web?", "lang": "en", "type": "unanswerable", "required": [], "answer": [], "expect_refusal": true}
+{"id": "qa-047", "query": "滿載的時候風扇 noise 大概幾 dB", "lang": "mixed", "type": "unanswerable", "required": [], "answer": [], "expect_refusal": true}
+{"id": "qa-048", "query": "打遊戲的時候 GPU 會跑到幾度？", "lang": "zh", "type": "unanswerable", "required": [], "answer": [], "expect_refusal": true}
+{"id": "qa-049", "query": "How much does the 330W power brick weigh?", "lang": "en", "type": "unanswerable", "required": [], "answer": [], "expect_refusal": true}
+{"id": "qa-050", "query": "保固是幾年？", "lang": "zh", "type": "unanswerable", "required": [], "answer": [], "expect_refusal": true}

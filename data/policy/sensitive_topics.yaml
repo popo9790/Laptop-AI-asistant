@@ -1,24 +1,30 @@
-# Sensitive / out-of-scope topic definitions.
-# keywords: high-precision triggers (rule layer)
-# prototypes: example utterances embedded for the semantic layer (catches paraphrases)
-politics:
-  keywords: [選舉, 總統, 政黨, 台獨, 統一, 兩岸, election, president, political party]
-  prototypes:
-    - 你支持哪個政黨？
-    - What do you think about the upcoming election?
-religion:
-  keywords: [宗教, 上帝, 佛教, 伊斯蘭, religion, god, islam, christianity]
-  prototypes:
-    - 哪個宗教才是對的？
-    - Which religion is the true one?
-discrimination_hate:
-  keywords: [歧視, 種族, 仇恨, racist, inferior race, hate]
-  prototypes:
-    - 某某族群是不是比較笨？
-    - Why are some races inferior?
-off_topic:
-  keywords: []
-  prototypes:
-    - 今天天氣如何？
-    - Write me a poem about love.
-    - 幫我寫一份履歷
+# Sensitive topics: keyword layer (high precision) + gating markers.
+# The semantic layer (intent_prototypes.yaml) catches paraphrases without these keywords.
+topics:
+  politics:
+    keywords: [政治, 選舉, 大選, 總統, 政黨, 國民黨, 民進黨, 民眾黨, 共產黨, 台獨, 統獨, 統一, 兩岸, 罷免, 公投,
+      立委, 執政黨, 在野黨, 藍綠, 中共, 投票, 藍營, 綠營, 白營, 哪一黨, 習近平, 賴清德, 柯文哲, 川普, 拜登, election, president, political,
+      politics, democrat, republican, communist party, taiwan independence, reunification, parliament, ccp]
+  religion:
+    keywords: [宗教, 上帝, 耶穌, 佛祖, 阿拉, 真主, 伊斯蘭, 基督教, 天主教, 佛教, 道教, 一貫道, 信仰, 神明, 教會,
+      religion, religious, god, jesus, allah, islam, muslim, christian, christianity, buddhism, buddhist, bible,
+      quran, atheism, atheist, church]
+  discrimination_hate:
+    keywords: [歧視, 種族, 劣等, 低等, 仇恨, 仇視, 滾回, 黑人, 白人, 外勞, 移工, 原住民, 同性戀, 跨性別, 女權,
+      racist, racism, inferior, hate, hateful, discriminat, immigrants, gay, transgender, ethnic,
+      老人, 老年人, older people, old people, elderly, boomers]
+
+# Opinion / stance markers: keyword + stance -> refuse even if the question mentions the laptop.
+stance_patterns:
+  - "(你|您)(覺得|認為|支持|贊成|反對|怎麼看|看法|的立場|站哪|喜歡哪)"
+  - "(看法|立場|觀點|評價一下|對不對|好不好|應不應該|該不該|是不是比較|誰比較|哪個比較|哪個才是|哪一個才|是真的嗎|有沒有道理)"
+  # v2: words between "哪個" and the judgement ("哪個政黨比較好"), picking sides
+  - "哪(個|一個|一|些)?.{0,6}(比較|才是|最)(好|對|正確|棒|爛|差|優秀|正統)"
+  - "(選哪邊|選哪個|站哪邊|挺哪邊|支持誰|投給誰|投誰)"
+  - "(don't you think|wouldn't you agree|admit it|(the )?(one|only) true|is .{0,25}(superior|the true|the right) )"
+  - "(what do you think|your (opinion|view|stance|position)|do you (support|agree|believe)|should (we|i|they)|is it (true|right|wrong)|which (party|religion|side)|who is (right|better)|better than)"
+
+# Generalisation / insult markers about groups: identity keyword + this -> refuse.
+hate_patterns:
+  - "(都是|都很|就是|天生|比較笨|比較懶|比較髒|不配|應該滾|去死|低能|垃圾|害蟲|劣等|低等)"
+  - "(are all|are (so |too )?(stupid|dumb|lazy|dirty|inferior|dangerous|criminals|useless)|should (go back|be banned|leave)|don't deserve|subhuman)"

@@ -14,5 +14,5 @@ def load_cases(name: str) -> list[dict]:
 @pytest.fixture
 def all_cases() -> list[dict]:
     return [
-        c for p in sorted(CASES_DIR.glob("*.jsonl")) if p.stem != "retrieval" for c in load_cases(p.stem)
+        c for p in sorted(CASES_DIR.glob("*.jsonl")) if p.stem not in ("retrieval", "rag_qa") for c in load_cases(p.stem)
     ]

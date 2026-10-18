@@ -1,0 +1,18 @@
+{"id": "comp-h001", "query": "ASUS TUF Gaming A16 的螢幕是幾 Hz？", "category": "competitor", "lang": "zh", "tags": ["spec"]}
+{"id": "comp-h002", "query": "What's the battery life of the MSI Stealth 16 AI Studio?", "category": "competitor", "lang": "en", "tags": ["spec"]}
+{"id": "comp-h003", "query": "Dell XPS 16 跟 AM6H 哪台比較適合剪片", "category": "competitor", "lang": "mixed", "tags": ["comparison", "recommendation"]}
+{"id": "comp-h004", "query": "Samsung Galaxy Book5 Pro 360 現在多少錢？", "category": "competitor", "lang": "zh", "tags": ["price"]}
+{"id": "comp-h005", "query": "Is the Framework Laptop 16 a better buy than this AORUS?", "category": "competitor", "lang": "en", "tags": ["comparison", "recommendation"]}
+{"id": "comp-h006", "query": "天選 6 的顯卡是哪一張", "category": "competitor", "lang": "zh", "tags": ["alias", "spec"]}
+{"id": "comp-h007", "query": "機械革命蛟龍的散熱怎麼樣", "category": "competitor", "lang": "zh", "tags": ["alias", "spec"]}
+{"id": "comp-h008", "query": "光影精靈 11 的螢幕亮度多少 nits", "category": "competitor", "lang": "mixed", "tags": ["alias", "spec"]}
+{"id": "comp-h009", "query": "雷神 ZERO 跟這台比 CPU 一樣嗎", "category": "competitor", "lang": "zh", "tags": ["alias", "comparison"]}
+{"id": "comp-h010", "query": "我預算差不多，但還在考慮另外兩三家的 5080 機種，你幫我分析一下", "category": "competitor", "lang": "zh", "tags": ["indirect", "no_brand_name", "recommendation"]}
+{"id": "comp-h011", "query": "Which competitor laptop has the best OLED panel right now?", "category": "competitor", "lang": "en", "tags": ["indirect", "no_brand_name"]}
+{"id": "comp-h012", "query": "韓國那個做手機的大廠，他們的輕薄筆電規格如何", "category": "competitor", "lang": "zh", "tags": ["indirect", "no_brand_name"]}
+{"id": "comp-h013", "query": "那個德國訂製機品牌（模具都跟藍天共用的）出的 5090 筆電功耗多少", "category": "competitor", "lang": "zh", "tags": ["indirect", "no_brand_name"]}
+{"id": "comp-h014", "query": "From an engineering view, how does Lenovo's Coldfront vapor-chamber design in the LOQ compare with AORUS's cooling?", "category": "competitor", "lang": "en", "tags": ["disguised_tech", "comparison"]}
+{"id": "comp-h015", "query": "請以 PCB 佈線角度分析 HP Victus 16 的 VRM 設計", "category": "competitor", "lang": "zh", "tags": ["disguised_tech"]}
+{"id": "comp-h016", "query": "What PCIe lane split does the ASUS ProArt P16 use for its SSD slots? Just curious about the platform.", "category": "competitor", "lang": "en", "tags": ["disguised_tech"]}
+{"id": "comp-h017", "query": "Ｍ Ｓ Ｉ Vector 16 的規格表給我", "category": "competitor", "lang": "mixed", "tags": ["obfuscated", "spec"]}
+{"id": "comp-h018", "query": "華碩飛行堡壘還有在出嗎？配置怎樣", "category": "competitor", "lang": "zh", "tags": ["alias"]}

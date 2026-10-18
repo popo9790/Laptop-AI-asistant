@@ -54,3 +54,11 @@ def test_stopwords_removed():
     assert tokenize("What is the battery capacity?") == ["battery", "capacity"]
     toks = tokenize("這台多重？")
     assert "這台" not in toks and "重" in toks
+
+
+def test_decompose_multi_part():
+    from aorus_assistant.rag.retriever import decompose
+
+    assert decompose("視訊鏡頭解析度多少？喇叭是什麼配置？") == ["視訊鏡頭解析度多少", "喇叭是什麼配置"]
+    assert decompose("What are its width and weight?") == ["What are its width", "weight"]
+    assert decompose("電池容量多大？") == []

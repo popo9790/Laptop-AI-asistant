@@ -53,7 +53,7 @@ def test_chunks_dedupe_shared_fields(records):
     shared = [c for c in chunks if c.id.endswith("-all")]
     assert len(gpu_chunks) == 3
     assert len(shared) == 16
-    assert len(chunks) == 16 + 3 + 1  # shared + per-SKU GPU + lineup
+    assert len(chunks) == 16 + 3 + 2  # shared + per-SKU GPU + lineup + performance overview
     assert all(c.product == TARGET_PRODUCT for c in chunks)
     assert len({c.id for c in chunks}) == len(chunks)
 
@@ -65,3 +65,6 @@ def test_chunk_text_bilingual(records):
     lineup = chunks["lineup"]
     for s in ("BZH", "BYH", "BXH", "5090", "5080", "5070 Ti"):
         assert s in lineup.text
+    perf = chunks["perf"]
+    for s in ("275HX", "5090", "5070 Ti", "64GB", "剪輯", "rendering"):
+        assert s in perf.text

@@ -14,9 +14,9 @@ def l2_normalize(x: np.ndarray) -> np.ndarray:
 
 
 class Embedder:
-    def __init__(self, cfg: EmbedConfig, model=None):
+    def __init__(self, cfg: EmbedConfig, model=None, verbose: bool = False):
         self.cfg = cfg
-        self.model = model if model is not None else load_embedder(cfg)
+        self.model = model if model is not None else load_embedder(cfg, verbose=verbose)
 
     def _embed(self, texts: list[str]) -> np.ndarray:
         # One call per text: llama.cpp pools per sequence, and batching mixed-length

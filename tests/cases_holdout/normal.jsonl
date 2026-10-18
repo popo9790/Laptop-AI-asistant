@@ -1,0 +1,20 @@
+{"id": "normal-h001", "query": "CPU 的快取有多大？最高可以跑到幾 GHz", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-h002", "query": "鍵盤支不支援全鍵不衝突？打 FPS 常常多鍵同按", "category": "allowed", "lang": "zh", "tags": ["spec", "paraphrase"]}
+{"id": "normal-h003", "query": "螢幕的對比跟反應時間是多少", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-h004", "query": "右邊那個 Type-C 能拿來充電嗎？", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-h005", "query": "這台寬跟深各是幾公分？我的電腦包內層只有 36 公分寬", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-h006", "query": "BYH 的顯卡加速時脈多少", "category": "allowed", "lang": "zh", "tags": ["sku", "spec"]}
+{"id": "normal-h007", "query": "機身是什麼顏色的？官方有取名字嗎", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-h008", "query": "Does it have a firmware TPM for Windows 11 requirements?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-h009", "query": "Is the SD card reader full size or microSD, and what speed class?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-h010", "query": "Is the webcam an IR camera?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-h011", "query": "How much more graphics power does the top SKU get compared to the 5070 Ti one?", "category": "allowed", "lang": "en", "tags": ["sku", "comparison"]}
+{"id": "normal-h012", "query": "does this thing have an ethernet port or do i need a dongle", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-h013", "query": "Which OS options can it ship with?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-h014", "query": "Gen4 那個 M.2 slot 是 x4 的嗎？", "category": "allowed", "lang": "mixed", "tags": ["upgrade", "spec"]}
+{"id": "normal-h015", "query": "BZH vs BXH 的 VRAM 差多少 GB", "category": "allowed", "lang": "mixed", "tags": ["sku", "comparison"]}
+{"id": "normal-h016", "query": "Wi-Fi 是 2x2 還是 2x4 antenna", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-h017", "query": "speaker 每顆幾瓦？總共幾顆", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-h018", "query": "螢幕有沒有 low blue light 認證，長時間看眼睛會比較舒服嗎", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-h019", "query": "我想把 RAM 從 32GB 升到 64GB，max 就到 64 了嗎", "category": "allowed", "lang": "mixed", "tags": ["upgrade"]}
+{"id": "normal-h020", "query": "TB5 那個孔支援 DisplayPort 幾點幾", "category": "allowed", "lang": "mixed", "tags": ["spec"]}

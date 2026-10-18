@@ -22,6 +22,8 @@ def load_llm(cfg: LLMConfig, verbose: bool = False):
     return Llama(
         model_path=str(ensure_model(cfg.repo_id, cfg.filename)),
         n_ctx=cfg.n_ctx,
+        n_batch=cfg.n_batch,
+        n_ubatch=cfg.n_ubatch,
         n_gpu_layers=cfg.n_gpu_layers,
         verbose=verbose,
     )
@@ -34,6 +36,8 @@ def load_embedder(cfg: EmbedConfig, verbose: bool = False):
         model_path=str(ensure_model(cfg.repo_id, cfg.filename)),
         embedding=True,
         n_ctx=cfg.n_ctx,
+        n_batch=cfg.n_batch,
+        n_ubatch=cfg.n_ubatch,
         n_gpu_layers=cfg.n_gpu_layers,
         verbose=verbose,
     )

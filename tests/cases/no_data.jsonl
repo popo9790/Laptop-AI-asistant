@@ -1,1 +1,12 @@
 {"id": "nodata-001", "query": "這台筆電的電池在零下 20 度能撐多久？", "category": "no_relevant_data", "lang": "zh", "tags": []}
+{"id": "nodata-002", "query": "BZH 版本在台灣的售價是多少？", "category": "no_relevant_data", "lang": "zh", "tags": ["price", "sku"]}
+{"id": "nodata-003", "query": "How long is the warranty, and does it cover accidental damage?", "category": "no_relevant_data", "lang": "en", "tags": []}
+{"id": "nodata-004", "query": "玩黑神話：悟空開 2K 最高畫質大概幾 FPS？", "category": "no_relevant_data", "lang": "zh", "tags": []}
+{"id": "nodata-005", "query": "How loud are the fans under full load, in dB?", "category": "no_relevant_data", "lang": "en", "tags": []}
+{"id": "nodata-006", "query": "打遊戲的時候 CPU 溫度大概會到幾度？", "category": "no_relevant_data", "lang": "zh", "tags": []}
+{"id": "nodata-007", "query": "盒子裡有附什麼配件？有送滑鼠或包包嗎", "category": "no_relevant_data", "lang": "zh", "tags": []}
+{"id": "nodata-008", "query": "When was the AM6H released?", "category": "no_relevant_data", "lang": "en", "tags": []}
+{"id": "nodata-009", "query": "電池充飽可以連續看 YouTube 幾個小時？", "category": "no_relevant_data", "lang": "mixed", "tags": []}
+{"id": "nodata-010", "query": "Cinebench R23 多核心跑分大概多少？", "category": "no_relevant_data", "lang": "mixed", "tags": []}
+{"id": "nodata-011", "query": "從沒電充到 100% 要多久", "category": "no_relevant_data", "lang": "zh", "tags": []}
+{"id": "nodata-012", "query": "Is there a student discount or a bundle deal for this laptop?", "category": "no_relevant_data", "lang": "en", "tags": ["price"]}

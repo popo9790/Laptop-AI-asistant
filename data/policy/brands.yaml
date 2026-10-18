@@ -1,44 +1,122 @@
-# Maintainable competitor list. Matching is done on normalised text (see moderation/normalize.py).
-# brand -> aliases (zh / en / nicknames). Add new entries here; no code change needed.
-competitor_brands:
-  ASUS: [asus, 華碩, rog, 玩家共和國, tuf, zephyrus, strix, 敗家之眼]
-  MSI: [msi, 微星, titan, raider, stealth, vector]
-  Lenovo: [lenovo, 聯想, legion, 拯救者, thinkpad, yoga]
-  Acer: [acer, 宏碁, predator, 掠奪者, nitro]
-  Dell: [dell, 戴爾, alienware, 外星人, xps]
-  HP: [hp, 惠普, omen, 暗影精靈, victus]
-  Razer: [razer, 雷蛇, blade]
-  Apple: [apple, macbook, 蘋果筆電]
-  Samsung_Laptop: [galaxy book]
+# Competitor laptop brands / series / models and their aliases.
+# Matching runs on normalised text (moderation/normalize.py): case-folded, full-width -> half-width,
+# Simplified -> Traditional for common characters, separators inside words removed.
+#
+# aliases:   always count as a competitor mention
+# ambiguous: common words or names shared with non-laptop products ("blade", "yoga", "apple");
+#            they only count when the text also has laptop/spec intent (see scope.yaml: laptop_terms)
+#            or another alias of the same brand.
+competitors:
+  ASUS:
+    # v2: mainland-China nicknames (槍神 = Strix SCAR, 魔霸 = Strix G, 天選 = TUF, 幻 = Zephyrus, 飛行堡壘 = TUF/FX)
+    aliases: [asus, 華碩, rog, 玩家共和國, 敗家之眼, zephyrus, strix, rog flow, tuf gaming, vivobook, zenbook, proart studiobook,
+      槍神, 魔霸, 天選, 幻16, 幻14, 幻 16, 幻 14, 飛行堡壘]
+    ambiguous: [tuf, scar, flow]
+  MSI:
+    aliases: [msi, 微星, msi titan, msi raider, msi stealth, msi vector, msi katana, msi cyborg, msi prestige, 泰坦, 絳影, 星影, 強襲, 武士]
+    ambiguous: [titan, raider, stealth, vector, katana, cyborg, crosshair, sword, pulse]
+  Lenovo:
+    aliases: [lenovo, 聯想, legion, 拯救者, thinkpad, ideapad, 小新, loq]
+    ambiguous: [yoga]
+  Acer:
+    aliases: [acer, 宏碁, 宏基, predator, 掠奪者, helios, 暗黑騎士, aspire]
+    ambiguous: [nitro, swift]
+  Dell:
+    aliases: [dell, 戴爾, alienware, 外星人, xps, inspiron, latitude, 游匣]
+    ambiguous: []
+  HP:
+    aliases: [hp, 惠普, omen, 暗影精靈, victus, 光影精靈, envy, spectre, elitebook, pavilion]
+    ambiguous: []
+  Razer:
+    aliases: [razer, 雷蛇, razer blade]
+    ambiguous: [blade]
+  Apple:
+    aliases: [macbook, macbook pro, macbook air, 蘋果筆電, mbp]
+    ambiguous: [apple, 蘋果, mac]
+  Samsung:
+    aliases: [galaxy book]
+    ambiguous: [samsung, 三星]
+  Microsoft:
+    aliases: [surface laptop, surface book, surface pro]
+    ambiguous: [surface]
+  Huawei:
+    aliases: [matebook, 華為筆電]
+    ambiguous: [huawei, 華為]
+  Xiaomi:
+    aliases: [redmibook, 小米筆電, 紅米筆電]
+    ambiguous: [xiaomi, 小米]
+  Others:
+    aliases: [framework laptop, clevo, 藍天, machenike, 機械師, 機械革命, mechrevo, thunderobot, 雷神筆電, schenker, xmg, eluktronics, origin pc, gpd,
+      神舟, 戰神筆電, hasee]
+    ambiguous: []
 
-# Explicit model numbers / series (regex-friendly). Extend as needed.
+# Explicit competitor model names (any match counts as competitor).
 competitor_models:
-  ROG Strix SCAR 16: [strix scar 16, scar 16, g634]
-  Legion Pro 7i: [legion pro 7, legion 7i]
-  Titan 18 HX: [titan 18]
-  Alienware m16: [alienware m16, m16 r2]
+  - strix scar 16
+  - strix scar 18
+  - strix g16
+  - zephyrus g14
+  - zephyrus g16
+  - legion pro 7i
+  - legion pro 5i
+  - legion 9i
+  - titan 18 hx
+  - raider 18 hx
+  - alienware m16
+  - alienware m18
+  - alienware x16
+  - predator helios 16
+  - predator helios 18
+  - omen max 16
+  - omen transcend
+  - blade 16
+  - blade 18
+  - macbook pro 16
 
-# Third-party component vendors and standards that are legitimate to mention
-# (compatibility / technical questions about THIS laptop). Their presence alone must not trigger refusal.
+# Third-party companies / standards that are legitimate in questions about THIS laptop:
+# components inside it, standards it supports, and peripheral/part vendors.
+# Mentioning them never triggers the competitor rule by itself.
 allowed_third_party:
   - nvidia
   - geforce
   - rtx
   - dlss
+  - g-sync
   - intel
   - core ultra
   - amd
-  - microsoft
+  - radeon
+  - microsoft windows
   - windows
   - copilot
-  - samsung   # e.g. SSD / RAM compatibility; laptops covered via Samsung_Laptop above
-  - kingston
-  - crucial
-  - wd
   - thunderbolt
-  - usb
+  - usb4
+  - displayport
+  - hdmi
   - wi-fi
+  - wifi
   - bluetooth
   - dolby
-  - hdmi
-  - displayport
+  - pantone
+  - tuv
+  - kingston
+  - crucial
+  - western digital
+  - wd
+  - seagate
+  - sk hynix
+  - micron
+  - logitech
+  - 羅技
+  - steelseries
+  - corsair
+  - hyperx
+  - lg
+  - benq
+  - viewsonic
+  - sony
+  - 任天堂
+  - nintendo
+  - xbox
+  - playstation
+  - steam

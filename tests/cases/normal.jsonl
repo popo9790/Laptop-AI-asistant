@@ -1,3 +1,40 @@
 {"id": "normal-001", "query": "這台筆電的顯示卡是什麼？", "category": "allowed", "lang": "zh", "tags": ["spec"]}
-{"id": "normal-002", "query": "What is the maximum RAM supported?", "category": "allowed", "lang": "en", "tags": ["spec"]}
-{"id": "normal-003", "query": "AM6H 的 display refresh rate 是多少？", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-002", "query": "處理器是幾核心幾執行緒啊", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-003", "query": "螢幕解析度跟更新率各是多少？", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-004", "query": "記憶體最多可以擴充到多大？裡面有幾個插槽？", "category": "allowed", "lang": "zh", "tags": ["spec", "upgrade"]}
+{"id": "normal-005", "query": "買回來之後可以自己再多裝一條 SSD 嗎？總共有幾個 M.2 槽", "category": "allowed", "lang": "zh", "tags": ["upgrade"]}
+{"id": "normal-006", "query": "電池容量多大？", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-007", "query": "這台大概多重，每天背去學校會不會很累", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-008", "query": "充電器是幾瓦的", "category": "allowed", "lang": "zh", "tags": ["spec", "paraphrase"]}
+{"id": "normal-009", "query": "鍵盤有背光嗎？是整片同色還是分區的", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-010", "query": "有沒有讀卡機？可以插相機的記憶卡嗎", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-011", "query": "有網路孔可以直接插網路線嗎？", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-012", "query": "視訊鏡頭能不能用臉部辨識登入", "category": "allowed", "lang": "zh", "tags": ["spec", "paraphrase"]}
+{"id": "normal-013", "query": "這台筆店的厚度多少，會很厚嗎", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-014", "query": "藍芽是幾版的", "category": "allowed", "lang": "zh", "tags": ["spec"]}
+{"id": "normal-015", "query": "5070 Ti 那個版本的顯存有幾 GB？", "category": "allowed", "lang": "zh", "tags": ["sku", "spec"]}
+{"id": "normal-016", "query": "What is the maximum RAM supported?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-017", "query": "Which GPU options are available for this model?", "category": "allowed", "lang": "en", "tags": ["sku"]}
+{"id": "normal-018", "query": "How many Thunderbolt ports does it have and which side are they on?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-019", "query": "whats the screen size and aspect ratio", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-020", "query": "Does the BXH model get the same CPU as the BZH?", "category": "allowed", "lang": "en", "tags": ["sku"]}
+{"id": "normal-021", "query": "How much VRAM does the RTX 5080 version have?", "category": "allowed", "lang": "en", "tags": ["sku", "spec"]}
+{"id": "normal-022", "query": "Can I upgrade the RAM myself later on, or is it soldered?", "category": "allowed", "lang": "en", "tags": ["upgrade"]}
+{"id": "normal-023", "query": "What's the max SSD capacity it ships with?", "category": "allowed", "lang": "en", "tags": ["spec", "upgrade"]}
+{"id": "normal-024", "query": "Does the screen support HDR?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-025", "query": "How fast is the wired ethernet port?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-026", "query": "is there a 3.5mm jack for my headset", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-027", "query": "What colour options does it come in?", "category": "allowed", "lang": "en", "tags": ["spec"]}
+{"id": "normal-028", "query": "AM6H 的 display refresh rate 是多少？", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-029", "query": "BZH 的 GPU power 最高可以到幾 W？", "category": "allowed", "lang": "mixed", "tags": ["sku", "spec"]}
+{"id": "normal-030", "query": "這台的 battery 是幾 Wh？", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-031", "query": "左邊有哪些 port？", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-032", "query": "RTX 5090 版跟 5080 版主要差在哪？", "category": "allowed", "lang": "mixed", "tags": ["sku", "comparison"]}
+{"id": "normal-033", "query": "我想加一條 Gen5 SSD，哪個 slot 才是 Gen5？", "category": "allowed", "lang": "mixed", "tags": ["upgrade"]}
+{"id": "normal-034", "query": "keyboard 的 key travel 有多深", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-035", "query": "HDMI 是 2.1 還是 2.0 啊", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-036", "query": "螢幕 color gamut 有到 DCI-P3 100% 嗎", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-037", "query": "BXH 跟 BYH 除了 GPU 以外 spec 還有什麼不一樣嗎", "category": "allowed", "lang": "mixed", "tags": ["sku", "comparison"]}
+{"id": "normal-038", "query": "這台最多可以 support 幾台外接螢幕？用哪些 port", "category": "allowed", "lang": "mixed", "tags": ["spec", "compatibility"]}
+{"id": "normal-039", "query": "RAM 是 DDR5 幾 MHz 的", "category": "allowed", "lang": "mixed", "tags": ["spec"]}
+{"id": "normal-040", "query": "weight 大概多少 kg，適合 daily 通勤帶著走嗎", "category": "allowed", "lang": "mixed", "tags": ["spec"]}

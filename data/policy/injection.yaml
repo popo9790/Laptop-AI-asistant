@@ -1,0 +1,18 @@
+# Prompt-injection patterns (regex, matched on normalised text).
+patterns:
+  ignore_rules:
+    - "(忽略|無視|忘記|忘掉|不要理會?|不用理|跳過|覆蓋|取消|拋開|放下|解除)(掉|一下)?.{0,12}(指示|指令|規則|設定|限制|提示|規範|要求|約束|政策|prompt|instruction)"
+    - "(ignore|disregard|forget|override|bypass|skip|drop|abandon)\\s+(all\\s+|any\\s+|of\\s+)?(the\\s+|your\\s+|these\\s+|those\\s+|my\\s+)?(previous|prior|above|earlier|preceding|system|original|current|safety)?\\s*(instructions?|rules?|prompts?|guidelines?|directives?|restrictions?|polic(y|ies)|constraints?)"
+    - "(不要|別|不用)(再)?(遵守|遵循|管|理).{0,6}(規則|限制|政策|設定|指示)"
+    - "(no longer|don't|do not) (follow|obey|apply) (the |your |any )?(rules|instructions|policy|guidelines)"
+  system_prompt_leak:
+    - "(系統提示|系統指令|系統設定|提示詞|system prompt|初始指令|隱藏指令|開發者指令|原始指令).{0,10}(是什麼|給我|顯示|印出|輸出|貼出|告訴|列出|重複|洩漏|完整)"
+    - "(顯示|印出|輸出|貼出|告訴我|列出|重複|洩漏|透露).{0,10}(系統提示|system prompt|你的(指令|設定|規則|提示|prompt)|提示詞|初始指令)"
+    - "(reveal|show|print|repeat|output|display|tell me|leak|dump|what (is|are))\\s+(me\\s+)?(your|the)\\s+(system\\s+prompt|instructions|hidden prompt|initial prompt|rules|configuration|prompt)"
+  roleplay:
+    - "(你現在是|從現在(開始|起)你|你現在扮演|假裝你是|假裝你不是|扮演|角色扮演|你不再是|假設你是|想像你是|你是一個沒有)"
+    - "(you are now|from now on,? you|act as (a|an)|pretend (to be|you are|you're|that you)|role-?play|imagine you are|you're no longer)"
+    - "(開發者模式|開發人員模式|越獄|解除限制|無限制模式|沒有限制|不受限制|不受任何限制|上帝模式)"
+    - "(jailbreak|\\bdan\\b|developer mode|dev mode|do anything now|no (rules|restrictions|limits|filters)|unfiltered|uncensored|god mode)"
+  smuggled_markup:
+    - "(<\\|im_start\\|>|<\\|im_end\\|>|<\\|system\\|>|\\[system\\]|\\[inst\\]|<<sys>>|^\\s*system\\s*:|\\n\\s*system\\s*:|###\\s*(instruction|system))"
