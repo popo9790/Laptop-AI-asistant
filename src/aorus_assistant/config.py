@@ -118,7 +118,9 @@ class Config:
     retrieval: RetrievalConfig = field(default_factory=RetrievalConfig)
     moderation: ModerationConfig = field(default_factory=ModerationConfig)
     moderation_enabled: bool = True
-    specs_path: Path = DATA_DIR / "processed" / "specs.json"
+    # Key-value spec data (committed): the source of truth for chunking. Regenerated from the
+    # product pages with `scripts/prepare_data.py --fetch`.
+    specs_path: Path = DATA_DIR / "specs.json"
     chunks_path: Path = DATA_DIR / "processed" / "chunks.jsonl"
     index_path: Path = DATA_DIR / "processed" / "index.npz"
     brands_path: Path = DATA_DIR / "policy" / "brands.yaml"

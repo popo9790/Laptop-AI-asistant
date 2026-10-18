@@ -1,23 +1,30 @@
-"""Parser / chunker tests against the cached spec pages in data/raw/ (no network)."""
+"""Spec data and chunker tests on the committed key-value data (data/specs.json), plus a
+parser check against freshly scraped HTML when present (`prepare_data.py --fetch`)."""
+
+import json
 
 import pytest
 
-from aorus_assistant.config import DATA_DIR, PRODUCT_URLS, TARGET_PRODUCT
+from aorus_assistant.config import DATA_DIR, PRODUCT_URLS, TARGET_PRODUCT, Config
 from aorus_assistant.rag.chunker import chunk_specs
-from aorus_assistant.rag.parser import parse_files
+from aorus_assistant.schemas import SpecRecord
 
 RAW = DATA_DIR / "raw"
-pytestmark = pytest.mark.skipif(
-    not (RAW / "spec_tw.html").exists(), reason="cached HTML missing; run prepare_data.py --fetch"
-)
 
 
 @pytest.fixture(scope="module")
 def records():
-    return parse_files(
-        RAW / "spec_tw.html", RAW / "spec_en.html", TARGET_PRODUCT,
-        PRODUCT_URLS["spec_tw"], PRODUCT_URLS["spec_en"],
-    )
+    data = json.loads(Config().specs_path.read_text(encoding="utf-8"))
+    return [SpecRecord(**d) for d in data]
+
+
+@pytest.mark.skipif(not (RAW / "spec_tw.html").exists(), reason="no scraped HTML; run prepare_data.py --fetch")
+def test_parser_reproduces_committed_specs(records):
+    from aorus_assistant.rag.parser import parse_files
+
+    parsed = parse_files(RAW / "spec_tw.html", RAW / "spec_en.html", TARGET_PRODUCT,
+                         PRODUCT_URLS["spec_tw"], PRODUCT_URLS["spec_en"])
+    assert parsed == records
 
 
 def _get(records, sku_suffix, field_en):

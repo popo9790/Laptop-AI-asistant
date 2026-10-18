@@ -23,12 +23,14 @@ every pipeline stage, targeting a **4GB VRAM** consumer laptop.
 ```bash
 uv sync                                   # Python 3.12 env + deps (builds llama-cpp-python)
 uv run python scripts/download_models.py  # GGUF models -> models/ (~1.9 GB)
-uv run python scripts/prepare_data.py     # data/raw/*.html -> specs.json + chunks.jsonl
+uv run python scripts/prepare_data.py     # data/specs.json (key-value) -> chunks.jsonl
 uv run python scripts/build_index.py      # embed chunks -> data/processed/index.npz
 uv run aorus-chat --explain               # streaming chat; --explain prints moderation decisions + timings
 ```
 
-- The scraped spec pages are committed (`data/raw/`), so setup works offline. To re-scrape, run `prepare_data.py --fetch`. gigabyte.com is behind Akamai and needs browser headers, which the scraper sends.
+- The parsed key-value spec data is committed as `data/specs.json`, so setup works offline.
+- `prepare_data.py --fetch` re-scrapes both product pages, re-parses them and rewrites `data/specs.json`. The scraped HTML goes to `data/raw/`, which is not committed. A re-scrape on 2026-10-18 reproduced the committed file exactly.
+- gigabyte.com is behind Akamai. It needs browser headers and an HTTP/2 client: `requests` gets 403, so the scraper uses httpx with HTTP/2.
 - On NVIDIA, build with CUDA: `CMAKE_ARGS="-DGGML_CUDA=on" uv sync`. See `notebooks/colab_4gb_verify.ipynb`.
 
 Example session (actual output):
@@ -171,7 +173,7 @@ src/aorus_assistant/
   moderation/     normalize, lexicon, input_guard, semantic (kNN), retrieval_filter,
                   output_guard, responses, audit
   bench/          TTFT/TPS timing, VRAM (NVML) / RAM sampling, llama.cpp buffer parsing
-data/raw/         scraped spec pages (zh-TW + en)
+data/specs.json   parsed key-value specs: 3 SKUs × 17 fields, zh + en field names (source of truth)
 data/policy/      brands, scope vocabulary, sensitive topics, injection patterns, intent prototypes
 tests/            unit tests + JSONL case sets
 eval_moderation.py  eval_rag.py  benchmark.py  scripts/  notebooks/

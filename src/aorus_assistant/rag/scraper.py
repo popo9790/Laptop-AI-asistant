@@ -1,14 +1,15 @@
 """Fetch raw HTML of the product pages and cache it under data/raw/.
 
-gigabyte.com sits behind Akamai, which returns 403 for bare clients; a full set of
-browser navigation headers is required.
+gigabyte.com sits behind Akamai, which returns 403 for bare clients: it needs a full set of
+browser navigation headers *and* an HTTP/2 client (`requests`, HTTP/1.1 only, is rejected
+even with the same headers), hence httpx with http2.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 
-import requests
+import httpx
 
 from aorus_assistant.config import DATA_DIR, PRODUCT_URLS
 
@@ -31,7 +32,8 @@ BROWSER_HEADERS = {
 
 
 def fetch(url: str, out_path: Path, timeout: float = 30) -> Path:
-    resp = requests.get(url, headers=BROWSER_HEADERS, timeout=timeout)
+    with httpx.Client(http2=True, headers=BROWSER_HEADERS, timeout=timeout, follow_redirects=True) as client:
+        resp = client.get(url)
     resp.raise_for_status()
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(resp.text, encoding="utf-8")
