@@ -109,7 +109,3 @@ def label_line(field_en: str, line: str) -> list[str]:
         else:
             out.extend(_label_item(item, rules) if rules else [item])
     return out
-
-
-def label_lines(field_en: str, lines: list[str]) -> list[str]:
-    return [fact for line in lines for fact in label_line(field_en, line)]

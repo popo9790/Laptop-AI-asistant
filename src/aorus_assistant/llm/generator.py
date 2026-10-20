@@ -1,6 +1,6 @@
 """Grounded answer generation with streaming output.
 
-Prompt design for a 0.8B model:
+Prompt design for a small model (developed on Qwen3.5-0.8B, kept for the 2B default):
   - short system prompt; small models drift when given long rule lists
   - retrieved chunks are wrapped in <context> with ids and declared as data, not instructions
     (first line of defence against instructions planted in documents)

@@ -4,7 +4,7 @@
     uv run python benchmark.py --runs 1 --llm-file Qwen3.5-0.8B-Q4_K_M.gguf
 
 Measures per request: TTFT (request start -> first text shown to the user, so it includes the
-query embedding, moderation and the output guard's hold-back), LLM TTFT (prefill only),
+query embedding, moderation and the output guard's clause buffering), LLM TTFT (prefill only),
 decode TPS (LLM tokens after the first), end-to-end latency,
 and per-stage moderation overhead. Memory: llama.cpp buffer accounting and process peaks
 (NVML VRAM on NVIDIA). Queries are allowed product questions so both modes run the LLM;

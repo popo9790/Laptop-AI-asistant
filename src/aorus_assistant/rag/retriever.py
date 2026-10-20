@@ -26,7 +26,7 @@ from aorus_assistant.schemas import Chunk, RetrievedChunk
 # conjunctions between two questions. Only used to *add* context, so over-splitting is cheap.
 _SPLIT_RE = re.compile(r"[？?；;。！!、]|，|,|\s+and\s+|\s+&\s+|以及|還有|另外|(?<=[\u4e00-\u9fff])(?:跟|和)(?=[\u4e00-\u9fffA-Za-z])")
 
-
+# decompose query into several sub-queries
 def decompose(query: str, max_parts: int = 3) -> list[str]:
     """Sub-queries of a multi-part question; [] when there is only one part."""
     parts = [p.strip() for p in _SPLIT_RE.split(query)]
@@ -87,6 +87,8 @@ class Retriever:
         order = list(np.argsort(-hybrid)[:top_k])
         order += [i for i in np.argsort(-dense_masked)[: self.cfg.dense_k] if i not in order]
         results = []
+
+        # pack to retrievedChunk
         for i in order:
             if not np.isfinite(hybrid[i]):
                 continue

@@ -22,3 +22,6 @@ logs/audit.jsonl
 
 .DS_Store
 .ipynb_checkpoints/
+
+# personal interview notes (not part of the submission)
+INTERVIEW_PREP.md

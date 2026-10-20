@@ -7,7 +7,8 @@
    -> [2] retrieval filter ....... drop competitor / instruction-like / sensitive chunks
    -> no-data threshold .......... refuse without calling the LLM
    -> [3] generation guard ....... grounded system prompt, <context> isolation
-   -> [4] output guard ........... hold-back streaming check, fallback on violation
+   -> [4] output guard ........... clause-by-clause check before display: competitor /
+                                    sensitive -> fallback, ungrounded number -> clause removed
    -> [5] audit log
 
 `moderation=False` gives the baseline used for before/after benchmarks: no input guard,
@@ -163,7 +164,7 @@ class AssistantPipeline:
                 raw += delta
                 emit(delta)
         res.timings_ms["generation"] = (time.perf_counter() - t) * 1000
-        # LLM-only numbers (exclude moderation hold-back): prefill latency and decode speed
+        # LLM-only numbers (exclude the output guard's clause buffering): prefill and decode speed
         res.timings_ms["llm_ttft"] = gen.ttft_ms
         res.decode_tps = gen.decode_tps
         res.n_tokens = gen.n_tokens or self._count(raw)

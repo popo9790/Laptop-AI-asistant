@@ -19,27 +19,23 @@ class SpecRecord:
     notes: list[str]  # footnotes such as "*May vary by scenario"
     source_urls: list[str]
 
-    @property
-    def value(self) -> str:
-        return "\n".join(self.lines)
-
 
 @dataclass
 class Chunk:
-    id: str
-    text: str
+    id: str # chunk ID
+    text: str # the plain text of chunk
     product: str  # used by retrieval filtering
     section: str
     source_url: str
-    metadata: dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict) # The real data for LLM
 
 
 @dataclass
 class RetrievedChunk:
     chunk: Chunk
-    score: float
-    dense_score: float = 0.0
-    sparse_score: float = 0.0
+    score: float # the score after hybrid to sort
+    dense_score: float = 0.0 # sematic score
+    sparse_score: float = 0.0 # BM25 score
 
 
 class Category(str, Enum):
@@ -58,6 +54,7 @@ class Action(str, Enum):
     FALLBACK = "fallback"  # output replaced by safe response
 
 
+# This is only for recore every behavier
 @dataclass
 class ModerationDecision:
     stage: str  # input | retrieval | output

@@ -160,7 +160,7 @@ def chunk_specs(records: list[SpecRecord]) -> list[Chunk]:
     diff_rows: list[list[SpecRecord]] = []
     for row in sorted(by_row):
         recs = by_row[row]
-        if len({tuple(r.lines) for r in recs}) == 1:
+        if len({tuple(r.lines) for r in recs}) == 1: # if three products have same value
             chunks.append(_make_chunk(recs[0], [r.sku for r in recs], f"row{row:02d}-all"))
         else:
             diff_rows.append(recs)
@@ -168,7 +168,7 @@ def chunk_specs(records: list[SpecRecord]) -> list[Chunk]:
                 chunks.append(_make_chunk(r, [r.sku], f"row{row:02d}-{_short_sku(r.sku)}"))
 
     if records:
-        chunks.append(_lineup_chunk(records[0].product, diff_rows, records[0].source_urls[0]))
-        if perf := _perf_chunk(by_row):
+        chunks.append(_lineup_chunk(records[0].product, diff_rows, records[0].source_urls[0])) # For some query likes "What is the difference between these producst"
+        if perf := _perf_chunk(by_row): # For query likes "could i do this on this computer??"
             chunks.append(perf)
     return chunks

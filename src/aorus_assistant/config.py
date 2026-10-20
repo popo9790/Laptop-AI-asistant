@@ -31,7 +31,7 @@ class LLMConfig:
     n_ubatch: int = 512
     max_tokens: int = 512
     temperature: float = 0.0  # greedy: factual QA + reproducible evals
-    repeat_penalty: float = 1.1
+    repeat_penalty: float = 1.1 # When temp = 0, LLM is easy to output same content
 
 
 @dataclass
@@ -57,7 +57,7 @@ class EmbedConfig:
 
 @dataclass
 class RetrievalConfig:
-    top_k: int = 5
+    top_k: int = 5 # top-5 hybrid score
     dense_weight: float = 0.6  # hybrid score = w * dense + (1 - w) * bm25
     # Below this top dense score -> "no relevant data" refusal without calling the LLM.
     # v2: 0.35 -> 0.25. Long workload questions with incidental words ("剪總統大選廣告 4K 會不會卡")
@@ -100,9 +100,9 @@ class ModerationConfig:
             "injection": 0.45,
         }
     )
-    sem_margin: float = 0.10
+    sem_margin: float = 0.10 # the diff between wrong and products
     # Off-topic fallback: no product/laptop vocabulary and product similarity below this.
-    offtopic_product_floor: float = 0.45
+    offtopic_product_floor: float = 0.45 # at least this score 
     # Product signal from retrieval: best cosine to any in-scope spec chunk >= this exempts a
     # query from the vocabulary-based off-topic fallback (v3: vocabulary alone missed
     # "WD Black SN850X 裝得進去嗎"). v3.1: not used for the sensitive gate or to override a
@@ -123,6 +123,5 @@ class Config:
     specs_path: Path = DATA_DIR / "specs.json"
     chunks_path: Path = DATA_DIR / "processed" / "chunks.jsonl"
     index_path: Path = DATA_DIR / "processed" / "index.npz"
-    brands_path: Path = DATA_DIR / "policy" / "brands.yaml"
-    topics_path: Path = DATA_DIR / "policy" / "sensitive_topics.yaml"
     audit_log_path: Path = LOGS_DIR / "audit.jsonl"
+    # Policy YAMLs are loaded from data/policy/ by moderation/lexicon.py.
